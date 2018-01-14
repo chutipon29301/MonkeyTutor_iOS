@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18C99AEE67248098109F068F /* Pods_MonkeyTutorUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4FC187845C70EED129F6565 /* Pods_MonkeyTutorUITests.framework */; };
+		74E5D0BE4845B5DD277019BF /* Pods_MonkeyTutorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34ECE2A76208A20D53381D62 /* Pods_MonkeyTutorTests.framework */; };
 		849771EA200AF40600DDCA2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849771E9200AF40600DDCA2C /* AppDelegate.swift */; };
 		849771EC200AF40600DDCA2C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849771EB200AF40600DDCA2C /* ViewController.swift */; };
 		849771EF200AF40600DDCA2C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849771ED200AF40600DDCA2C /* Main.storyboard */; };
@@ -14,6 +16,7 @@
 		849771F4200AF40600DDCA2C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849771F2200AF40600DDCA2C /* LaunchScreen.storyboard */; };
 		849771FF200AF40600DDCA2C /* MonkeyTutorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849771FE200AF40600DDCA2C /* MonkeyTutorTests.swift */; };
 		8497720A200AF40600DDCA2C /* MonkeyTutorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84977209200AF40600DDCA2C /* MonkeyTutorUITests.swift */; };
+		9D84EBF30DBD66B1FF97883F /* Pods_MonkeyTutor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECC53CC682C4947E7E2232C /* Pods_MonkeyTutor.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +37,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F29AD33F1E20ECA8EC927E2 /* Pods-MonkeyTutor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonkeyTutor.release.xcconfig"; path = "Pods/Target Support Files/Pods-MonkeyTutor/Pods-MonkeyTutor.release.xcconfig"; sourceTree = "<group>"; };
+		2AC1BA6512BA5B23ABA6EC51 /* Pods-MonkeyTutorUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonkeyTutorUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MonkeyTutorUITests/Pods-MonkeyTutorUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		34ECE2A76208A20D53381D62 /* Pods_MonkeyTutorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MonkeyTutorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C28106C9DA519EF7A6C3940 /* Pods-MonkeyTutor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonkeyTutor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MonkeyTutor/Pods-MonkeyTutor.debug.xcconfig"; sourceTree = "<group>"; };
+		7ECC53CC682C4947E7E2232C /* Pods_MonkeyTutor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MonkeyTutor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		849771E6200AF40600DDCA2C /* MonkeyTutor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonkeyTutor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		849771E9200AF40600DDCA2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		849771EB200AF40600DDCA2C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +55,10 @@
 		84977205200AF40600DDCA2C /* MonkeyTutorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonkeyTutorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84977209200AF40600DDCA2C /* MonkeyTutorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonkeyTutorUITests.swift; sourceTree = "<group>"; };
 		8497720B200AF40600DDCA2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9EA417C7E224CE99A9A4CFAD /* Pods-MonkeyTutorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonkeyTutorTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MonkeyTutorTests/Pods-MonkeyTutorTests.release.xcconfig"; sourceTree = "<group>"; };
+		A7E0455D4BC12C25F2797BFA /* Pods-MonkeyTutorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonkeyTutorTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MonkeyTutorTests/Pods-MonkeyTutorTests.debug.xcconfig"; sourceTree = "<group>"; };
+		AF8A01F6F2C1F4C3FB4A99DB /* Pods-MonkeyTutorUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonkeyTutorUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MonkeyTutorUITests/Pods-MonkeyTutorUITests.release.xcconfig"; sourceTree = "<group>"; };
+		B4FC187845C70EED129F6565 /* Pods_MonkeyTutorUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MonkeyTutorUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D84EBF30DBD66B1FF97883F /* Pods_MonkeyTutor.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74E5D0BE4845B5DD277019BF /* Pods_MonkeyTutorTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +82,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18C99AEE67248098109F068F /* Pods_MonkeyTutorUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B13A70DDEBEFEE323A36819 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6C28106C9DA519EF7A6C3940 /* Pods-MonkeyTutor.debug.xcconfig */,
+				1F29AD33F1E20ECA8EC927E2 /* Pods-MonkeyTutor.release.xcconfig */,
+				A7E0455D4BC12C25F2797BFA /* Pods-MonkeyTutorTests.debug.xcconfig */,
+				9EA417C7E224CE99A9A4CFAD /* Pods-MonkeyTutorTests.release.xcconfig */,
+				2AC1BA6512BA5B23ABA6EC51 /* Pods-MonkeyTutorUITests.debug.xcconfig */,
+				AF8A01F6F2C1F4C3FB4A99DB /* Pods-MonkeyTutorUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		849771DD200AF40600DDCA2C = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +109,8 @@
 				849771FD200AF40600DDCA2C /* MonkeyTutorTests */,
 				84977208200AF40600DDCA2C /* MonkeyTutorUITests */,
 				849771E7200AF40600DDCA2C /* Products */,
+				3B13A70DDEBEFEE323A36819 /* Pods */,
+				F45893BE2483F1B5234119A0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +155,16 @@
 			path = MonkeyTutorUITests;
 			sourceTree = "<group>";
 		};
+		F45893BE2483F1B5234119A0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7ECC53CC682C4947E7E2232C /* Pods_MonkeyTutor.framework */,
+				34ECE2A76208A20D53381D62 /* Pods_MonkeyTutorTests.framework */,
+				B4FC187845C70EED129F6565 /* Pods_MonkeyTutorUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +172,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8497720E200AF40600DDCA2C /* Build configuration list for PBXNativeTarget "MonkeyTutor" */;
 			buildPhases = (
+				A435796EA5F9E16A9CC76CAD /* [CP] Check Pods Manifest.lock */,
 				849771E2200AF40600DDCA2C /* Sources */,
 				849771E3200AF40600DDCA2C /* Frameworks */,
 				849771E4200AF40600DDCA2C /* Resources */,
+				B692FA939750438C7C4AC343 /* [CP] Embed Pods Frameworks */,
+				4E4C78E6C39BB88816CE2BE2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -149,9 +192,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84977211200AF40600DDCA2C /* Build configuration list for PBXNativeTarget "MonkeyTutorTests" */;
 			buildPhases = (
+				EA13AFAE89FD264E5CED2211 /* [CP] Check Pods Manifest.lock */,
 				849771F6200AF40600DDCA2C /* Sources */,
 				849771F7200AF40600DDCA2C /* Frameworks */,
 				849771F8200AF40600DDCA2C /* Resources */,
+				089B170F1B143E8BD8751880 /* [CP] Embed Pods Frameworks */,
+				607D60DC06093F4217BC717B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +213,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84977214200AF40600DDCA2C /* Build configuration list for PBXNativeTarget "MonkeyTutorUITests" */;
 			buildPhases = (
+				3ED54C857A97A111FD993939 /* [CP] Check Pods Manifest.lock */,
 				84977201200AF40600DDCA2C /* Sources */,
 				84977202200AF40600DDCA2C /* Frameworks */,
 				84977203200AF40600DDCA2C /* Resources */,
+				F7EF0841D5C7A87E27381CEB /* [CP] Embed Pods Frameworks */,
+				6B3A06E4ED87C5E9D433C73F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -253,6 +302,176 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		089B170F1B143E8BD8751880 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MonkeyTutorTests/Pods-MonkeyTutorTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MonkeyTutorTests/Pods-MonkeyTutorTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3ED54C857A97A111FD993939 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MonkeyTutorUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4E4C78E6C39BB88816CE2BE2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MonkeyTutor/Pods-MonkeyTutor-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		607D60DC06093F4217BC717B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MonkeyTutorTests/Pods-MonkeyTutorTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6B3A06E4ED87C5E9D433C73F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MonkeyTutorUITests/Pods-MonkeyTutorUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A435796EA5F9E16A9CC76CAD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MonkeyTutor-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B692FA939750438C7C4AC343 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MonkeyTutor/Pods-MonkeyTutor-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MonkeyTutor/Pods-MonkeyTutor-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EA13AFAE89FD264E5CED2211 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MonkeyTutorTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F7EF0841D5C7A87E27381CEB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MonkeyTutorUITests/Pods-MonkeyTutorUITests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MonkeyTutorUITests/Pods-MonkeyTutorUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		849771E2200AF40600DDCA2C /* Sources */ = {
@@ -424,6 +643,7 @@
 		};
 		8497720F200AF40600DDCA2C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C28106C9DA519EF7A6C3940 /* Pods-MonkeyTutor.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -439,6 +659,7 @@
 		};
 		84977210200AF40600DDCA2C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1F29AD33F1E20ECA8EC927E2 /* Pods-MonkeyTutor.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -454,6 +675,7 @@
 		};
 		84977212200AF40600DDCA2C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A7E0455D4BC12C25F2797BFA /* Pods-MonkeyTutorTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -471,6 +693,7 @@
 		};
 		84977213200AF40600DDCA2C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9EA417C7E224CE99A9A4CFAD /* Pods-MonkeyTutorTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -488,6 +711,7 @@
 		};
 		84977215200AF40600DDCA2C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2AC1BA6512BA5B23ABA6EC51 /* Pods-MonkeyTutorUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -504,6 +728,7 @@
 		};
 		84977216200AF40600DDCA2C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AF8A01F6F2C1F4C3FB4A99DB /* Pods-MonkeyTutorUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
