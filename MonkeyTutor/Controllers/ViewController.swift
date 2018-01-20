@@ -7,17 +7,22 @@
 //
 
 import UIKit
+import TransitionButton
+import MaterialTextField
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var username: UITextField!
-    @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var username: MFTextField!
+    @IBOutlet weak var password: MFTextField!
+    @IBOutlet weak var loginButton: TransitionButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.hideKeyboardWhenTappedAround()
-        // Do any additional setup after loading the view, typically from a nib.
+        hideKeyboardWhenTappedAround()
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
+        // Do any additional setup after loading the view, typically from a nib.
     }
     
     override func didReceiveMemoryWarning() {
@@ -35,9 +40,21 @@ class ViewController: UIViewController {
         view.endEditing(true)
     }
     
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0{
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        self.view.frame.origin.y = 0
+    }
+    
+    
     @IBAction func loginBtnClick(_ sender: UIButton) {
-        print(username.text ?? "")
-        print(password.text ?? "")
+        loginButton.startAnimation()
     }
 }
 
