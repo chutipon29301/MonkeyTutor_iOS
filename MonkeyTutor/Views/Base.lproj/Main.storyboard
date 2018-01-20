@@ -50,11 +50,27 @@
                     <connections>
                         <outlet property="password" destination="hib-E0-fnZ" id="W6Y-c0-hLC"/>
                         <outlet property="username" destination="cA8-uZ-EPe" id="uQK-UK-X91"/>
+                        <segue destination="dZr-Vv-Eaa" kind="showDetail" identifier="loginRedirect" action="showViewController:sender:" id="bGt-ZO-oJI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="xrr-9j-WJe">
+            <objects>
+                <viewController id="dZr-Vv-Eaa" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rf7-SP-LZo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="3kI-Cc-d2T"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fgJ-dZ-Bhh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1162" y="134"/>
         </scene>
     </scenes>
     <resources>
