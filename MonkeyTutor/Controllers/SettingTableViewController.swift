@@ -17,6 +17,7 @@ class SettingTableViewController: UITableViewController {
         page.actionButtonTitle = "Logout"
         page.alternativeButtonTitle = "Not now"
         page.actionHandler = { (item: PageBulletinItem) in
+            RealmManager.getInstance().removeLoginUser()
             self.parent?.parent?.dismiss(animated: true, completion: nil)
         }
         page.alternativeHandler = { (item: PageBulletinItem) in

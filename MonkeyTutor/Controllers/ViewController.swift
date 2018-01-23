@@ -9,12 +9,14 @@
 import UIKit
 import TransitionButton
 import MaterialTextField
+import EZLoadingActivity
 
 class ViewController: UIViewController, LoginResultDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var username: MFTextField!
     @IBOutlet weak var password: MFTextField!
     @IBOutlet weak var loginButton: TransitionButton!
+    var isAutoLogin = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,12 +25,16 @@ class ViewController: UIViewController, LoginResultDelegate, UITextFieldDelegate
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
         password.delegate = self
-        // Do any additional setup after loading the view, typically from a nib.
+        if let userInfo = RealmManager.getInstance().getExistingLoginUser() {
+            loginButton.startAnimation()
+            NetworkManager.getInstance().login(userID: userInfo.userID, password: userInfo.password, callback: self)
+            EZLoadingActivity.show("Logging in...", disableUI: true)
+            isAutoLogin = true
+        }
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func hideKeyboardWhenTappedAround() {
@@ -64,10 +70,22 @@ class ViewController: UIViewController, LoginResultDelegate, UITextFieldDelegate
     
     func loginResult(isSuccess: Bool) {
         if isSuccess {
+            if self.isAutoLogin {
+                EZLoadingActivity.hide(true, animated: true)
+                self.isAutoLogin = false
+            } else {
+                if let id = self.username.text, let pass = self.password.text {
+                    RealmManager.getInstance().addUser(userID: id, password: pass)
+                }
+            }
             loginButton.stopAnimation(animationStyle: .expand, revertAfterDelay: 2, completion: {
                 self.performSegue(withIdentifier: "loginRedirect", sender: nil)
             })
         }else {
+            if self.isAutoLogin {
+                EZLoadingActivity.hide(false, animated: true)
+                self.isAutoLogin = false
+            }
             loginButton.stopAnimation(animationStyle: .shake, revertAfterDelay: 1, completion: nil)
         }
     }
