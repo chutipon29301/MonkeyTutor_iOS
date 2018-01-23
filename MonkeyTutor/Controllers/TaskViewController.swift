@@ -45,7 +45,7 @@ extension TaskViewController {
         guard let cell = collectionView.cellForItem(at: indexPath) as? TaskCollectionViewCell
             , currentIndex == indexPath.row else { return }
         
-        var destination = getViewController() as! TaskTableViewController
+        let destination = getViewController() as! TaskTableViewController
         destination.text = "Hello"
 //        if cell.isOpened == false {
 //            cell.cellIsOpen(true)

@@ -12,6 +12,7 @@ target 'MonkeyTutor' do
   pod 'MaterialTextField', '~> 0.2'
   pod 'expanding-collection', '~> 1.1.2'
   pod 'BulletinBoard'
+  pod 'EZLoadingActivity'
 
   # Pods for MonkeyTutor
 
@@ -26,6 +27,7 @@ target 'MonkeyTutor' do
     pod 'MaterialTextField', '~> 0.2'
     pod 'expanding-collection', '~> 1.1.2'
     pod 'BulletinBoard'
+    pod 'EZLoadingActivity'
 
   end
 
@@ -40,6 +42,7 @@ target 'MonkeyTutor' do
     pod 'MaterialTextField', '~> 0.2'
     pod 'expanding-collection', '~> 1.1.2'
     pod 'BulletinBoard'
+    pod 'EZLoadingActivity'
     
   end
 

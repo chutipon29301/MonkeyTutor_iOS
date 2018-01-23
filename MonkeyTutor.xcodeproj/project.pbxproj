@@ -12,6 +12,8 @@
 		8419A5E9201425DD00F6ADE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8419A5E7201425DD00F6ADE2 /* Main.storyboard */; };
 		842E5F8E2016F7BC00D4028B /* TaskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842E5F8D2016F7BC00D4028B /* TaskTableViewController.swift */; };
 		842E5F9020170C3700D4028B /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842E5F8F20170C3700D4028B /* SettingTableViewController.swift */; };
+		842E5F93201719B600D4028B /* UserDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842E5F92201719B600D4028B /* UserDataModel.swift */; };
+		842E5F95201721E100D4028B /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842E5F94201721E100D4028B /* RealmManager.swift */; };
 		843702D9200B0FCD0059BAA1 /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 843702D8200B0FCD0059BAA1 /* config.plist */; };
 		843702DC200B18FA0059BAA1 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843702DB200B18FA0059BAA1 /* NetworkManager.swift */; };
 		8442D5F420159183000D50AE /* sha3.js in Resources */ = {isa = PBXBuildFile; fileRef = 8442D5F320159183000D50AE /* sha3.js */; };
@@ -53,6 +55,8 @@
 		8419A5E8201425DD00F6ADE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		842E5F8D2016F7BC00D4028B /* TaskTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewController.swift; sourceTree = "<group>"; };
 		842E5F8F20170C3700D4028B /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
+		842E5F92201719B600D4028B /* UserDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataModel.swift; sourceTree = "<group>"; };
+		842E5F94201721E100D4028B /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		843702D8200B0FCD0059BAA1 /* config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
 		843702DB200B18FA0059BAA1 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		8442D5F320159183000D50AE /* sha3.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = sha3.js; sourceTree = "<group>"; };
@@ -147,11 +151,20 @@
 			path = Crypto;
 			sourceTree = "<group>";
 		};
+		842E5F912017198F00D4028B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				842E5F92201719B600D4028B /* UserDataModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		843702DA200B18E10059BAA1 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
 				8419A5DD2013141200F6ADE2 /* Crypto */,
 				843702DB200B18FA0059BAA1 /* NetworkManager.swift */,
+				842E5F94201721E100D4028B /* RealmManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -181,6 +194,7 @@
 		849771E8200AF40600DDCA2C /* MonkeyTutor */ = {
 			isa = PBXGroup;
 			children = (
+				842E5F912017198F00D4028B /* Model */,
 				8419A5CB2012D46A00F6ADE2 /* Controllers */,
 				8419A5CA2012D45A00F6ADE2 /* Views */,
 				843702DA200B18E10059BAA1 /* Manager */,
@@ -372,6 +386,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-MonkeyTutorTests/Pods-MonkeyTutorTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/BulletinBoard/BulletinBoard.framework",
+				"${BUILT_PRODUCTS_DIR}/EZLoadingActivity/EZLoadingActivity.framework",
 				"${BUILT_PRODUCTS_DIR}/MaterialTextField/MaterialTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
@@ -383,6 +398,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BulletinBoard.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EZLoadingActivity.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
@@ -485,6 +501,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-MonkeyTutor/Pods-MonkeyTutor-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/BulletinBoard/BulletinBoard.framework",
+				"${BUILT_PRODUCTS_DIR}/EZLoadingActivity/EZLoadingActivity.framework",
 				"${BUILT_PRODUCTS_DIR}/MaterialTextField/MaterialTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
@@ -496,6 +513,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BulletinBoard.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EZLoadingActivity.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
@@ -535,6 +553,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-MonkeyTutorUITests/Pods-MonkeyTutorUITests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/BulletinBoard/BulletinBoard.framework",
+				"${BUILT_PRODUCTS_DIR}/EZLoadingActivity/EZLoadingActivity.framework",
 				"${BUILT_PRODUCTS_DIR}/MaterialTextField/MaterialTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
@@ -546,6 +565,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BulletinBoard.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EZLoadingActivity.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
@@ -565,10 +585,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				842E5F93201719B600D4028B /* UserDataModel.swift in Sources */,
 				843702DC200B18FA0059BAA1 /* NetworkManager.swift in Sources */,
 				849771EC200AF40600DDCA2C /* ViewController.swift in Sources */,
 				8442D60A2015DB57000D50AE /* TaskViewController.swift in Sources */,
 				849771EA200AF40600DDCA2C /* AppDelegate.swift in Sources */,
+				842E5F95201721E100D4028B /* RealmManager.swift in Sources */,
 				842E5F8E2016F7BC00D4028B /* TaskTableViewController.swift in Sources */,
 				842E5F9020170C3700D4028B /* SettingTableViewController.swift in Sources */,
 				8419A5DC2013121100F6ADE2 /* CryptoJS.swift in Sources */,
