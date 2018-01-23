@@ -10,6 +10,8 @@ target 'MonkeyTutor' do
   pod 'SwiftyJSON'
   pod 'TransitionButton', '~> 0.3'
   pod 'MaterialTextField', '~> 0.2'
+  pod 'expanding-collection', '~> 1.1.2'
+  pod 'BulletinBoard'
 
   # Pods for MonkeyTutor
 
@@ -22,6 +24,9 @@ target 'MonkeyTutor' do
     pod 'SwiftyJSON'
     pod 'TransitionButton', '~> 0.3'
     pod 'MaterialTextField', '~> 0.2'
+    pod 'expanding-collection', '~> 1.1.2'
+    pod 'BulletinBoard'
+
   end
 
   target 'MonkeyTutorUITests' do
@@ -33,6 +38,9 @@ target 'MonkeyTutor' do
     pod 'SwiftyJSON'
     pod 'TransitionButton', '~> 0.3'
     pod 'MaterialTextField', '~> 0.2'
+    pod 'expanding-collection', '~> 1.1.2'
+    pod 'BulletinBoard'
+    
   end
 
 end

@@ -10,7 +10,7 @@ import UIKit
 import TransitionButton
 import MaterialTextField
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, LoginResultDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var username: MFTextField!
     @IBOutlet weak var password: MFTextField!
@@ -22,6 +22,7 @@ class ViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
+        password.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -52,9 +53,29 @@ class ViewController: UIViewController {
         self.view.frame.origin.y = 0
     }
     
-    
     @IBAction func loginBtnClick(_ sender: UIButton) {
         loginButton.startAnimation()
+        if let id = username.text, let pass = password.text {
+            NetworkManager.getInstance().login(userID: id, password: pass, callback: self)
+        }else{
+            loginButton.stopAnimation(animationStyle: .shake, revertAfterDelay: 1, completion: nil)
+        }
     }
+    
+    func loginResult(isSuccess: Bool) {
+        if isSuccess {
+            loginButton.stopAnimation(animationStyle: .expand, revertAfterDelay: 2, completion: {
+                self.performSegue(withIdentifier: "loginRedirect", sender: nil)
+            })
+        }else {
+            loginButton.stopAnimation(animationStyle: .shake, revertAfterDelay: 1, completion: nil)
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        dismissKeyboard()
+        return true
+    }
+    
 }
 

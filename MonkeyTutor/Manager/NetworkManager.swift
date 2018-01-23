@@ -8,6 +8,11 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
+
+protocol LoginResultDelegate {
+    func loginResult(isSuccess: Bool)
+}
 
 public class NetworkManager{
     private static var sharedNetworkManager: NetworkManager = {
@@ -15,7 +20,7 @@ public class NetworkManager{
         return networkManager
     }()
     
-    let baseURL: String
+    let baseURL: String!
     
     private init() {
         var config: NSDictionary?
@@ -31,15 +36,53 @@ public class NetworkManager{
         return sharedNetworkManager
     }
     
-    func login(userID: String, password: String,callback: (_ vertified: Bool) -> ()) -> () {
-        Alamofire.request(baseURL + "/post/v1/login", method: .post, parameters: ["userID":userID, "password":password], encoding: JSONEncoding.default, headers: nil).responseJSON{response in
+    func request(path: String, params: [String:Any], callback:@escaping (_ response: DataResponse<Any>) -> Void) {
+        let headers: HTTPHeaders = [
+            "Content-Type": "application/x-www-form-urlencoded"
+        ]
+        Alamofire.request(baseURL + path, method: .post, parameters: params, encoding: URLEncoding.httpBody, headers: headers).responseJSON{
+            response in callback(response)
+        }
+    }
+    
+    func login(userID: String, password: String,callback: LoginResultDelegate?) {
+        let params: [String: String] = [
+            "id": userID,
+            "password": CryptoJS.SHA3().hash(password)
+        ]
+        self.request(path: "/post/v1/login", params: params, callback: { (response) in
             switch response.result{
             case .success(let value):
-                print(value)
-            case .failure(let value):
-                print(value)
+                if let delegate = callback{
+                    if (JSON(value)["msg"] == "ok") {
+                        delegate.loginResult(isSuccess: true)
+                    }else{
+                        delegate.loginResult(isSuccess: false)
+                    }
+                }
+            case .failure( _):
+                if let delegate = callback{
+                    delegate.loginResult(isSuccess: false)
+                }
             }
-        }
+        })
+        //        Alamofire.request(baseURL+"/post/v1/login", method: .post, parameters: params, encoding: URLEncoding.httpBody, headers: headers).responseJSON{response in
+        //            print(type(of: response))
+        //            switch response.result{
+        //            case .success(let value):
+        //                if let delegate = callback{
+        //                    if (JSON(value)["msg"] == "ok") {
+        //                        delegate.loginResult(isSuccess: true)
+        //                    }else{
+        //                        delegate.loginResult(isSuccess: false)
+        //                    }
+        //                }
+        //            case .failure( _):
+        //                if let delegate = callback{
+        //                    delegate.loginResult(isSuccess: false)
+        //                }
+        //            }
+        //        }
     }
 }
 
