@@ -29,18 +29,36 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4h2-Xv-xjU">
                         <rect key="frame" x="-8.5" y="-2" width="256" height="335"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Card label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4WP-Jz-uK0">
-                                <rect key="frame" x="44" y="178" width="167" height="56"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task Count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJC-kA-AbU">
+                                <rect key="frame" x="16" y="297.5" width="91" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5IJ-s7-X2n">
+                                <rect key="frame" x="16" y="16" width="64" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="78p-dL-1B3"/>
+                                    <constraint firstAttribute="width" constant="64" id="ZML-HP-4d6"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4WP-Jz-uK0">
+                                <rect key="frame" x="16" y="250.5" width="155.5" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.60209003861595234" green="0.87697586605876299" blue="0.99193829298019409" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="PJC-kA-AbU" firstAttribute="top" secondItem="4WP-Jz-uK0" secondAttribute="bottom" constant="4" id="Cxc-5m-BR4"/>
                             <constraint firstAttribute="height" constant="335" id="Daq-kO-5kx"/>
                             <constraint firstAttribute="width" constant="256" id="KpD-0P-bHb"/>
+                            <constraint firstItem="4WP-Jz-uK0" firstAttribute="leading" secondItem="4h2-Xv-xjU" secondAttribute="leading" constant="16" id="MBI-kV-qWA"/>
+                            <constraint firstItem="5IJ-s7-X2n" firstAttribute="leading" secondItem="4h2-Xv-xjU" secondAttribute="leading" constant="16" id="jgH-bZ-fQW"/>
+                            <constraint firstItem="PJC-kA-AbU" firstAttribute="leading" secondItem="4h2-Xv-xjU" secondAttribute="leading" constant="16" id="jy4-w4-c30"/>
+                            <constraint firstAttribute="bottom" secondItem="PJC-kA-AbU" secondAttribute="bottom" constant="16" id="sKB-DJ-XW0"/>
+                            <constraint firstItem="5IJ-s7-X2n" firstAttribute="top" secondItem="4h2-Xv-xjU" secondAttribute="top" constant="16" id="vhi-Gv-Cbd"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -56,9 +74,11 @@
             <connections>
                 <outlet property="backConstraintY" destination="dmf-qy-2nS" id="szE-V2-yce"/>
                 <outlet property="backContainerView" destination="rbd-6U-uYZ" id="fl2-yE-o3C"/>
+                <outlet property="cardIcon" destination="5IJ-s7-X2n" id="5O9-qF-NCY"/>
                 <outlet property="cardLabel" destination="4WP-Jz-uK0" id="O2b-Ta-Ugm"/>
                 <outlet property="frontConstraintY" destination="0xA-8H-CCG" id="qOL-jY-lrP"/>
                 <outlet property="frontContainerView" destination="4h2-Xv-xjU" id="Mxy-UR-phd"/>
+                <outlet property="taskCountLabel" destination="PJC-kA-AbU" id="YoO-mh-kzk"/>
             </connections>
             <point key="canvasLocation" x="538.5" y="517.5"/>
         </collectionViewCell>
