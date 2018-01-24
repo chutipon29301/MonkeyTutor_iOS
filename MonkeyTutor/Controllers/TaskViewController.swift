@@ -45,7 +45,7 @@ extension TaskViewController {
             , currentIndex == indexPath.row else { return }
         
         let destination = getViewController() as! TaskTableViewController
-        destination.text = "Hello"
+        destination.type = indexPath.row
 //        if cell.isOpened == false {
 //            cell.cellIsOpen(true)
 //        } else {
