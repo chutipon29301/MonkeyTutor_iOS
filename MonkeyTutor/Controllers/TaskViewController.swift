@@ -9,7 +9,7 @@
 import UIKit
 import expanding_collection
 
-class TaskViewController: ExpandingViewController {
+class TaskViewController: ExpandingViewController, FetchResultDelegate {
     
     let cardLabel = ["TODO", "In Progress", "Assign", "Done"]
     let cardLabelColor = [
@@ -35,9 +35,10 @@ class TaskViewController: ExpandingViewController {
         itemSize = CGSize(width: 214, height: 264)
         super.viewDidLoad()
         
-        // register cell
         let nib = UINib(nibName: "TaskCollectionViewCell", bundle: nil)
         collectionView?.register(nib, forCellWithReuseIdentifier: "TaskCollectionViewCell")
+        
+        CollectionViewTaskManager.getInstance().fetch(callback: self)
     }
     
     fileprivate func getViewController() -> ExpandingTableViewController {
@@ -50,16 +51,17 @@ class TaskViewController: ExpandingViewController {
 extension TaskViewController {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return CollectionViewTaskManager.getInstance().getTaskStatusCount().count
     }
     
     override func collectionView(_: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView?.dequeueReusableCell(withReuseIdentifier: "TaskCollectionViewCell", for: indexPath) as! TaskCollectionViewCell
-        cell.cardLabel.text = cardLabel[indexPath.row]
+
         cell.cardLabel.textColor = cardLabelColor[indexPath.row]
         cell.taskCountLabel.textColor = cardLabelColor[indexPath.row]
         cell.frontContainerView.backgroundColor = cardColor[indexPath.row]
         cell.cardIcon.image = cardIcon[indexPath.row]
+        cell.cardLabel.text = CollectionViewTaskManager.getInstance().getTaskStatusCount()[indexPath.row].0
         return cell
     }
 
@@ -83,12 +85,17 @@ extension TaskViewController {
     }
 }
 
+extension TaskViewController {
+    func onFetchResultComplete() {
+        collectionView?.reloadData()
+    }
+}
+
 class TaskCollectionViewCell: BasePageCollectionCell {
     
     @IBOutlet weak var cardLabel: UILabel!
     @IBOutlet weak var taskCountLabel: UILabel!
     @IBOutlet weak var cardIcon: UIImageView!
-    
     
 }
 
