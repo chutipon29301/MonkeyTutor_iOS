@@ -12,6 +12,24 @@ import expanding_collection
 class TaskViewController: ExpandingViewController {
     
     let cardLabel = ["TODO", "In Progress", "Assign", "Done"]
+    let cardLabelColor = [
+        UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1.0),
+        UIColor(red: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 1.0),
+        UIColor(red: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 1.0),
+        UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1.0)
+    ]
+    let cardColor = [
+        UIColor(red: 0/255.0, green: 170/255.0, blue: 160/255.0, alpha: 1.0),
+        UIColor(red: 142/255.0, green: 210/255.0, blue: 201/255.0, alpha: 1.0),
+        UIColor(red: 255/255.0, green: 184/255.0, blue: 95/255.0, alpha: 1.0),
+        UIColor(red: 255/255.0, green: 122/255.0, blue: 90/255.0, alpha: 1.0)
+    ]
+    let cardIcon = [
+        UIImage(named:"pin"),
+        UIImage(named:"glasshour"),
+        UIImage(named:"assign"),
+        UIImage(named:"checked")
+    ]
     
     override func viewDidLoad() {
         itemSize = CGSize(width: 214, height: 264)
@@ -38,6 +56,10 @@ extension TaskViewController {
     override func collectionView(_: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView?.dequeueReusableCell(withReuseIdentifier: "TaskCollectionViewCell", for: indexPath) as! TaskCollectionViewCell
         cell.cardLabel.text = cardLabel[indexPath.row]
+        cell.cardLabel.textColor = cardLabelColor[indexPath.row]
+        cell.taskCountLabel.textColor = cardLabelColor[indexPath.row]
+        cell.frontContainerView.backgroundColor = cardColor[indexPath.row]
+        cell.cardIcon.image = cardIcon[indexPath.row]
         return cell
     }
 
@@ -64,6 +86,8 @@ extension TaskViewController {
 class TaskCollectionViewCell: BasePageCollectionCell {
     
     @IBOutlet weak var cardLabel: UILabel!
+    @IBOutlet weak var taskCountLabel: UILabel!
+    @IBOutlet weak var cardIcon: UIImageView!
     
     
 }
