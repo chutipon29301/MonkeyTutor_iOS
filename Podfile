@@ -14,6 +14,7 @@ target 'MonkeyTutor' do
   pod 'BulletinBoard'
   pod 'EZLoadingActivity'
   pod 'Material', '~> 2.0'
+  pod 'AlamofireObjectMapper', '~> 5.0'
 
   # Pods for MonkeyTutor
 
@@ -30,6 +31,7 @@ target 'MonkeyTutor' do
     pod 'BulletinBoard'
     pod 'EZLoadingActivity'
     pod 'Material', '~> 2.0'
+    pod 'AlamofireObjectMapper', '~> 5.0'
 
   end
 
@@ -46,6 +48,7 @@ target 'MonkeyTutor' do
     pod 'BulletinBoard'
     pod 'EZLoadingActivity'
     pod 'Material', '~> 2.0'
+    pod 'AlamofireObjectMapper', '~> 5.0'
     
   end
 

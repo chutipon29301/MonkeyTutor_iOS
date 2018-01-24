@@ -9,6 +9,8 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
+import RealmSwift
+import ObjectMapper
 
 protocol LoginResultDelegate {
     func loginResult(isSuccess: Bool)
@@ -16,6 +18,10 @@ protocol LoginResultDelegate {
 
 protocol AddTaskResutlDelegate {
     func onAddTaskDone(isSuccess: Bool)
+}
+
+protocol ListTaskResultDelegate {
+    func onListTaskDone(data: Any?)
 }
 
 extension Date {
@@ -35,6 +41,9 @@ public class NetworkManager{
     }()
     
     let baseURL: String!
+    let headers: HTTPHeaders = [
+        "Content-Type": "application/x-www-form-urlencoded"
+    ]
     
     private init() {
         var config: NSDictionary?
@@ -50,10 +59,7 @@ public class NetworkManager{
         return sharedNetworkManager
     }
     
-    func request(path: String, params: [String:Any], callback:@escaping (_ response: DataResponse<Any>) -> Void) {
-        let headers: HTTPHeaders = [
-            "Content-Type": "application/x-www-form-urlencoded"
-        ]
+    func request(path: String, params: [String: Any], callback: @escaping (_ response: DataResponse<Any>) -> Void) {
         Alamofire.request(baseURL + path, method: .post, parameters: params, encoding: URLEncoding.httpBody, headers: headers).responseJSON{
             response in callback(response)
         }
@@ -114,6 +120,27 @@ public class NetworkManager{
                 }
             }
         }
+    }
+    
+    func listTask(callback: ListTaskResultDelegate?) {
+        guard let userDetail = RealmManager.getInstance().getExistingLoginUser(),
+                let delegate = callback
+        else { return }
+        let params: [String: String] = [
+            "userID": userDetail.userID
+        ]
+        self.request(path: "/post/v1/listUserTask", params: params, callback: { (response) in
+                switch response.result{
+                case .success(let value):
+                    print(value)
+                    delegate.onListTaskDone(data: value)
+                    break
+                case .failure( _):
+                    delegate.onListTaskDone(data: nil)
+                    break
+                }
+            }
+        )
     }
 }
 

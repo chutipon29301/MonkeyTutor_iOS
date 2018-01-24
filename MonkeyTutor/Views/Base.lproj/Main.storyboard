@@ -237,7 +237,7 @@
             </objects>
             <point key="canvasLocation" x="4465" y="-883"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Settings-->
         <scene sceneID="mVx-ng-a07">
             <objects>
                 <tableViewController id="cJ5-4o-LnE" customClass="SettingTableViewController" customModule="MonkeyTutor" customModuleProvider="target" sceneMemberID="viewController">
@@ -294,7 +294,7 @@
                             <outlet property="delegate" destination="cJ5-4o-LnE" id="1Hr-us-Ltn"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="2yJ-bh-UTu"/>
+                    <navigationItem key="navigationItem" title="Settings" id="2yJ-bh-UTu"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JIC-Nv-T9x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

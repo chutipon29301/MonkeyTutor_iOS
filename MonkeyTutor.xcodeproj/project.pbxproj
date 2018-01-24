@@ -10,6 +10,8 @@
 		0CE034701EB49F003F82C1E2 /* Pods_MonkeyTutorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4F9C37DC1EC420F2CBFF696 /* Pods_MonkeyTutorTests.framework */; };
 		8419A5DC2013121100F6ADE2 /* CryptoJS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8419A5DB2013121100F6ADE2 /* CryptoJS.swift */; };
 		8419A5E9201425DD00F6ADE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8419A5E7201425DD00F6ADE2 /* Main.storyboard */; };
+		8427595220183A9E00221A0C /* ColectionViewTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8427595120183A9E00221A0C /* ColectionViewTaskManager.swift */; };
+		8427595420183B5600221A0C /* TaskDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8427595320183B5600221A0C /* TaskDataModel.swift */; };
 		842E5F8E2016F7BC00D4028B /* TaskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842E5F8D2016F7BC00D4028B /* TaskTableViewController.swift */; };
 		842E5F9020170C3700D4028B /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842E5F8F20170C3700D4028B /* SettingTableViewController.swift */; };
 		842E5F93201719B600D4028B /* UserDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842E5F92201719B600D4028B /* UserDataModel.swift */; };
@@ -54,6 +56,8 @@
 		6C28106C9DA519EF7A6C3940 /* Pods-MonkeyTutor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonkeyTutor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MonkeyTutor/Pods-MonkeyTutor.debug.xcconfig"; sourceTree = "<group>"; };
 		8419A5DB2013121100F6ADE2 /* CryptoJS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoJS.swift; sourceTree = "<group>"; };
 		8419A5E8201425DD00F6ADE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8427595120183A9E00221A0C /* ColectionViewTaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColectionViewTaskManager.swift; sourceTree = "<group>"; };
+		8427595320183B5600221A0C /* TaskDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDataModel.swift; sourceTree = "<group>"; };
 		842E5F8D2016F7BC00D4028B /* TaskTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewController.swift; sourceTree = "<group>"; };
 		842E5F8F20170C3700D4028B /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		842E5F92201719B600D4028B /* UserDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataModel.swift; sourceTree = "<group>"; };
@@ -158,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				842E5F92201719B600D4028B /* UserDataModel.swift */,
+				8427595320183B5600221A0C /* TaskDataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -168,6 +173,7 @@
 				8419A5DD2013141200F6ADE2 /* Crypto */,
 				843702DB200B18FA0059BAA1 /* NetworkManager.swift */,
 				842E5F94201721E100D4028B /* RealmManager.swift */,
+				8427595120183A9E00221A0C /* ColectionViewTaskManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -388,11 +394,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MonkeyTutorTests/Pods-MonkeyTutorTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/BulletinBoard/BulletinBoard.framework",
 				"${BUILT_PRODUCTS_DIR}/EZLoadingActivity/EZLoadingActivity.framework",
 				"${BUILT_PRODUCTS_DIR}/Material/Material.framework",
 				"${BUILT_PRODUCTS_DIR}/MaterialTextField/MaterialTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/Motion/Motion.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -402,11 +410,13 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BulletinBoard.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EZLoadingActivity.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Material.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Motion.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -507,11 +517,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MonkeyTutor/Pods-MonkeyTutor-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/BulletinBoard/BulletinBoard.framework",
 				"${BUILT_PRODUCTS_DIR}/EZLoadingActivity/EZLoadingActivity.framework",
 				"${BUILT_PRODUCTS_DIR}/Material/Material.framework",
 				"${BUILT_PRODUCTS_DIR}/MaterialTextField/MaterialTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/Motion/Motion.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -521,11 +533,13 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BulletinBoard.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EZLoadingActivity.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Material.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Motion.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -563,11 +577,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MonkeyTutorUITests/Pods-MonkeyTutorUITests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/BulletinBoard/BulletinBoard.framework",
 				"${BUILT_PRODUCTS_DIR}/EZLoadingActivity/EZLoadingActivity.framework",
 				"${BUILT_PRODUCTS_DIR}/Material/Material.framework",
 				"${BUILT_PRODUCTS_DIR}/MaterialTextField/MaterialTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/Motion/Motion.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -577,11 +593,13 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BulletinBoard.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EZLoadingActivity.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Material.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Motion.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -600,7 +618,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8427595420183B5600221A0C /* TaskDataModel.swift in Sources */,
 				842E5F93201719B600D4028B /* UserDataModel.swift in Sources */,
+				8427595220183A9E00221A0C /* ColectionViewTaskManager.swift in Sources */,
 				843702DC200B18FA0059BAA1 /* NetworkManager.swift in Sources */,
 				849771EC200AF40600DDCA2C /* ViewController.swift in Sources */,
 				8442D60A2015DB57000D50AE /* TaskViewController.swift in Sources */,
