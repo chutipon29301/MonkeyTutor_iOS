@@ -14,6 +14,20 @@ protocol LoginResultDelegate {
     func loginResult(isSuccess: Bool)
 }
 
+protocol AddTaskResutlDelegate {
+    func onAddTaskDone(isSuccess: Bool)
+}
+
+extension Date {
+    var millisecondsSince1970:Int {
+        return Int((self.timeIntervalSince1970 * 1000.0).rounded())
+    }
+    
+    init(milliseconds:Int) {
+        self = Date(timeIntervalSince1970: TimeInterval(milliseconds / 1000))
+    }
+}
+
 public class NetworkManager{
     private static var sharedNetworkManager: NetworkManager = {
         let networkManager = NetworkManager()
@@ -56,33 +70,50 @@ public class NetworkManager{
                 if let delegate = callback{
                     if (JSON(value)["msg"] == "ok") {
                         delegate.loginResult(isSuccess: true)
-                    }else{
+                    } else {
                         delegate.loginResult(isSuccess: false)
                     }
                 }
+                break
             case .failure( _):
                 if let delegate = callback{
                     delegate.loginResult(isSuccess: false)
                 }
+                break
             }
         })
-        //        Alamofire.request(baseURL+"/post/v1/login", method: .post, parameters: params, encoding: URLEncoding.httpBody, headers: headers).responseJSON{response in
-        //            print(type(of: response))
-        //            switch response.result{
-        //            case .success(let value):
-        //                if let delegate = callback{
-        //                    if (JSON(value)["msg"] == "ok") {
-        //                        delegate.loginResult(isSuccess: true)
-        //                    }else{
-        //                        delegate.loginResult(isSuccess: false)
-        //                    }
-        //                }
-        //            case .failure( _):
-        //                if let delegate = callback{
-        //                    delegate.loginResult(isSuccess: false)
-        //                }
-        //            }
-        //        }
+    }
+    
+    func addTask(taskName: String, taskDetail: String, taskTag: [String]?, taskDueDate: Date?, callback: AddTaskResutlDelegate?) {
+        var params: [String: Any] = [
+            "title": taskName,
+            "detail": taskDetail
+        ]
+        if let tag = taskTag {
+            params["tags"] = tag
+        }
+        if let date = taskDueDate {
+            params["dueDate"] = date.millisecondsSince1970
+        }
+        if let userDetail = RealmManager.getInstance().getExistingLoginUser() {
+            params["assigner"] = userDetail.userID
+        }
+        self.request(path: "/post/v1/addTask", params: params) { (response) in
+            if let delegate = callback {
+                switch response.result{
+                case .success(let value):
+                    if(JSON(value)["msg"] == "OK") {
+                        delegate.onAddTaskDone(isSuccess: true)
+                    } else {
+                        delegate.onAddTaskDone(isSuccess: false)
+                    }
+                    break
+                case .failure( _):
+                    delegate.onAddTaskDone(isSuccess: false)
+                    break
+                }
+            }
+        }
     }
 }
 
