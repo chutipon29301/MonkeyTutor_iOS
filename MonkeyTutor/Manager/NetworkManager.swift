@@ -62,11 +62,15 @@ public class NetworkManager{
     }
     
     func login(userID: String, password: String,callback: RequestResultDelegate?) {
-        let params: [String: String] = [
-            "id": userID,
-            "password": CryptoJS.SHA3().hash(password)
-        ]
-        self.request(path: "/post/v1/login", params: params, callback: { (response) in
+        var request = URLRequest(url: NSURL.init(string: baseURL + "/post/v1/login")! as URL)
+        request.httpMethod = "POST"
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.timeoutInterval = 3
+        let postString = "id=\(userID)&password=\(CryptoJS.SHA3().hash(password))"
+        request.httpBody = postString.data(using: .utf8)
+        
+        Alamofire.request(request).responseJSON {
+            response in
             switch response.result{
             case .success(let value):
                 if let delegate = callback{
@@ -83,7 +87,7 @@ public class NetworkManager{
                 }
                 break
             }
-        })
+        }
     }
     
     func addTask(taskName: String, taskDetail: String, taskTag: [String]?, taskDueDate: Date?, callback: RequestResultDelegate?) {
