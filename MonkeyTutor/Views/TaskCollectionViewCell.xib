@@ -31,6 +31,10 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task Count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJC-kA-AbU">
                                 <rect key="frame" x="16" y="297.5" width="91" height="21.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="91" id="6PL-Vx-7fg"/>
+                                    <constraint firstAttribute="height" constant="21.5" id="l7E-IV-Km3"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -38,12 +42,16 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5IJ-s7-X2n">
                                 <rect key="frame" x="16" y="16" width="64" height="64"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="78p-dL-1B3"/>
-                                    <constraint firstAttribute="width" constant="64" id="ZML-HP-4d6"/>
+                                    <constraint firstAttribute="height" constant="64" id="AhF-U4-hoW"/>
+                                    <constraint firstAttribute="width" constant="64" id="SZf-mS-TWZ"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4WP-Jz-uK0">
-                                <rect key="frame" x="16" y="250.5" width="155.5" height="43"/>
+                                <rect key="frame" x="16" y="251" width="232" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="232" id="9Lg-JF-GOE"/>
+                                    <constraint firstAttribute="height" constant="43" id="HbY-lx-Kh4"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -51,14 +59,14 @@
                         </subviews>
                         <color key="backgroundColor" red="0.60209003861595234" green="0.87697586605876299" blue="0.99193829298019409" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="PJC-kA-AbU" firstAttribute="top" secondItem="4WP-Jz-uK0" secondAttribute="bottom" constant="4" id="Cxc-5m-BR4"/>
+                            <constraint firstAttribute="bottom" secondItem="PJC-kA-AbU" secondAttribute="bottom" constant="16" id="0Tg-L2-B0g"/>
+                            <constraint firstItem="5IJ-s7-X2n" firstAttribute="leading" secondItem="4h2-Xv-xjU" secondAttribute="leading" constant="16" id="6mV-vd-Bzf"/>
+                            <constraint firstItem="4WP-Jz-uK0" firstAttribute="leading" secondItem="4h2-Xv-xjU" secondAttribute="leading" constant="16" id="8HA-SK-O6T"/>
                             <constraint firstAttribute="height" constant="335" id="Daq-kO-5kx"/>
                             <constraint firstAttribute="width" constant="256" id="KpD-0P-bHb"/>
-                            <constraint firstItem="4WP-Jz-uK0" firstAttribute="leading" secondItem="4h2-Xv-xjU" secondAttribute="leading" constant="16" id="MBI-kV-qWA"/>
-                            <constraint firstItem="5IJ-s7-X2n" firstAttribute="leading" secondItem="4h2-Xv-xjU" secondAttribute="leading" constant="16" id="jgH-bZ-fQW"/>
-                            <constraint firstItem="PJC-kA-AbU" firstAttribute="leading" secondItem="4h2-Xv-xjU" secondAttribute="leading" constant="16" id="jy4-w4-c30"/>
-                            <constraint firstAttribute="bottom" secondItem="PJC-kA-AbU" secondAttribute="bottom" constant="16" id="sKB-DJ-XW0"/>
-                            <constraint firstItem="5IJ-s7-X2n" firstAttribute="top" secondItem="4h2-Xv-xjU" secondAttribute="top" constant="16" id="vhi-Gv-Cbd"/>
+                            <constraint firstItem="5IJ-s7-X2n" firstAttribute="top" secondItem="4h2-Xv-xjU" secondAttribute="top" constant="16" id="r4u-YG-NYl"/>
+                            <constraint firstItem="PJC-kA-AbU" firstAttribute="top" secondItem="4WP-Jz-uK0" secondAttribute="bottom" constant="4" id="vH1-Sf-fN5"/>
+                            <constraint firstItem="PJC-kA-AbU" firstAttribute="leading" secondItem="4h2-Xv-xjU" secondAttribute="leading" constant="16" id="xgt-h0-ZIE"/>
                         </constraints>
                     </view>
                 </subviews>
