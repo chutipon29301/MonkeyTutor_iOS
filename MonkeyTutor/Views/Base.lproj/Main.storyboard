@@ -50,7 +50,7 @@
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="Password" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="hib-E0-fnZ" customClass="MFTextField">
                                                                 <rect key="frame" x="62.666666666666657" y="24.000000000000057" width="249.99999999999997" height="45"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" constant="250" id="XN4-Zc-sH4"/>
+                                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="XN4-Zc-sH4"/>
                                                                     <constraint firstAttribute="height" constant="45" id="zbk-0O-w7C"/>
                                                                 </constraints>
                                                                 <nil key="textColor"/>
@@ -71,7 +71,7 @@
                                                                 <rect key="frame" x="62.666666666666657" y="23.333333333333314" width="249.99999999999997" height="45"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="45" id="DRq-b0-9rC"/>
-                                                                    <constraint firstAttribute="width" constant="250" id="W8l-8E-YUW"/>
+                                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="W8l-8E-YUW"/>
                                                                 </constraints>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -105,7 +105,7 @@
                                                         <rect key="frame" x="87.666666666666686" y="56.333333333333371" width="200" height="70"/>
                                                         <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="200" id="PtE-MT-MkH"/>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="PtE-MT-MkH"/>
                                                             <constraint firstAttribute="height" constant="70" id="xg5-6M-8Gu"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>

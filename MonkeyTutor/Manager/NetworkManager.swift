@@ -132,7 +132,6 @@ public class NetworkManager{
         self.request(path: "/post/v1/listUserTask", params: params, callback: { (response) in
                 switch response.result{
                 case .success(let value):
-                    print(value)
                     delegate.onListTaskDone(data: value)
                     break
                 case .failure( _):
