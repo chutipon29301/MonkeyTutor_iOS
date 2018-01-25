@@ -20,7 +20,6 @@ class TaskTableViewController: ExpandingTableViewController {
     override func viewWillDisappear(_ animated: Bool) {
         popTransitionAnimation()
     }
-    
 }
 
 extension TaskTableViewController {
