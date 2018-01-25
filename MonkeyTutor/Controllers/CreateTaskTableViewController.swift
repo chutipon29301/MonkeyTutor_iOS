@@ -35,7 +35,7 @@ class CreateTaskTableViewController: UITableViewController, AddTaskResutlDelegat
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func doneBtnPress(_ sender: UIBarButtonItem) {
-        if let taskNameText = taskName.text,let taskTagText = tag.text,let taskDetailText = taskDetail.text{
+        if let taskNameText = taskName.text, let taskTagText = tag.text, let taskDetailText = taskDetail.text {
             if (taskNameText != "" && taskTagText != "" && taskDetailText != ""){
                 NetworkManager.getInstance().addTask(taskName: taskNameText, taskDetail: taskDetailText, taskTag: [taskTagText], taskDueDate: nil, callback: self)
                 EZLoadingActivity.show("Adding task", disableUI: true)
@@ -61,7 +61,6 @@ class CreateTaskTableViewController: UITableViewController, AddTaskResutlDelegat
     }
     
     func onAddTaskDone(isSuccess: Bool) {
-        
         if isSuccess {
             EZLoadingActivity.hide(true, animated: true)
             self.dismiss(animated: true, completion: nil)

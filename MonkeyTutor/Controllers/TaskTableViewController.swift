@@ -11,13 +11,10 @@ import expanding_collection
 
 class TaskTableViewController: ExpandingTableViewController {
     
-    var text: String!
+    var selectedStatus: TaskStatus!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if #available(iOS 11.0, *) {
-            tableView.contentInsetAdjustmentBehavior = .never
-        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {

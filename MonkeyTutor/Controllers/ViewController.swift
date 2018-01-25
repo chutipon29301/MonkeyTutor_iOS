@@ -20,11 +20,14 @@ class ViewController: UIViewController, LoginResultDelegate, UITextFieldDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         hideKeyboardWhenTappedAround()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
         password.delegate = self
+        
         if let userInfo = RealmManager.getInstance().getExistingLoginUser() {
             loginButton.startAnimation()
             NetworkManager.getInstance().login(userID: userInfo.userID, password: userInfo.password, callback: self)
