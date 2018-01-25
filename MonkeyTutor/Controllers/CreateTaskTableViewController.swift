@@ -10,7 +10,7 @@ import UIKit
 import Material
 import EZLoadingActivity
 
-class CreateTaskTableViewController: UITableViewController, AddTaskResutlDelegate {
+class CreateTaskTableViewController: UITableViewController, RequestResultDelegate {
     
     @IBOutlet weak var taskName: TextField!
     @IBOutlet weak var tag: TextField!
@@ -60,7 +60,7 @@ class CreateTaskTableViewController: UITableViewController, AddTaskResutlDelegat
         }
     }
     
-    func onAddTaskDone(isSuccess: Bool) {
+    func onRequestResultDone(isSuccess: Bool) {
         if isSuccess {
             EZLoadingActivity.hide(true, animated: true)
             self.dismiss(animated: true, completion: nil)

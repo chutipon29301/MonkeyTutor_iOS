@@ -12,16 +12,12 @@ import SwiftyJSON
 import RealmSwift
 import ObjectMapper
 
-protocol LoginResultDelegate {
-    func loginResult(isSuccess: Bool)
-}
-
-protocol AddTaskResutlDelegate {
-    func onAddTaskDone(isSuccess: Bool)
-}
-
 protocol ListTaskResultDelegate {
     func onListTaskDone(data: Any?)
+}
+
+protocol RequestResultDelegate {
+    func onRequestResultDone(isSuccess: Bool)
 }
 
 extension Date {
@@ -65,7 +61,7 @@ public class NetworkManager{
         }
     }
     
-    func login(userID: String, password: String,callback: LoginResultDelegate?) {
+    func login(userID: String, password: String,callback: RequestResultDelegate?) {
         let params: [String: String] = [
             "id": userID,
             "password": CryptoJS.SHA3().hash(password)
@@ -75,22 +71,22 @@ public class NetworkManager{
             case .success(let value):
                 if let delegate = callback{
                     if (JSON(value)["msg"] == "ok") {
-                        delegate.loginResult(isSuccess: true)
+                        delegate.onRequestResultDone(isSuccess: true)
                     } else {
-                        delegate.loginResult(isSuccess: false)
+                        delegate.onRequestResultDone(isSuccess: false)
                     }
                 }
                 break
             case .failure( _):
                 if let delegate = callback{
-                    delegate.loginResult(isSuccess: false)
+                    delegate.onRequestResultDone(isSuccess: false)
                 }
                 break
             }
         })
     }
     
-    func addTask(taskName: String, taskDetail: String, taskTag: [String]?, taskDueDate: Date?, callback: AddTaskResutlDelegate?) {
+    func addTask(taskName: String, taskDetail: String, taskTag: [String]?, taskDueDate: Date?, callback: RequestResultDelegate?) {
         var params: [String: Any] = [
             "title": taskName,
             "detail": taskDetail
@@ -109,13 +105,13 @@ public class NetworkManager{
                 switch response.result{
                 case .success(let value):
                     if(JSON(value)["msg"] == "OK") {
-                        delegate.onAddTaskDone(isSuccess: true)
+                        delegate.onRequestResultDone(isSuccess: true)
                     } else {
-                        delegate.onAddTaskDone(isSuccess: false)
+                        delegate.onRequestResultDone(isSuccess: false)
                     }
                     break
                 case .failure( _):
-                    delegate.onAddTaskDone(isSuccess: false)
+                    delegate.onRequestResultDone(isSuccess: false)
                     break
                 }
             }
@@ -124,22 +120,44 @@ public class NetworkManager{
     
     func listTask(callback: ListTaskResultDelegate?) {
         guard let userDetail = RealmManager.getInstance().getExistingLoginUser(),
-                let delegate = callback
-        else { return }
+            let delegate = callback
+            else { return }
         let params: [String: String] = [
             "userID": userDetail.userID
         ]
         self.request(path: "/post/v1/listUserTask", params: params, callback: { (response) in
-                switch response.result{
-                case .success(let value):
-                    delegate.onListTaskDone(data: value)
-                    break
-                case .failure( _):
-                    delegate.onListTaskDone(data: nil)
-                    break
-                }
+            switch response.result{
+            case .success(let value):
+                delegate.onListTaskDone(data: value)
+                break
+            case .failure( _):
+                delegate.onListTaskDone(data: nil)
+                break
             }
+        }
         )
+    }
+    
+    func changeStatus(taskID:String, taskStatus: TaskStatus, callback: RequestResultDelegate?) {
+        guard let delegate = callback else { return }
+        let params: [String: String] = [
+            "taskID": taskID,
+            "taskStatus": "\(taskStatus.rawValue)"
+        ]
+        self.request(path: "/post/v1/changeTaskStatus", params: params) { (response) in
+            switch response.result{
+            case .success(let value):
+                if(JSON(value)["msg"] == "OK") {
+                    delegate.onRequestResultDone(isSuccess: true)
+                }else {
+                    delegate.onRequestResultDone(isSuccess: false)
+                }
+                break
+            case .failure( _):
+                delegate.onRequestResultDone(isSuccess: false)
+                break
+            }
+        }
     }
 }
 
