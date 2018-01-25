@@ -59,21 +59,22 @@ extension TaskViewController {
     override func collectionView(_: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView?.dequeueReusableCell(withReuseIdentifier: "TaskCollectionViewCell", for: indexPath) as! TaskCollectionViewCell
         let row = indexPath.row
-        let taskInfo = CollectionViewTaskManager.getInstance().getTaskStatusCount()
+        let taskInfo = CollectionViewTaskManager.getInstance().getTaskStatusCount()[row]
 
         cell.cardLabel.textColor = cardLabelColor[row]
         cell.taskCountLabel.textColor = cardLabelColor[row]
-        cell.taskCountLabel.text = "\(taskInfo[row].1) tasks"
+        cell.taskCountLabel.text = "\(taskInfo.1) tasks"
         cell.frontContainerView.backgroundColor = cardColor[row]
         cell.cardIcon.image = cardIcon[row]
-        cell.cardLabel.text = taskInfo[row].0
+        cell.cardLabel.text = taskInfo.0
+        
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let destination = getViewController() as? TaskTableViewController {
             destination.selectedStatus = CollectionViewTaskManager.getInstance().getTaskStatusCount()[indexPath.row].2
-            pushToViewController(getViewController())
+            pushToViewController(destination)
         }
     }
     

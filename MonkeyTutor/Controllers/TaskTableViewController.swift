@@ -20,4 +20,24 @@ class TaskTableViewController: ExpandingTableViewController {
     override func viewWillDisappear(_ animated: Bool) {
         popTransitionAnimation()
     }
+    
+}
+
+extension TaskTableViewController {
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return CollectionViewTaskManager.getInstance().getTaskWith(status: selectedStatus).count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "")!
+//        let taskInfo = CollectionViewTaskManager.getInstance().getTaskWith(status: selectedStatus)[indexPath.row]
+//        return cell
+        return UITableViewCell()
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath.row)
+    }
+    
 }
