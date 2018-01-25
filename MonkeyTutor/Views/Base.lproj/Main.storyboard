@@ -228,7 +228,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="2dU-yp-T7P">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="taskDetailCell" id="2dU-yp-T7P" customClass="TaskTableViewCell" customModule="MonkeyTutor" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2dU-yp-T7P" id="khg-DU-QqG">
@@ -254,7 +254,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due date: None" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Sp-Xf-gYU">
-                                            <rect key="frame" x="283" y="28.666666666666668" width="88" height="14.333333333333332"/>
+                                            <rect key="frame" x="283" y="29" width="88" height="14"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -265,12 +265,21 @@
                                         <constraint firstAttribute="bottom" secondItem="8Sp-Xf-gYU" secondAttribute="bottom" id="7Ex-h5-sUW"/>
                                         <constraint firstItem="g5K-7K-8zb" firstAttribute="leading" secondItem="khg-DU-QqG" secondAttribute="leading" constant="4" id="IhV-2c-Rc1"/>
                                         <constraint firstItem="8MC-hx-tUp" firstAttribute="top" secondItem="khg-DU-QqG" secondAttribute="top" id="SF6-Wc-L0g"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Kue-jY-ePk" secondAttribute="trailing" constant="20" symbolic="YES" id="TgP-aY-iNn"/>
+                                        <constraint firstItem="8MC-hx-tUp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="khg-DU-QqG" secondAttribute="leading" constant="20" symbolic="YES" id="ab1-cj-4jJ"/>
                                         <constraint firstAttribute="trailing" secondItem="8MC-hx-tUp" secondAttribute="trailing" constant="4" id="cBM-xN-83K"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="g5K-7K-8zb" secondAttribute="trailing" constant="20" symbolic="YES" id="gyG-KA-sbE"/>
                                         <constraint firstAttribute="trailing" secondItem="8Sp-Xf-gYU" secondAttribute="trailing" constant="4" id="oSf-I3-37y"/>
                                         <constraint firstAttribute="bottom" secondItem="Kue-jY-ePk" secondAttribute="bottom" id="tOU-LE-JmK"/>
                                         <constraint firstItem="g5K-7K-8zb" firstAttribute="top" secondItem="khg-DU-QqG" secondAttribute="top" id="ur3-wL-XRb"/>
+                                        <constraint firstItem="8Sp-Xf-gYU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="khg-DU-QqG" secondAttribute="leading" constant="20" symbolic="YES" id="ya4-E6-aBI"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="creatorNameLabel" destination="8MC-hx-tUp" id="7v0-yc-oEX"/>
+                                    <outlet property="dueDateLabel" destination="8Sp-Xf-gYU" id="gp4-WK-Psc"/>
+                                    <outlet property="taskNameLabel" destination="g5K-7K-8zb" id="29i-sM-34X"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
