@@ -11,7 +11,7 @@ import expanding_collection
 
 class TaskTableViewController: ExpandingTableViewController {
     
-    var type: Int!
+    var selectedStatus: TaskStatus!
     
     override func viewDidLoad() {
         super.viewDidLoad()

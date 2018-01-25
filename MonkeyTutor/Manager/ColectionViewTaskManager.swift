@@ -75,12 +75,16 @@ class CollectionViewTaskManager: ListTaskResultDelegate {
         return taskList
     }
     
-    func getTaskStatusCount() -> [(String, Int)] {
+    func getTaskStatusCount() -> [(String, Int, TaskStatus)] {
         return [
-            ("TODO", taskList.filter{ $0.status == TaskStatus.todo.rawValue}.count),
-            ("In Procress", taskList.filter{ $0.status == TaskStatus.onProcess.rawValue}.count),
-            ("Assign", taskList.filter{ $0.status == TaskStatus.assign.rawValue}.count),
-            ("Done", taskList.filter{ $0.status == TaskStatus.done.rawValue}.count)
+            ("TODO", taskList.filter{ $0.status == TaskStatus.todo.rawValue}.count, TaskStatus.todo),
+            ("In Procress", taskList.filter{ $0.status == TaskStatus.onProcess.rawValue}.count, TaskStatus.onProcess),
+            ("Assign", taskList.filter{ $0.status == TaskStatus.assign.rawValue}.count, TaskStatus.assign),
+            ("Done", taskList.filter{ $0.status == TaskStatus.done.rawValue}.count, TaskStatus.done)
         ]
+    }
+    
+    func getTaskWith(status: TaskStatus) -> [Task] {
+        return taskList.filter{ $0.status == status.rawValue}
     }
 }
