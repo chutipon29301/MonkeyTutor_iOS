@@ -23,7 +23,6 @@ class TaskTableViewController: ExpandingTableViewController {
 }
 
 extension TaskTableViewController {
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return CollectionViewTaskManager.getInstance().getTaskWith(status: selectedStatus).count
     }
@@ -44,11 +43,27 @@ extension TaskTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
+        shouldPerformSegue(withIdentifier: "showTaskDetail", sender: indexPath)
     }
-    
 }
 
+
+extension TaskTableViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            switch identifier {
+            case "showTaskDetail":
+                if let destination = segue.destination as? TaskDetailTableViewController,
+                    let indexPath = sender as? IndexPath{
+                    destination.task = CollectionViewTaskManager.getInstance().getTaskWith(status: selectedStatus)[indexPath.row]
+                }
+                break
+            default:
+                break
+            }
+        }
+    }
+}
 class TaskTableViewCell: UITableViewCell {
     @IBOutlet weak var taskNameLabel: UILabel!
     @IBOutlet weak var creatorNameLabel: UILabel!

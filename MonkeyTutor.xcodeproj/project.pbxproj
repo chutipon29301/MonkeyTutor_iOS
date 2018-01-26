@@ -22,6 +22,7 @@
 		8442D5F420159183000D50AE /* sha3.js in Resources */ = {isa = PBXBuildFile; fileRef = 8442D5F320159183000D50AE /* sha3.js */; };
 		8442D60A2015DB57000D50AE /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8442D6092015DB57000D50AE /* TaskViewController.swift */; };
 		8442D61220164B33000D50AE /* TaskCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8442D61120164B33000D50AE /* TaskCollectionViewCell.xib */; };
+		844CB659201ACA2F0099E85B /* TaskDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844CB658201ACA2F0099E85B /* TaskDetailTableViewController.swift */; };
 		849771EA200AF40600DDCA2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849771E9200AF40600DDCA2C /* AppDelegate.swift */; };
 		849771EC200AF40600DDCA2C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849771EB200AF40600DDCA2C /* ViewController.swift */; };
 		849771F1200AF40600DDCA2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 849771F0200AF40600DDCA2C /* Assets.xcassets */; };
@@ -68,6 +69,7 @@
 		8442D5F320159183000D50AE /* sha3.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = sha3.js; sourceTree = "<group>"; };
 		8442D6092015DB57000D50AE /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		8442D61120164B33000D50AE /* TaskCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TaskCollectionViewCell.xib; sourceTree = "<group>"; };
+		844CB658201ACA2F0099E85B /* TaskDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailTableViewController.swift; sourceTree = "<group>"; };
 		849771E6200AF40600DDCA2C /* MonkeyTutor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonkeyTutor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		849771E9200AF40600DDCA2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		849771EB200AF40600DDCA2C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				842E5F8D2016F7BC00D4028B /* TaskTableViewController.swift */,
 				842E5F8F20170C3700D4028B /* SettingTableViewController.swift */,
 				842E5F9620172C4900D4028B /* CreateTaskTableViewController.swift */,
+				844CB658201ACA2F0099E85B /* TaskDetailTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -627,6 +630,7 @@
 				849771EA200AF40600DDCA2C /* AppDelegate.swift in Sources */,
 				842E5F95201721E100D4028B /* RealmManager.swift in Sources */,
 				842E5F8E2016F7BC00D4028B /* TaskTableViewController.swift in Sources */,
+				844CB659201ACA2F0099E85B /* TaskDetailTableViewController.swift in Sources */,
 				842E5F9020170C3700D4028B /* SettingTableViewController.swift in Sources */,
 				8419A5DC2013121100F6ADE2 /* CryptoJS.swift in Sources */,
 				842E5F9720172C4900D4028B /* CreateTaskTableViewController.swift in Sources */,
