@@ -55,6 +55,9 @@ class CollectionViewTaskManager: ListTaskResultDelegate {
                 task.order = subJson["order"].intValue
                 task.remark = subJson["remark"].stringValue
                 task.hasDueDate = subJson["hasDueDate"].boolValue
+                if let dueDate = subJson["dueDate"].string{
+                    task.dueDate = dateFormatter.date(from: dueDate)
+                }
                 for ( _, ancestor): (String, JSON) in subJson["ancestors"]{
                     task.ancestors.append(ancestor.stringValue)
                 }

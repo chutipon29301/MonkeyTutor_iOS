@@ -35,15 +35,19 @@ extension TaskTableViewController {
         cell.taskNameLabel.text = taskInfo.title
         cell.creatorNameLabel.text = taskInfo.createBy
         if let dueDate = taskInfo.dueDate {
-            cell.dueDateLabel.text = "Due date: \(formatter.string(from: dueDate))"
+            cell.dueDateLabel.text = "\(formatter.string(from: dueDate))"
         }else {
             cell.dueDateLabel.text = "Due date: None"
         }
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 65
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        shouldPerformSegue(withIdentifier: "showTaskDetail", sender: indexPath)
+        performSegue(withIdentifier: "showTaskDetail", sender: indexPath)
     }
 }
 
@@ -53,7 +57,7 @@ extension TaskTableViewController {
         if let identifier = segue.identifier {
             switch identifier {
             case "showTaskDetail":
-                if let destination = segue.destination as? TaskDetailTableViewController,
+                if let destination = segue.destination.childViewControllers[0] as? TaskDetailTableViewController,
                     let indexPath = sender as? IndexPath{
                     destination.task = CollectionViewTaskManager.getInstance().getTaskWith(status: selectedStatus)[indexPath.row]
                 }
