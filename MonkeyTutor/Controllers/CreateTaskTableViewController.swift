@@ -32,29 +32,68 @@ class CreateTaskTableViewController: UITableViewController, RequestResultDelegat
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func doneBtnPress(_ sender: UIBarButtonItem) {
-//        if let taskNameText = taskName.text, let taskTagText = tag.text, let taskDetailText = taskDetail.text {
-//            if (taskNameText != "" && taskTagText != "" && taskDetailText != ""){
-//                NetworkManager.getInstance().addTask(taskName: taskNameText, taskDetail: taskDetailText, taskTag: [taskTagText], taskDueDate: nil, callback: self)
-//                EZLoadingActivity.show("Adding task", disableUI: true)
-//            }else if (taskNameText != "" && taskDetailText != ""){
-//                NetworkManager.getInstance().addTask(taskName: taskNameText, taskDetail: taskDetailText, taskTag: nil, taskDueDate: nil, callback: self)
-//                EZLoadingActivity.show("Adding task", disableUI: true)
-//            }else {
-//                var showText: String?
-//                if taskNameText == "" && taskDetailText == ""{
-//                    showText = "Please fill task name and task detail"
-//                }else if (taskNameText == ""){
-//                    showText = "Please fill task name"
-//                }else if (taskDetailText == ""){
-//                    showText = "Please fill task detail"
-//                }
-//                if let text = showText{
-//                    let alert = UIAlertController(title: "Aleart", message: text, preferredStyle: .alert)
-//                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-//                    present(alert, animated: true, completion: nil)
-//                }
-//            }
-//        }
+        var taskName: String?
+        var taskTag: String?
+        var taskDueDate: Date?
+        var taskDetail: String?
+        for i in 0..<tableView.numberOfRows(inSection: 0) {
+            switch i {
+            case 0:
+                let cell = tableView.cellForRow(at: IndexPath(row: i, section: 0)) as! CreateTaskTitleFieldTableViewCell
+                taskName = cell.taskTitle.text
+                break
+            case 1:
+                let cell = tableView.cellForRow(at: IndexPath(row: i, section: 0)) as! CreateTaskTagFieldTableViewCell
+                taskTag = cell.taskTag.text
+                break
+            case 3:
+                if isSetDueDate {
+                    let cell = tableView.cellForRow(at: IndexPath(row: i, section: 0)) as! CreateTaskDateSelectorTableViewCell
+                    taskDueDate = cell.datePicker.date
+                    break
+                }else {
+                    let cell = tableView.cellForRow(at: IndexPath(row: i, section: 0)) as! CreateTaskDetailFieldTableViewCell
+                    taskDetail = cell.taskDetail.text
+                    break
+                }
+            case 4:
+                let cell = tableView.cellForRow(at: IndexPath(row: i, section: 0)) as! CreateTaskDetailFieldTableViewCell
+                taskDetail = cell.taskDetail.text
+                break
+            default:
+                break
+            }
+        }
+        
+        if let name = taskName, let detail = taskDetail, let tag = taskTag, let dueDate = taskDueDate {
+            if tag != ""{
+                NetworkManager.getInstance().addTask(taskName: name, taskDetail: detail, taskTag: [tag], taskDueDate: dueDate, callback: self)
+            }else {
+                NetworkManager.getInstance().addTask(taskName: name, taskDetail: detail, taskTag: nil, taskDueDate: dueDate, callback: self)
+            }
+        }else if let taskNameText = taskName, let taskTagText = taskTag, let taskDetailText = taskDetail {
+            if (taskNameText != "" && taskTagText != "" && taskDetailText != ""){
+                NetworkManager.getInstance().addTask(taskName: taskNameText, taskDetail: taskDetailText, taskTag: [taskTagText], taskDueDate: nil, callback: self)
+                EZLoadingActivity.show("Adding task", disableUI: true)
+            }else if (taskNameText != "" && taskDetailText != ""){
+                NetworkManager.getInstance().addTask(taskName: taskNameText, taskDetail: taskDetailText, taskTag: nil, taskDueDate: nil, callback: self)
+                EZLoadingActivity.show("Adding task", disableUI: true)
+            }else {
+                var showText: String?
+                if taskNameText == "" && taskDetailText == ""{
+                    showText = "Please fill task name and task detail"
+                }else if (taskNameText == ""){
+                    showText = "Please fill task name"
+                }else if (taskDetailText == ""){
+                    showText = "Please fill task detail"
+                }
+                if let text = showText{
+                    let alert = UIAlertController(title: "Aleart", message: text, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                    present(alert, animated: true, completion: nil)
+                }
+            }
+        }
     }
     
     func onRequestResultDone(isSuccess: Bool) {
