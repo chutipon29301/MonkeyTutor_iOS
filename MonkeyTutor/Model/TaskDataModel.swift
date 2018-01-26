@@ -33,6 +33,7 @@ class Task: Object {
     @objc dynamic var order = 0
     @objc dynamic var remark = ""
     @objc dynamic var hasDueDate = false
+    @objc dynamic var dueDate: Date? = nil
     let tags = List<String>()
     
     override static func primaryKey() -> String? {
