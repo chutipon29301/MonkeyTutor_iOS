@@ -11,7 +11,7 @@ import TransitionButton
 import MaterialTextField
 import EZLoadingActivity
 
-class ViewController: UIViewController, LoginResultDelegate, UITextFieldDelegate {
+class ViewController: UIViewController, RequestResultDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var username: MFTextField!
     @IBOutlet weak var password: MFTextField!
@@ -71,7 +71,7 @@ class ViewController: UIViewController, LoginResultDelegate, UITextFieldDelegate
         }
     }
     
-    func loginResult(isSuccess: Bool) {
+    func onRequestResultDone(isSuccess: Bool) {
         if isSuccess {
             if self.isAutoLogin {
                 EZLoadingActivity.hide(true, animated: true)

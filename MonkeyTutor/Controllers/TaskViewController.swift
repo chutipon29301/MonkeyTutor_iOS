@@ -33,12 +33,13 @@ class TaskViewController: ExpandingViewController, FetchResultDelegate {
     ]
     
     override func viewDidLoad() {
-        itemSize = CGSize(width: 214, height: 264)
         super.viewDidLoad()
-        
+        itemSize = CGSize(width: 214, height: 264)
         let nib = UINib(nibName: "TaskCollectionViewCell", bundle: nil)
         collectionView?.register(nib, forCellWithReuseIdentifier: "TaskCollectionViewCell")
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         CollectionViewTaskManager.getInstance().fetch(callback: self)
     }
     
@@ -51,7 +52,6 @@ class TaskViewController: ExpandingViewController, FetchResultDelegate {
 }
 
 extension TaskViewController {
-    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return CollectionViewTaskManager.getInstance().getTaskStatusCount().count
     }
@@ -77,22 +77,17 @@ extension TaskViewController {
             pushToViewController(destination)
         }
     }
-    
 }
 
 extension TaskViewController {
-    
     func onFetchResultComplete() {
         collectionView?.reloadData()
     }
-    
 }
 
 class TaskCollectionViewCell: BasePageCollectionCell {
-    
     @IBOutlet weak var cardLabel: UILabel!
     @IBOutlet weak var taskCountLabel: UILabel!
     @IBOutlet weak var cardIcon: UIImageView!
-    
 }
 
