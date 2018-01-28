@@ -15,6 +15,8 @@ target 'MonkeyTutor' do
   pod 'EZLoadingActivity'
   pod 'Material', '~> 2.0'
   pod 'AlamofireObjectMapper', '~> 5.0'
+  pod 'PopupDialog', '~> 0.7'
+  pod 'TCPickerView'
 
   # Pods for MonkeyTutor
 
@@ -32,6 +34,8 @@ target 'MonkeyTutor' do
     pod 'EZLoadingActivity'
     pod 'Material', '~> 2.0'
     pod 'AlamofireObjectMapper', '~> 5.0'
+    pod 'PopupDialog', '~> 0.7'
+    pod 'TCPickerView'
 
   end
 
@@ -49,6 +53,8 @@ target 'MonkeyTutor' do
     pod 'EZLoadingActivity'
     pod 'Material', '~> 2.0'
     pod 'AlamofireObjectMapper', '~> 5.0'
+    pod 'PopupDialog', '~> 0.7'
+    pod 'TCPickerView'
     
   end
 

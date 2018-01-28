@@ -35,8 +35,6 @@ class SettingTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
         case 0:
-            break
-        case 1:
             switch indexPath.row{
             case 0:
                 tableView.deselectRow(at: indexPath, animated: true)
@@ -46,6 +44,8 @@ class SettingTableViewController: UITableViewController {
             default:
                 break
             }
+            break
+        case 1:
             break
         default:
             break

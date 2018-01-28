@@ -9,6 +9,7 @@
 import UIKit
 import Material
 import EZLoadingActivity
+import TCPickerView
 
 class CreateTaskTableViewController: UITableViewController, RequestResultDelegate {
     
@@ -88,7 +89,7 @@ class CreateTaskTableViewController: UITableViewController, RequestResultDelegat
                     showText = "Please fill task detail"
                 }
                 if let text = showText{
-                    let alert = UIAlertController(title: "Aleart", message: text, preferredStyle: .alert)
+                    let alert = UIAlertController(title: "Alert", message: text, preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                     present(alert, animated: true, completion: nil)
                 }
@@ -111,6 +112,24 @@ class CreateTaskTableViewController: UITableViewController, RequestResultDelegat
     @IBAction func dueDateToggle(_ sender: UISwitch) {
         isSetDueDate = sender.isOn
         tableView.reloadData()
+    }
+    
+    @IBAction func tagAddBtnToggle(_ sender: Any) {
+        let picker = TCPickerView()
+        picker.title = "Tag"
+        let list = ["Hybrid", "Hybrid Edit", "Web Feature", "Web Edit", "App", "App Feature", "App Edit", "Design", "Test", "Other"]
+        let values = list.map { TCPickerView.Value(title: $0) }
+        picker.values = values
+        picker.selection = .single
+        picker.completion = { (selectedIndexes) in
+            var tags = [String]()
+            for i in selectedIndexes {
+                tags.append(values[i].title)
+            }
+            let cell = self.tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as! CreateTaskTagFieldTableViewCell
+            cell.taskTag.text = tags[0]
+        }
+        picker.show()
     }
 }
 

@@ -16,6 +16,10 @@ protocol ListTaskResultDelegate {
     func onListTaskDone(data: Any?)
 }
 
+protocol ListTutorResultDelegate {
+    func onListTutorDone(data: Any?)
+}
+
 protocol RequestResultDelegate {
     func onRequestResultDone(isSuccess: Bool)
 }
@@ -142,7 +146,7 @@ public class NetworkManager{
         )
     }
     
-    func changeStatus(taskID:String, taskStatus: TaskStatus, callback: RequestResultDelegate?) {
+    func changeStatus(taskID: String, taskStatus: TaskStatus, callback: RequestResultDelegate?) {
         guard let delegate = callback else { return }
         let params: [String: String] = [
             "taskID": taskID,
@@ -154,6 +158,45 @@ public class NetworkManager{
                 if(JSON(value)["msg"] == "OK") {
                     delegate.onRequestResultDone(isSuccess: true)
                 }else {
+                    delegate.onRequestResultDone(isSuccess: false)
+                }
+                break
+            case .failure( _):
+                delegate.onRequestResultDone(isSuccess: false)
+                break
+            }
+        }
+    }
+    
+    func listTutor(callback: ListTutorResultDelegate?) {
+        guard let delegate = callback else { return }
+        self.request(path: "/post/v1/listTutorJson", params: ["":""]) { (response) in
+            switch response.result{
+            case .success(let value):
+                delegate.onListTutorDone(data: value)
+                break
+            case .failure( _):
+                delegate.onListTutorDone(data: nil)
+                break
+            }
+        }
+    }
+    
+    func assignTask(taskID: String, tutorID: [Int], callback: RequestResultDelegate?) {
+        guard let userDetail = RealmManager.getInstance().getExistingLoginUser(),
+            let delegate = callback
+            else { return }
+        let params: [String: Any] = [
+            "assigner": userDetail.userID,
+            "assignees": tutorID,
+            "taskID": taskID
+        ]
+        self.request(path: "/post/v1/assignTask", params: params) { (response) in
+            switch response.result{
+            case .success(let value):
+                if(JSON(value)["msg"] == "OK") {
+                    delegate.onRequestResultDone(isSuccess: true)
+                } else {
                     delegate.onRequestResultDone(isSuccess: false)
                 }
                 break

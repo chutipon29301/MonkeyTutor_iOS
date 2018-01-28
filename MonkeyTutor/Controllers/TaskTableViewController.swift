@@ -23,7 +23,6 @@ class TaskTableViewController: ExpandingTableViewController {
 }
 
 extension TaskTableViewController {
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return CollectionViewTaskManager.getInstance().getTaskWith(status: selectedStatus).count
     }
@@ -36,22 +35,49 @@ extension TaskTableViewController {
         cell.taskNameLabel.text = taskInfo.title
         cell.creatorNameLabel.text = taskInfo.createBy
         if let dueDate = taskInfo.dueDate {
-            cell.dueDateLabel.text = "Due date: \(formatter.string(from: dueDate))"
-        }else {
+            cell.dueDateLabel.text = "\(formatter.string(from: dueDate))"
+        } else {
             cell.dueDateLabel.text = "Due date: None"
+        }
+        if taskInfo.childStatus == TaskStatus.none.rawValue{
+            cell.childStatusLabel.text = ""
+        } else {
+            let label = ["TODO", "In Progress", "Assign", "Done"]
+            cell.childStatusLabel.text = label[taskInfo.childStatus]
         }
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 65
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showTaskDetail", sender: indexPath)
+    }
 }
 
+
+extension TaskTableViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            switch identifier {
+            case "showTaskDetail":
+                if let destination = segue.destination.childViewControllers[0] as? TaskDetailTableViewController,
+                    let indexPath = sender as? IndexPath{
+                    destination.task = CollectionViewTaskManager.getInstance().getTaskWith(status: selectedStatus)[indexPath.row]
+                }
+                break
+            default:
+                break
+            }
+        }
+    }
+}
 class TaskTableViewCell: UITableViewCell {
     @IBOutlet weak var taskNameLabel: UILabel!
     @IBOutlet weak var creatorNameLabel: UILabel!
     @IBOutlet weak var dueDateLabel: UILabel!
+    @IBOutlet weak var childStatusLabel: UILabel!
     
 }

@@ -15,7 +15,6 @@ enum TaskStatus: Int {
     case onProcess = 1
     case assign = 2
     case done = 3
-    case complete = 4
 }
 
 class Task: Object {
@@ -35,6 +34,7 @@ class Task: Object {
     @objc dynamic var hasDueDate = false
     @objc dynamic var dueDate: Date? = nil
     let tags = List<String>()
+    @objc dynamic var childStatus = TaskStatus.none.rawValue
     
     override static func primaryKey() -> String? {
         return "id"
