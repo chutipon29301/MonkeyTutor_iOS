@@ -117,7 +117,16 @@ class CreateTaskTableViewController: UITableViewController, RequestResultDelegat
     @IBAction func tagAddBtnToggle(_ sender: Any) {
         let picker = TCPickerView()
         picker.title = "Tag"
-        let list = ["Hybrid", "Hybrid Edit", "Web Feature", "Web Edit", "App", "App Feature", "App Edit", "Design", "Test", "Other"]
+        let list = [TaskTag.hybrid.rawValue,
+                    TaskTag.hybridEdit.rawValue,
+                    TaskTag.webFeature.rawValue,
+                    TaskTag.webEdit.rawValue,
+                    TaskTag.app.rawValue,
+                    TaskTag.appFeature.rawValue,
+                    TaskTag.appEdit.rawValue,
+                    TaskTag.design.rawValue,
+                    TaskTag.test.rawValue,
+                    TaskTag.other.rawValue]
         let values = list.map { TCPickerView.Value(title: $0) }
         picker.values = values
         picker.selection = .single

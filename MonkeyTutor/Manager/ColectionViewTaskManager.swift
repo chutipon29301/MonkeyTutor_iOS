@@ -91,6 +91,17 @@ class CollectionViewTaskManager: ListTaskResultDelegate {
         ]
     }
     
+    func getTaskTagCounWitht(status: TaskStatus) -> [Int] {
+        return [
+            taskList.filter{ $0.status == status.rawValue && ($0.tags.contains(TaskTag.hybrid.rawValue) || $0.tags.contains(TaskTag.hybridEdit.rawValue))}.count,
+            taskList.filter{ $0.status == status.rawValue && ($0.tags.contains(TaskTag.app.rawValue) || $0.tags.contains(TaskTag.appFeature.rawValue) || $0.tags.contains(TaskTag.appEdit.rawValue))}.count,
+            taskList.filter{ $0.status == status.rawValue && ($0.tags.contains(TaskTag.webEdit.rawValue) || $0.tags.contains(TaskTag.webFeature.rawValue))}.count,
+            taskList.filter{ $0.status == status.rawValue && $0.tags.contains(TaskTag.test.rawValue)}.count,
+            taskList.filter{ $0.status == status.rawValue && $0.tags.contains(TaskTag.design.rawValue)}.count,
+            taskList.filter{ $0.status == status.rawValue && $0.tags.contains(TaskTag.other.rawValue)}.count
+        ]
+    }
+    
     func getTaskWith(status: TaskStatus) -> [Task] {
         return taskList.filter{ $0.status == status.rawValue}
     }

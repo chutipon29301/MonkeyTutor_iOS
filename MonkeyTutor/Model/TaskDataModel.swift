@@ -17,6 +17,19 @@ enum TaskStatus: Int {
     case done = 3
 }
 
+enum TaskTag: String {
+    case hybrid = "Hybrid"
+    case hybridEdit = "Hybrid Edit"
+    case webFeature = "Web Feature"
+    case webEdit = "Web Edit"
+    case app = "App"
+    case appFeature = "App Feature"
+    case appEdit = "App Edit"
+    case design = "Design"
+    case test = "Test"
+    case other = "Other"
+}
+
 class Task: Object {
     @objc dynamic var id = ""
     @objc dynamic var createOn: Date? = nil
