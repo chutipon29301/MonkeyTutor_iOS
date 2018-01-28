@@ -13,16 +13,16 @@ class TaskViewController: ExpandingViewController, FetchResultDelegate {
     
     let cardLabelColor = [
         UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1.0),
-        UIColor(red: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 1.0),
-        UIColor(red: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 1.0),
+        UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1.0),
+        UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1.0),
         UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1.0)
     ]
     
     let cardColor = [
-        UIColor(red: 0/255.0, green: 170/255.0, blue: 160/255.0, alpha: 1.0),
-        UIColor(red: 142/255.0, green: 210/255.0, blue: 201/255.0, alpha: 1.0),
-        UIColor(red: 255/255.0, green: 184/255.0, blue: 95/255.0, alpha: 1.0),
-        UIColor(red: 255/255.0, green: 122/255.0, blue: 90/255.0, alpha: 1.0)
+        UIColor(red: 111/255.0, green: 204/255.0, blue: 218/255.0, alpha: 1.0),
+        UIColor(red: 229/255.0, green: 172/255.0, blue: 206/255.0, alpha: 1.0),
+        UIColor(red: 249/255.0, green: 168/255.0, blue: 111/255.0, alpha: 1.0),
+        UIColor(red: 152/255.0, green: 207/255.0, blue: 142/255.0, alpha: 1.0)
     ]
     
     let cardIcon = [
@@ -34,7 +34,7 @@ class TaskViewController: ExpandingViewController, FetchResultDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        itemSize = CGSize(width: 214, height: 264)
+        itemSize = CGSize(width: 300, height: 400)
         let nib = UINib(nibName: "TaskCollectionViewCell", bundle: nil)
         collectionView?.register(nib, forCellWithReuseIdentifier: "TaskCollectionViewCell")
     }
@@ -60,6 +60,7 @@ extension TaskViewController {
         let cell = collectionView?.dequeueReusableCell(withReuseIdentifier: "TaskCollectionViewCell", for: indexPath) as! TaskCollectionViewCell
         let row = indexPath.row
         let taskInfo = CollectionViewTaskManager.getInstance().getTaskStatusCount()[row]
+        let tagCount = CollectionViewTaskManager.getInstance().getTaskTagCounWitht(status: CollectionViewTaskManager.getInstance().getTaskStatusCount()[row].2)
 
         cell.cardLabel.textColor = cardLabelColor[row]
         cell.taskCountLabel.textColor = cardLabelColor[row]
@@ -67,6 +68,19 @@ extension TaskViewController {
         cell.frontContainerView.backgroundColor = cardColor[row]
         cell.cardIcon.image = cardIcon[row]
         cell.cardLabel.text = taskInfo.0
+        
+        cell.hybridCountLabel.textColor = cardLabelColor[row]
+        cell.hybridCountLabel.text = ": \(tagCount[0])"
+        cell.appCountLabel.textColor = cardLabelColor[row]
+        cell.appCountLabel.text = ": \(tagCount[1])"
+        cell.webCountLabel.textColor = cardLabelColor[row]
+        cell.webCountLabel.text = ": \(tagCount[2])"
+        cell.testCountLabel.textColor = cardLabelColor[row]
+        cell.testCountLabel.text = ": \(tagCount[3])"
+        cell.designCountLabel.textColor = cardLabelColor[row]
+        cell.designCountLabel.text = ": \(tagCount[4])"
+        cell.otherCountLabel.textColor = cardLabelColor[row]
+        cell.otherCountLabel.text = ": \(tagCount[5])"
         
         return cell
     }
@@ -89,5 +103,11 @@ class TaskCollectionViewCell: BasePageCollectionCell {
     @IBOutlet weak var cardLabel: UILabel!
     @IBOutlet weak var taskCountLabel: UILabel!
     @IBOutlet weak var cardIcon: UIImageView!
+    @IBOutlet weak var hybridCountLabel: UILabel!
+    @IBOutlet weak var webCountLabel: UILabel!
+    @IBOutlet weak var appCountLabel: UILabel!
+    @IBOutlet weak var designCountLabel: UILabel!
+    @IBOutlet weak var testCountLabel: UILabel!
+    @IBOutlet weak var otherCountLabel: UILabel!
 }
 
