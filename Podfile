@@ -17,6 +17,8 @@ target 'MonkeyTutor' do
   pod 'AlamofireObjectMapper', '~> 5.0'
   pod 'PopupDialog', '~> 0.7'
   pod 'TCPickerView'
+  pod 'Fabric'
+  pod 'Crashlytics'
 
   # Pods for MonkeyTutor
 
@@ -36,6 +38,8 @@ target 'MonkeyTutor' do
     pod 'AlamofireObjectMapper', '~> 5.0'
     pod 'PopupDialog', '~> 0.7'
     pod 'TCPickerView'
+    pod 'Fabric'
+    pod 'Crashlytics'
 
   end
 
@@ -55,6 +59,8 @@ target 'MonkeyTutor' do
     pod 'AlamofireObjectMapper', '~> 5.0'
     pod 'PopupDialog', '~> 0.7'
     pod 'TCPickerView'
+    pod 'Fabric'
+    pod 'Crashlytics'
     
   end
 
