@@ -266,6 +266,7 @@
 				849771E4200AF40600DDCA2C /* Resources */,
 				B692FA939750438C7C4AC343 /* [CP] Embed Pods Frameworks */,
 				4E4C78E6C39BB88816CE2BE2 /* [CP] Copy Pods Resources */,
+				84FB5D57201DC6950026DBCB /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -505,6 +506,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MonkeyTutorUITests/Pods-MonkeyTutorUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		84FB5D57201DC6950026DBCB /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" d5fec8ac1f77256eeba2c2447bdba146f09a1f32 bd727550be09c48cb53694a9761a1bf2c5cb227707e53edc246fea4116b7ecdb";
 		};
 		A435796EA5F9E16A9CC76CAD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
