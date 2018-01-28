@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0CE034701EB49F003F82C1E2 /* Pods_MonkeyTutorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4F9C37DC1EC420F2CBFF696 /* Pods_MonkeyTutorTests.framework */; };
+		8410CF7C201C360100643C9A /* TutorDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8410CF7B201C360100643C9A /* TutorDataModel.swift */; };
+		8410CF7E201C3CE900643C9A /* TutorDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8410CF7D201C3CE900643C9A /* TutorDataManager.swift */; };
 		8419A5DC2013121100F6ADE2 /* CryptoJS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8419A5DB2013121100F6ADE2 /* CryptoJS.swift */; };
 		8419A5E9201425DD00F6ADE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8419A5E7201425DD00F6ADE2 /* Main.storyboard */; };
 		8427595220183A9E00221A0C /* ColectionViewTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8427595120183A9E00221A0C /* ColectionViewTaskManager.swift */; };
@@ -55,6 +57,8 @@
 		2AC1BA6512BA5B23ABA6EC51 /* Pods-MonkeyTutorUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonkeyTutorUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MonkeyTutorUITests/Pods-MonkeyTutorUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		62F1CFBC6935BAF3DB6C0BAF /* Pods_MonkeyTutor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MonkeyTutor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C28106C9DA519EF7A6C3940 /* Pods-MonkeyTutor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonkeyTutor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MonkeyTutor/Pods-MonkeyTutor.debug.xcconfig"; sourceTree = "<group>"; };
+		8410CF7B201C360100643C9A /* TutorDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorDataModel.swift; sourceTree = "<group>"; };
+		8410CF7D201C3CE900643C9A /* TutorDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorDataManager.swift; sourceTree = "<group>"; };
 		8419A5DB2013121100F6ADE2 /* CryptoJS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoJS.swift; sourceTree = "<group>"; };
 		8419A5E8201425DD00F6ADE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8427595120183A9E00221A0C /* ColectionViewTaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColectionViewTaskManager.swift; sourceTree = "<group>"; };
@@ -166,6 +170,7 @@
 			children = (
 				842E5F92201719B600D4028B /* UserDataModel.swift */,
 				8427595320183B5600221A0C /* TaskDataModel.swift */,
+				8410CF7B201C360100643C9A /* TutorDataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -177,6 +182,7 @@
 				843702DB200B18FA0059BAA1 /* NetworkManager.swift */,
 				842E5F94201721E100D4028B /* RealmManager.swift */,
 				8427595120183A9E00221A0C /* ColectionViewTaskManager.swift */,
+				8410CF7D201C3CE900643C9A /* TutorDataManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -399,14 +405,17 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/BulletinBoard/BulletinBoard.framework",
+				"${BUILT_PRODUCTS_DIR}/DynamicBlurView/DynamicBlurView.framework",
 				"${BUILT_PRODUCTS_DIR}/EZLoadingActivity/EZLoadingActivity.framework",
 				"${BUILT_PRODUCTS_DIR}/Material/Material.framework",
 				"${BUILT_PRODUCTS_DIR}/MaterialTextField/MaterialTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/Motion/Motion.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/TCPickerView/TCPickerView.framework",
 				"${BUILT_PRODUCTS_DIR}/TransitionButton/TransitionButton.framework",
 				"${BUILT_PRODUCTS_DIR}/expanding-collection/expanding_collection.framework",
 			);
@@ -415,14 +424,17 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BulletinBoard.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DynamicBlurView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EZLoadingActivity.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Material.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Motion.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopupDialog.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TCPickerView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TransitionButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/expanding_collection.framework",
 			);
@@ -522,14 +534,17 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/BulletinBoard/BulletinBoard.framework",
+				"${BUILT_PRODUCTS_DIR}/DynamicBlurView/DynamicBlurView.framework",
 				"${BUILT_PRODUCTS_DIR}/EZLoadingActivity/EZLoadingActivity.framework",
 				"${BUILT_PRODUCTS_DIR}/Material/Material.framework",
 				"${BUILT_PRODUCTS_DIR}/MaterialTextField/MaterialTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/Motion/Motion.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/TCPickerView/TCPickerView.framework",
 				"${BUILT_PRODUCTS_DIR}/TransitionButton/TransitionButton.framework",
 				"${BUILT_PRODUCTS_DIR}/expanding-collection/expanding_collection.framework",
 			);
@@ -538,14 +553,17 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BulletinBoard.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DynamicBlurView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EZLoadingActivity.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Material.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Motion.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopupDialog.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TCPickerView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TransitionButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/expanding_collection.framework",
 			);
@@ -582,14 +600,17 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/BulletinBoard/BulletinBoard.framework",
+				"${BUILT_PRODUCTS_DIR}/DynamicBlurView/DynamicBlurView.framework",
 				"${BUILT_PRODUCTS_DIR}/EZLoadingActivity/EZLoadingActivity.framework",
 				"${BUILT_PRODUCTS_DIR}/Material/Material.framework",
 				"${BUILT_PRODUCTS_DIR}/MaterialTextField/MaterialTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/Motion/Motion.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/TCPickerView/TCPickerView.framework",
 				"${BUILT_PRODUCTS_DIR}/TransitionButton/TransitionButton.framework",
 				"${BUILT_PRODUCTS_DIR}/expanding-collection/expanding_collection.framework",
 			);
@@ -598,14 +619,17 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BulletinBoard.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DynamicBlurView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EZLoadingActivity.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Material.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Motion.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopupDialog.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TCPickerView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TransitionButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/expanding_collection.framework",
 			);
@@ -624,6 +648,7 @@
 				8427595420183B5600221A0C /* TaskDataModel.swift in Sources */,
 				842E5F93201719B600D4028B /* UserDataModel.swift in Sources */,
 				8427595220183A9E00221A0C /* ColectionViewTaskManager.swift in Sources */,
+				8410CF7E201C3CE900643C9A /* TutorDataManager.swift in Sources */,
 				843702DC200B18FA0059BAA1 /* NetworkManager.swift in Sources */,
 				849771EC200AF40600DDCA2C /* ViewController.swift in Sources */,
 				8442D60A2015DB57000D50AE /* TaskViewController.swift in Sources */,
@@ -633,6 +658,7 @@
 				844CB659201ACA2F0099E85B /* TaskDetailTableViewController.swift in Sources */,
 				842E5F9020170C3700D4028B /* SettingTableViewController.swift in Sources */,
 				8419A5DC2013121100F6ADE2 /* CryptoJS.swift in Sources */,
+				8410CF7C201C360100643C9A /* TutorDataModel.swift in Sources */,
 				842E5F9720172C4900D4028B /* CreateTaskTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

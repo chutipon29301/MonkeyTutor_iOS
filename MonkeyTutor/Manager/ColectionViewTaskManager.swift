@@ -33,6 +33,7 @@ class CollectionViewTaskManager: ListTaskResultDelegate {
     }
     
     func onListTaskDone(data: Any?) {
+        taskList = [Task]()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         if let existData = data {
@@ -55,6 +56,9 @@ class CollectionViewTaskManager: ListTaskResultDelegate {
                 task.order = subJson["order"].intValue
                 task.remark = subJson["remark"].stringValue
                 task.hasDueDate = subJson["hasDueDate"].boolValue
+                if subJson["childStatus"].exists() {
+                    task.childStatus = subJson["childStatus"].intValue
+                }
                 if let dueDate = subJson["dueDate"].string{
                     task.dueDate = dateFormatter.date(from: dueDate)
                 }
@@ -81,7 +85,7 @@ class CollectionViewTaskManager: ListTaskResultDelegate {
     func getTaskStatusCount() -> [(String, Int, TaskStatus)] {
         return [
             ("TODO", taskList.filter{ $0.status == TaskStatus.todo.rawValue}.count, TaskStatus.todo),
-            ("In Procress", taskList.filter{ $0.status == TaskStatus.onProcess.rawValue}.count, TaskStatus.onProcess),
+            ("In Progress", taskList.filter{ $0.status == TaskStatus.onProcess.rawValue}.count, TaskStatus.onProcess),
             ("Assign", taskList.filter{ $0.status == TaskStatus.assign.rawValue}.count, TaskStatus.assign),
             ("Done", taskList.filter{ $0.status == TaskStatus.done.rawValue}.count, TaskStatus.done)
         ]

@@ -36,8 +36,14 @@ extension TaskTableViewController {
         cell.creatorNameLabel.text = taskInfo.createBy
         if let dueDate = taskInfo.dueDate {
             cell.dueDateLabel.text = "\(formatter.string(from: dueDate))"
-        }else {
+        } else {
             cell.dueDateLabel.text = "Due date: None"
+        }
+        if taskInfo.childStatus == TaskStatus.none.rawValue{
+            cell.childStatusLabel.text = ""
+        } else {
+            let label = ["TODO", "In Progress", "Assign", "Done"]
+            cell.childStatusLabel.text = label[taskInfo.childStatus]
         }
         return cell
     }
@@ -72,5 +78,6 @@ class TaskTableViewCell: UITableViewCell {
     @IBOutlet weak var taskNameLabel: UILabel!
     @IBOutlet weak var creatorNameLabel: UILabel!
     @IBOutlet weak var dueDateLabel: UILabel!
+    @IBOutlet weak var childStatusLabel: UILabel!
     
 }
