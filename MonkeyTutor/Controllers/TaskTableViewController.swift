@@ -8,10 +8,33 @@
 
 import UIKit
 import expanding_collection
+import BulletinBoard
+import EZLoadingActivity
 
-class TaskTableViewController: ExpandingTableViewController {
+class TaskTableViewController: ExpandingTableViewController, RequestResultDelegate, FetchResultDelegate {
     
     var selectedStatus: TaskStatus!
+    var taskID: String?
+    
+    lazy var bulletinManager: BulletinManager = {
+        let page = PageBulletinItem(title: "Delete")
+        page.descriptionText = "Do you want to delete task?"
+        page.actionButtonTitle = "Delete"
+        page.alternativeButtonTitle = "Cancel"
+        page.actionHandler = { (item: PageBulletinItem) in
+            if let id = self.taskID{
+                NetworkManager.getInstance().deleteTask(taskID: id, callback: self.self)
+                EZLoadingActivity.show("Deleting task", disableUI: true)
+            }
+        }
+        page.interfaceFactory.tintColor = .red
+        page.alternativeHandler = { (item: PageBulletinItem) in
+            self.dismissBulletin()
+        }
+        page.isDismissable = true
+        let rootItem: BulletinItem = page
+        return BulletinManager(rootItem: rootItem)
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +42,28 @@ class TaskTableViewController: ExpandingTableViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         popTransitionAnimation()
+    }
+    
+    func dismissBulletin() {
+        bulletinManager.dismissBulletin()
+    }
+    
+    func onRequestResultDone(isSuccess: Bool) {
+        if isSuccess {
+            EZLoadingActivity.hide(true, animated: true)
+            self.dismissBulletin()
+            CollectionViewTaskManager.getInstance().fetch(callback: self)
+        }else {
+            EZLoadingActivity.hide(false, animated: true)
+            self.dismissBulletin()
+            let alert = UIAlertController(title: "Warning", message: "Can't delete task, not authorize", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func onFetchResultComplete() {
+        tableView?.reloadData()
     }
 }
 
@@ -46,6 +91,14 @@ extension TaskTableViewController {
             cell.childStatusLabel.text = label[taskInfo.childStatus]
         }
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            taskID = CollectionViewTaskManager.getInstance().getTaskWith(status: selectedStatus)[indexPath.row].id
+            bulletinManager.prepare()
+            bulletinManager.presentBulletin(above: self)
+        }
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

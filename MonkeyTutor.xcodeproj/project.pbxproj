@@ -12,7 +12,7 @@
 		8410CF7E201C3CE900643C9A /* TutorDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8410CF7D201C3CE900643C9A /* TutorDataManager.swift */; };
 		8419A5DC2013121100F6ADE2 /* CryptoJS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8419A5DB2013121100F6ADE2 /* CryptoJS.swift */; };
 		8419A5E9201425DD00F6ADE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8419A5E7201425DD00F6ADE2 /* Main.storyboard */; };
-		8427595220183A9E00221A0C /* ColectionViewTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8427595120183A9E00221A0C /* ColectionViewTaskManager.swift */; };
+		8427595220183A9E00221A0C /* CollectionViewTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8427595120183A9E00221A0C /* CollectionViewTaskManager.swift */; };
 		8427595420183B5600221A0C /* TaskDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8427595320183B5600221A0C /* TaskDataModel.swift */; };
 		842E5F8E2016F7BC00D4028B /* TaskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842E5F8D2016F7BC00D4028B /* TaskTableViewController.swift */; };
 		842E5F9020170C3700D4028B /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842E5F8F20170C3700D4028B /* SettingTableViewController.swift */; };
@@ -61,7 +61,7 @@
 		8410CF7D201C3CE900643C9A /* TutorDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorDataManager.swift; sourceTree = "<group>"; };
 		8419A5DB2013121100F6ADE2 /* CryptoJS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoJS.swift; sourceTree = "<group>"; };
 		8419A5E8201425DD00F6ADE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		8427595120183A9E00221A0C /* ColectionViewTaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColectionViewTaskManager.swift; sourceTree = "<group>"; };
+		8427595120183A9E00221A0C /* CollectionViewTaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewTaskManager.swift; sourceTree = "<group>"; };
 		8427595320183B5600221A0C /* TaskDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDataModel.swift; sourceTree = "<group>"; };
 		842E5F8D2016F7BC00D4028B /* TaskTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewController.swift; sourceTree = "<group>"; };
 		842E5F8F20170C3700D4028B /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
@@ -181,7 +181,7 @@
 				8419A5DD2013141200F6ADE2 /* Crypto */,
 				843702DB200B18FA0059BAA1 /* NetworkManager.swift */,
 				842E5F94201721E100D4028B /* RealmManager.swift */,
-				8427595120183A9E00221A0C /* ColectionViewTaskManager.swift */,
+				8427595120183A9E00221A0C /* CollectionViewTaskManager.swift */,
 				8410CF7D201C3CE900643C9A /* TutorDataManager.swift */,
 			);
 			path = Manager;
@@ -661,7 +661,7 @@
 			files = (
 				8427595420183B5600221A0C /* TaskDataModel.swift in Sources */,
 				842E5F93201719B600D4028B /* UserDataModel.swift in Sources */,
-				8427595220183A9E00221A0C /* ColectionViewTaskManager.swift in Sources */,
+				8427595220183A9E00221A0C /* CollectionViewTaskManager.swift in Sources */,
 				8410CF7E201C3CE900643C9A /* TutorDataManager.swift in Sources */,
 				843702DC200B18FA0059BAA1 /* NetworkManager.swift in Sources */,
 				849771EC200AF40600DDCA2C /* ViewController.swift in Sources */,
@@ -846,7 +846,7 @@
 				DEVELOPMENT_TEAM = S4F5J66T3H;
 				INFOPLIST_FILE = MonkeyTutor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.monkey-monkey.MonkeyTutor";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.monkey-monkey.tutor";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -862,7 +862,7 @@
 				DEVELOPMENT_TEAM = S4F5J66T3H;
 				INFOPLIST_FILE = MonkeyTutor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.monkey-monkey.MonkeyTutor";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.monkey-monkey.tutor";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -3,6 +3,6 @@
 <plist version="1.0">
 <dict>
 	<key>base_url</key>
-	<string>https://www.monkey-monkey.com</string>
+	<string>http://192.168.1.243:8080</string>
 </dict>
 </plist>
