@@ -206,5 +206,26 @@ public class NetworkManager{
             }
         }
     }
+    
+    func deleteTask(taskID: String, callback: RequestResultDelegate?) {
+        guard let delegate = callback else { return }
+        let params: [String: Any] = [
+            "taskID": taskID
+        ]
+        self.request(path: "/post/v1/deleteTask", params: params) { (response) in
+            switch response.result{
+            case .success(let value):
+                if(JSON(value)["msg"] == "OK") {
+                    delegate.onRequestResultDone(isSuccess: true)
+                } else {
+                    delegate.onRequestResultDone(isSuccess: false)
+                }
+                break
+            case .failure( _):
+                delegate.onRequestResultDone(isSuccess: false)
+                break
+            }
+        }
+    }
 }
 
