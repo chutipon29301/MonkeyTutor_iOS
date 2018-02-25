@@ -15,6 +15,7 @@ enum TaskStatus: Int {
     case onProcess = 1
     case assign = 2
     case done = 3
+    case complete = 4
 }
 
 enum TaskTag: String {

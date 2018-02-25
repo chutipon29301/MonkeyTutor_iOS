@@ -9,6 +9,8 @@
 import UIKit
 import Fabric
 import Crashlytics
+import UserNotifications
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,6 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         TutorDataManager.getInstance().fetch()
         Fabric.with([Crashlytics.self])
+        registerForPushNotifications()
+        UIApplication.shared.applicationIconBadgeNumber = 0
+        application.registerForRemoteNotifications()
         return true
     }
 
@@ -44,7 +49,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    func application(_ application: UIApplication,
+                     didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let tokenParts = deviceToken.map { data -> String in
+            return String(format: "%02.2hhx", data)
+        }
+        
+        let token = tokenParts.joined()
+        NotificationTokenManager.getInstance().setToken(token: token)
+        print("Device Token: \(token)")
+    }
+    
+    func application(_ application: UIApplication,
+                     didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("Failed to register: \(error)")
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification data: [AnyHashable : Any]) {
+        // Print notification payload data
+        print("Push notification received: \(data)")
+    }
 
-
+    func registerForPushNotifications() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
+            (granted, error) in
+            print("Permission granted: \(granted)")
+            
+            guard granted else { return }
+        }
+    }
 }
 

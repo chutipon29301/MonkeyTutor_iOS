@@ -227,5 +227,16 @@ public class NetworkManager{
             }
         }
     }
+    
+    func registerDevice(id: String, token: String) {
+        self.request(path: "/post/v1/registeriOSDeviceToken", params: ["id": id,"token":token]) { (response) in
+            switch response.result{
+            case .success( _):
+                break
+            case .failure( _):
+                break
+            }
+        }
+    }
 }
 
