@@ -15,6 +15,7 @@ class TaskViewController: ExpandingViewController, FetchResultDelegate {
         UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1.0),
         UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1.0),
         UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1.0),
+        UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1.0),
         UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1.0)
     ]
     
@@ -22,18 +23,23 @@ class TaskViewController: ExpandingViewController, FetchResultDelegate {
         UIColor(red: 111/255.0, green: 204/255.0, blue: 218/255.0, alpha: 1.0),
         UIColor(red: 229/255.0, green: 172/255.0, blue: 206/255.0, alpha: 1.0),
         UIColor(red: 249/255.0, green: 168/255.0, blue: 111/255.0, alpha: 1.0),
-        UIColor(red: 152/255.0, green: 207/255.0, blue: 142/255.0, alpha: 1.0)
+        UIColor(red: 152/255.0, green: 207/255.0, blue: 142/255.0, alpha: 1.0),
+        UIColor(red: 255/255.0, green: 163/255.0, blue: 163/255.0, alpha: 1.0)
     ]
     
     let cardIcon = [
         UIImage(named:"pin"),
         UIImage(named:"glasshour"),
         UIImage(named:"assign"),
+        UIImage(named:"checked"),
         UIImage(named:"checked")
     ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let id = RealmManager.getInstance().getExistingLoginUser()?.userID {
+            NotificationTokenManager.getInstance().registerDeviceWith(userID: id)
+        }
         itemSize = CGSize(width: 300, height: 400)
         let nib = UINib(nibName: "TaskCollectionViewCell", bundle: nil)
         collectionView?.register(nib, forCellWithReuseIdentifier: "TaskCollectionViewCell")

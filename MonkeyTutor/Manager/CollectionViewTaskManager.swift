@@ -87,7 +87,8 @@ class CollectionViewTaskManager: ListTaskResultDelegate {
             ("TODO", taskList.filter{ $0.status == TaskStatus.todo.rawValue}.count, TaskStatus.todo),
             ("In Progress", taskList.filter{ $0.status == TaskStatus.onProcess.rawValue}.count, TaskStatus.onProcess),
             ("Assign", taskList.filter{ $0.status == TaskStatus.assign.rawValue}.count, TaskStatus.assign),
-            ("Done", taskList.filter{ $0.status == TaskStatus.done.rawValue}.count, TaskStatus.done)
+            ("Done", taskList.filter{ $0.status == TaskStatus.done.rawValue}.count, TaskStatus.done),
+            ("Complete", taskList.filter{ $0.status == TaskStatus.complete.rawValue}.count, TaskStatus.complete)
         ]
     }
     

@@ -31,6 +31,7 @@
 		849771F4200AF40600DDCA2C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849771F2200AF40600DDCA2C /* LaunchScreen.storyboard */; };
 		849771FF200AF40600DDCA2C /* MonkeyTutorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849771FE200AF40600DDCA2C /* MonkeyTutorTests.swift */; };
 		8497720A200AF40600DDCA2C /* MonkeyTutorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84977209200AF40600DDCA2C /* MonkeyTutorUITests.swift */; };
+		84EE13C820424D230017F621 /* NotificationTokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EE13C720424D230017F621 /* NotificationTokenManager.swift */; };
 		A06D278EEDBFE83746A9ABF5 /* Pods_MonkeyTutorUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACD493A2E83A54179C2BF1EA /* Pods_MonkeyTutorUITests.framework */; };
 		B6E242F451259BA6C1182251 /* Pods_MonkeyTutor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62F1CFBC6935BAF3DB6C0BAF /* Pods_MonkeyTutor.framework */; };
 /* End PBXBuildFile section */
@@ -86,6 +87,8 @@
 		84977205200AF40600DDCA2C /* MonkeyTutorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonkeyTutorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84977209200AF40600DDCA2C /* MonkeyTutorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonkeyTutorUITests.swift; sourceTree = "<group>"; };
 		8497720B200AF40600DDCA2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84CCEEE120415F6800FF9C6B /* MonkeyTutor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MonkeyTutor.entitlements; sourceTree = "<group>"; };
+		84EE13C720424D230017F621 /* NotificationTokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTokenManager.swift; sourceTree = "<group>"; };
 		9EA417C7E224CE99A9A4CFAD /* Pods-MonkeyTutorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonkeyTutorTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MonkeyTutorTests/Pods-MonkeyTutorTests.release.xcconfig"; sourceTree = "<group>"; };
 		A7E0455D4BC12C25F2797BFA /* Pods-MonkeyTutorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonkeyTutorTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MonkeyTutorTests/Pods-MonkeyTutorTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ACD493A2E83A54179C2BF1EA /* Pods_MonkeyTutorUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MonkeyTutorUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -180,6 +183,7 @@
 			children = (
 				8419A5DD2013141200F6ADE2 /* Crypto */,
 				843702DB200B18FA0059BAA1 /* NetworkManager.swift */,
+				84EE13C720424D230017F621 /* NotificationTokenManager.swift */,
 				842E5F94201721E100D4028B /* RealmManager.swift */,
 				8427595120183A9E00221A0C /* CollectionViewTaskManager.swift */,
 				8410CF7D201C3CE900643C9A /* TutorDataManager.swift */,
@@ -212,6 +216,7 @@
 		849771E8200AF40600DDCA2C /* MonkeyTutor */ = {
 			isa = PBXGroup;
 			children = (
+				84CCEEE120415F6800FF9C6B /* MonkeyTutor.entitlements */,
 				842E5F912017198F00D4028B /* Model */,
 				8419A5CB2012D46A00F6ADE2 /* Controllers */,
 				8419A5CA2012D45A00F6ADE2 /* Views */,
@@ -332,6 +337,11 @@
 					849771E5200AF40600DDCA2C = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					849771F9200AF40600DDCA2C = {
 						CreatedOnToolsVersion = 9.2;
@@ -671,6 +681,7 @@
 				842E5F8E2016F7BC00D4028B /* TaskTableViewController.swift in Sources */,
 				844CB659201ACA2F0099E85B /* TaskDetailTableViewController.swift in Sources */,
 				842E5F9020170C3700D4028B /* SettingTableViewController.swift in Sources */,
+				84EE13C820424D230017F621 /* NotificationTokenManager.swift in Sources */,
 				8419A5DC2013121100F6ADE2 /* CryptoJS.swift in Sources */,
 				8410CF7C201C360100643C9A /* TutorDataModel.swift in Sources */,
 				842E5F9720172C4900D4028B /* CreateTaskTableViewController.swift in Sources */,
@@ -842,6 +853,7 @@
 			baseConfigurationReference = 6C28106C9DA519EF7A6C3940 /* Pods-MonkeyTutor.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MonkeyTutor/MonkeyTutor.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S4F5J66T3H;
 				INFOPLIST_FILE = MonkeyTutor/Info.plist;
@@ -858,6 +870,7 @@
 			baseConfigurationReference = 1F29AD33F1E20ECA8EC927E2 /* Pods-MonkeyTutor.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MonkeyTutor/MonkeyTutor.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S4F5J66T3H;
 				INFOPLIST_FILE = MonkeyTutor/Info.plist;
