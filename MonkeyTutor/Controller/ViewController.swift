@@ -61,12 +61,7 @@ class ViewController: UIViewController, UITextFieldDelegate, LoginResultDelegate
         if let userID = Int(userID.text!), let password = password.text {
             login(userID: userID, password: password)
         } else {
-            let dialogTransistionController = MDCDialogTransitionController()
-            let alertViewController = AlertViewController(labelWith: "Please enter valid user id and password")
-            alertViewController.modalPresentationStyle = .custom
-            alertViewController.transitioningDelegate = dialogTransistionController
-            alertViewController.preferredContentSize = CGSize(width: 300, height: 250)
-            present(alertViewController, animated: true, completion: nil)
+            presentAlertViewController(text: "Please enter valid user id and password")
         }
     }
     
@@ -90,14 +85,18 @@ class ViewController: UIViewController, UITextFieldDelegate, LoginResultDelegate
             })
         } else {
             loadingViewController?.dismiss(animated: true, completion: {
-                let dialogTransistionController = MDCDialogTransitionController()
-                let alertViewController = AlertViewController(labelWith: "Wrong user id or password")
-                alertViewController.modalPresentationStyle = .custom
-                alertViewController.transitioningDelegate = dialogTransistionController
-                alertViewController.preferredContentSize = CGSize(width: 300, height: 250)
-                self.present(alertViewController, animated: true, completion: nil)
+                self.presentAlertViewController(text: "Wrong user id or password")
             })
         }
+    }
+    
+    func presentAlertViewController(text: String) {
+        let dialogTransistionController = MDCDialogTransitionController()
+        let alertViewController = AlertViewController(labelWith: text)
+        alertViewController.modalPresentationStyle = .custom
+        alertViewController.transitioningDelegate = dialogTransistionController
+        alertViewController.preferredContentSize = CGSize(width: 300, height: 250)
+        present(alertViewController, animated: true, completion: nil)
     }
     
 }
