@@ -4,64 +4,17 @@ platform :ios, '11.0'
 target 'MonkeyTutor' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
+  # New version library
+  pod 'Alamofire', '~> 4.5'
+  pod 'RxSwift', '~> 4.0'
+  pod 'RxCocoa', '~> 4.0'
+  pod 'SwiftyJSON'
   pod 'Realm'
   pod 'RealmSwift'
-  pod 'Alamofire', '~> 4.5'
-  pod 'SwiftyJSON'
-  pod 'TransitionButton', '~> 0.3'
-  pod 'MaterialTextField', '~> 0.2'
-  pod 'expanding-collection', '~> 1.1.2'
-  pod 'BulletinBoard'
-  pod 'EZLoadingActivity'
-  pod 'Material', '~> 2.0'
-  pod 'AlamofireObjectMapper', '~> 5.0'
-  pod 'PopupDialog', '~> 0.7'
-  pod 'TCPickerView'
   pod 'Fabric'
   pod 'Crashlytics'
-
-  # Pods for MonkeyTutor
-
-  target 'MonkeyTutorTests' do
-    inherit! :search_paths
-    # Pods for testing
-    pod 'Realm'
-    pod 'RealmSwift'
-    pod 'Alamofire', '~> 4.5'
-    pod 'SwiftyJSON'
-    pod 'TransitionButton', '~> 0.3'
-    pod 'MaterialTextField', '~> 0.2'
-    pod 'expanding-collection', '~> 1.1.2'
-    pod 'BulletinBoard'
-    pod 'EZLoadingActivity'
-    pod 'Material', '~> 2.0'
-    pod 'AlamofireObjectMapper', '~> 5.0'
-    pod 'PopupDialog', '~> 0.7'
-    pod 'TCPickerView'
-    pod 'Fabric'
-    pod 'Crashlytics'
-
-  end
-
-  target 'MonkeyTutorUITests' do
-    inherit! :search_paths
-    # Pods for testing
-    pod 'Realm'
-    pod 'RealmSwift'
-    pod 'Alamofire', '~> 4.5'
-    pod 'SwiftyJSON'
-    pod 'TransitionButton', '~> 0.3'
-    pod 'MaterialTextField', '~> 0.2'
-    pod 'expanding-collection', '~> 1.1.2'
-    pod 'BulletinBoard'
-    pod 'EZLoadingActivity'
-    pod 'Material', '~> 2.0'
-    pod 'AlamofireObjectMapper', '~> 5.0'
-    pod 'PopupDialog', '~> 0.7'
-    pod 'TCPickerView'
-    pod 'Fabric'
-    pod 'Crashlytics'
-    
-  end
+  pod 'MaterialComponents/TextFields+Extensions'
+  pod 'MaterialComponents/Buttons+Extensions'
+  pod 'MaterialComponents/Dialogs+Extensions'
 
 end

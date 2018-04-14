@@ -20,7 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        TutorDataManager.getInstance().fetch()
         Fabric.with([Crashlytics.self])
         registerForPushNotifications()
         UIApplication.shared.applicationIconBadgeNumber = 0
@@ -57,7 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         let token = tokenParts.joined()
-        NotificationTokenManager.getInstance().setToken(token: token)
+//        NotificationTokenManager.getInstance().setToken(token: token)
         print("Device Token: \(token)")
     }
     
