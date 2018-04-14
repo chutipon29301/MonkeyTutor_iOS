@@ -19,11 +19,22 @@ class ViewController: UIViewController, UITextFieldDelegate, LoginResultDelegate
     var loadingViewController: LoadingViewController?
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         let outsideTap = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         view.addGestureRecognizer(outsideTap)
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if UserLoginManager.shared.isCurrentUserLoggin() {
+            if let user = UserLoginManager.shared.getCurrentUser() {
+                login(userID: user.userID, password: user.password)
+            }
+        }
     }
     
     @objc func dismissKeyboard() {
@@ -48,25 +59,43 @@ class ViewController: UIViewController, UITextFieldDelegate, LoginResultDelegate
     
     @IBAction func loginBtnTapped(_ sender: UIButton) {
         if let userID = Int(userID.text!), let password = password.text {
-            let dialogTransistionController = MDCDialogTransitionController()
-            loadingViewController = LoadingViewController()
-            if let view = loadingViewController {
-                view.modalPresentationStyle = .custom
-                view.transitioningDelegate = dialogTransistionController
-                view.preferredContentSize = CGSize(width: 300, height: 200)
-                present(view, animated: true, completion: {
-                    UserLoginManager.shared.login(userID: userID, password: password, resultDelegate: self)
-                })
-            }
+            login(userID: userID, password: password)
         } else {
-            
+            let dialogTransistionController = MDCDialogTransitionController()
+            let alertViewController = AlertViewController(labelWith: "Please enter valid user id and password")
+            alertViewController.modalPresentationStyle = .custom
+            alertViewController.transitioningDelegate = dialogTransistionController
+            alertViewController.preferredContentSize = CGSize(width: 300, height: 250)
+            present(alertViewController, animated: true, completion: nil)
+        }
+    }
+    
+    func login(userID: Int, password: String) {
+        let dialogTransistionController = MDCDialogTransitionController()
+        loadingViewController = LoadingViewController()
+        if let view = loadingViewController {
+            view.modalPresentationStyle = .custom
+            view.transitioningDelegate = dialogTransistionController
+            view.preferredContentSize = CGSize(width: 300, height: 200)
+            present(view, animated: true, completion: {
+                UserLoginManager.shared.login(userID: userID, password: password, resultDelegate: self)
+            })
         }
     }
     
     func loginResult(isVerify: Bool) {
         if isVerify {
             loadingViewController?.dismiss(animated: true, completion: {
-                // TODO: Handle login result
+                self.performSegue(withIdentifier: "showMainController", sender: nil)
+            })
+        } else {
+            loadingViewController?.dismiss(animated: true, completion: {
+                let dialogTransistionController = MDCDialogTransitionController()
+                let alertViewController = AlertViewController(labelWith: "Wrong user id or password")
+                alertViewController.modalPresentationStyle = .custom
+                alertViewController.transitioningDelegate = dialogTransistionController
+                alertViewController.preferredContentSize = CGSize(width: 300, height: 250)
+                self.present(alertViewController, animated: true, completion: nil)
             })
         }
     }

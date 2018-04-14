@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AlertViewController" customModule="MonkeyTutor" customModuleProvider="target">
+            <connections>
+                <outlet property="text" destination="WsL-I3-RSE" id="Gxw-dj-brH"/>
+                <outlet property="view" destination="iN0-l3-epB" id="kk8-84-LSo"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="250"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VYI-l3-s76" customClass="MDCRaisedButton">
+                    <rect key="frame" x="184" y="190" width="100" height="40"/>
+                    <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="G5h-5o-gNA"/>
+                        <constraint firstAttribute="width" constant="100" id="h1F-L0-e9w"/>
+                    </constraints>
+                    <state key="normal" title="DISMISS">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="dismissBtnTapped:" destination="-1" eventType="touchUpInside" id="lPe-bg-wcp"/>
+                    </connections>
+                </button>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WsL-I3-RSE">
+                    <rect key="frame" x="16" y="20" width="268" height="162"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="WsL-I3-RSE" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="3De-Ar-cRW"/>
+                <constraint firstItem="WsL-I3-RSE" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="JsF-zP-kYg"/>
+                <constraint firstItem="VYI-l3-s76" firstAttribute="top" secondItem="WsL-I3-RSE" secondAttribute="bottom" constant="8" id="Oa7-2J-Vva"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="WsL-I3-RSE" secondAttribute="trailing" constant="16" id="gkp-Ry-d1J"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="VYI-l3-s76" secondAttribute="trailing" constant="16" id="lIt-kY-c50"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="VYI-l3-s76" secondAttribute="bottom" constant="20" id="lpt-HG-dkW"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+        </view>
+    </objects>
+</document>

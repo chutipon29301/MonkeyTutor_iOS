@@ -20,6 +20,9 @@
 		849D475220810C4900CDC931 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849D475120810C4900CDC931 /* RealmManager.swift */; };
 		849D475420821A3800CDC931 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849D475320821A3800CDC931 /* LoadingView.xib */; };
 		849D475620821ABC00CDC931 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849D475520821ABC00CDC931 /* LoadingViewController.swift */; };
+		849D4758208226AF00CDC931 /* AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849D4757208226AF00CDC931 /* AlertView.xib */; };
+		849D475A2082286F00CDC931 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849D47592082286F00CDC931 /* AlertViewController.swift */; };
+		849D475D20822D0500CDC931 /* UserDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849D475C20822D0500CDC931 /* UserDAO.swift */; };
 		B6E242F451259BA6C1182251 /* Pods_MonkeyTutor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62F1CFBC6935BAF3DB6C0BAF /* Pods_MonkeyTutor.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +46,9 @@
 		849D475120810C4900CDC931 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		849D475320821A3800CDC931 /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		849D475520821ABC00CDC931 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		849D4757208226AF00CDC931 /* AlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertView.xib; sourceTree = "<group>"; };
+		849D47592082286F00CDC931 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
+		849D475C20822D0500CDC931 /* UserDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDAO.swift; sourceTree = "<group>"; };
 		84CCEEE120415F6800FF9C6B /* MonkeyTutor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MonkeyTutor.entitlements; sourceTree = "<group>"; };
 		9EA417C7E224CE99A9A4CFAD /* Pods-MonkeyTutorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonkeyTutorTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MonkeyTutorTests/Pods-MonkeyTutorTests.release.xcconfig"; sourceTree = "<group>"; };
 		A7E0455D4BC12C25F2797BFA /* Pods-MonkeyTutorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonkeyTutorTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MonkeyTutorTests/Pods-MonkeyTutorTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -102,6 +108,7 @@
 				849D47402080F83200CDC931 /* View */,
 				849D47412080F83700CDC931 /* Controller */,
 				849D473F2080F82B00CDC931 /* Model */,
+				849D475B20822CDE00CDC931 /* DAO */,
 				849771F0200AF40600DDCA2C /* Assets.xcassets */,
 				849771F2200AF40600DDCA2C /* LaunchScreen.storyboard */,
 				849771E9200AF40600DDCA2C /* AppDelegate.swift */,
@@ -135,6 +142,7 @@
 			children = (
 				849D47442080F89000CDC931 /* ViewController.swift */,
 				849D475520821ABC00CDC931 /* LoadingViewController.swift */,
+				849D47592082286F00CDC931 /* AlertViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -151,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				849D475320821A3800CDC931 /* LoadingView.xib */,
+				849D4757208226AF00CDC931 /* AlertView.xib */,
 			);
 			path = Xib;
 			sourceTree = "<group>";
@@ -162,6 +171,14 @@
 				849D474A2080FBCB00CDC931 /* sha3.js */,
 			);
 			path = Crypto;
+			sourceTree = "<group>";
+		};
+		849D475B20822CDE00CDC931 /* DAO */ = {
+			isa = PBXGroup;
+			children = (
+				849D475C20822D0500CDC931 /* UserDAO.swift */,
+			);
+			path = DAO;
 			sourceTree = "<group>";
 		};
 		F45893BE2483F1B5234119A0 /* Frameworks */ = {
@@ -245,6 +262,7 @@
 				849771F4200AF40600DDCA2C /* LaunchScreen.storyboard in Resources */,
 				849D474C2080FBCB00CDC931 /* sha3.js in Resources */,
 				849771F1200AF40600DDCA2C /* Assets.xcassets in Resources */,
+				849D4758208226AF00CDC931 /* AlertView.xib in Resources */,
 				841700682080DA39008318B0 /* Main.storyboard in Resources */,
 				849D475420821A3800CDC931 /* LoadingView.xib in Resources */,
 			);
@@ -349,7 +367,9 @@
 				849D474E2080FCD300CDC931 /* UserLoginManager.swift in Sources */,
 				849D47502080FD0B00CDC931 /* ObjectMapper.swift in Sources */,
 				849D47472080F8DE00CDC931 /* NetworkManager.swift in Sources */,
+				849D475D20822D0500CDC931 /* UserDAO.swift in Sources */,
 				849D475620821ABC00CDC931 /* LoadingViewController.swift in Sources */,
+				849D475A2082286F00CDC931 /* AlertViewController.swift in Sources */,
 				849D47452080F89000CDC931 /* ViewController.swift in Sources */,
 				849771EA200AF40600DDCA2C /* AppDelegate.swift in Sources */,
 				849D475220810C4900CDC931 /* RealmManager.swift in Sources */,

@@ -24,7 +24,6 @@ class NetworkManager {
     private func get(url: String) -> Observable<JSON> {
         return Observable.create {
             observer -> Disposable in
-            print(self._baseURL + url)
             let request = Alamofire.request(self._baseURL + url, method: .get, parameters: nil, encoding: URLEncoding.httpBody, headers: nil).responseJSON {
                 switch $0.result {
                 case .success(let value):

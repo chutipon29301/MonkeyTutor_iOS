@@ -13,5 +13,32 @@ class RealmManager {
     
     static let shared = RealmManager()
     
+    let realm: Realm
     
+    private init() {
+        realm = try! Realm()
+        print(Realm.Configuration.defaultConfiguration.fileURL)
+    }
+    
+    func addCurrentUser(userID: Int, password: String) {
+        let userInfo = UserInfo()
+        userInfo.userID = userID
+        userInfo.password = password
+        try! realm.write {
+            realm.add(userInfo)
+        }
+    }
+    
+    
+    func getCurrentUser() -> UserInfo? {
+        return realm.object(ofType: UserInfo.self, forPrimaryKey: "currentUser")
+    }
+    
+    func removeCurrentUser() {
+        if let userInfo = realm.object(ofType: UserInfo.self, forPrimaryKey: "currentUser") {
+            try! realm.write {
+                realm.delete(userInfo)
+            }
+        }
+    }
 }

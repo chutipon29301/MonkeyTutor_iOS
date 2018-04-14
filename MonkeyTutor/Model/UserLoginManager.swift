@@ -22,7 +22,11 @@ class UserLoginManager {
         subscription = NetworkManager.shared.login(userID: userID, password: CryptoJS.SHA3().hash(password)).subscribe {
             switch $0 {
             case .next(let value):
-                resultDelegate?.loginResult(isVerify: ObjectMapper.mapLoginResult(value))
+                let isVerify = ObjectMapper.mapLoginResult(value)
+                resultDelegate?.loginResult(isVerify: isVerify)
+                if isVerify && !self.isCurrentUserLoggin() {
+                    RealmManager.shared.addCurrentUser(userID: userID, password: password)
+                }
                 break
             case .error(_):
                 resultDelegate?.loginResult(isVerify: false)
@@ -31,6 +35,14 @@ class UserLoginManager {
                 break
             }
         }
+    }
+    
+    func isCurrentUserLoggin() -> Bool {
+        return RealmManager.shared.getCurrentUser() != nil
+    }
+    
+    func getCurrentUser() -> UserInfo? {
+        return RealmManager.shared.getCurrentUser()
     }
     
     func cancel() {
