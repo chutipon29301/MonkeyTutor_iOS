@@ -45,6 +45,10 @@ class UserLoginManager {
         return RealmManager.shared.getCurrentUser()
     }
     
+    func logout() {
+        RealmManager.shared.removeCurrentUser()
+    }
+    
     func cancel() {
         subscription?.dispose()
     }

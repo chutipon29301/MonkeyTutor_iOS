@@ -132,7 +132,7 @@
         <!--Setting-->
         <scene sceneID="n0e-8j-Ebe">
             <objects>
-                <tableViewController id="aB6-sf-KRi" sceneMemberID="viewController">
+                <tableViewController id="aB6-sf-KRi" customClass="SettingTableViewController" customModule="MonkeyTutor" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="NhZ-Ap-LcS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
