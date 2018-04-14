@@ -18,4 +18,8 @@ class LoadingViewController: UIViewController {
         super.init(coder: aDecoder)
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
 }
