@@ -41,7 +41,7 @@ class NetworkManager {
         }
     }
     
-    private func post(url: String, params: [String: Any]) -> Observable<JSON> {
+    private func post(url: String, params: [String: Any]?) -> Observable<JSON> {
         return Observable.create {
             observer -> Disposable in
             let request = Alamofire.request(self._baseURL + url, method: .post, parameters: params, encoding: URLEncoding.httpBody, headers: nil).responseJSON {
@@ -68,4 +68,7 @@ class NetworkManager {
         ])
     }
     
+    func listWorkflow() -> Observable<JSON> {
+        return post(url: "/v2/workflow/list", params: nil)
+    }
 }

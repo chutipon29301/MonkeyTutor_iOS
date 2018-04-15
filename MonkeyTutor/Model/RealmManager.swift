@@ -17,7 +17,7 @@ class RealmManager {
     
     private init() {
         realm = try! Realm()
-        print(Realm.Configuration.defaultConfiguration.fileURL)
+        print(Realm.Configuration.defaultConfiguration.fileURL ?? "")
     }
     
     func addCurrentUser(userID: Int, password: String) {

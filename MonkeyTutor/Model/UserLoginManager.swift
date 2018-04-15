@@ -19,6 +19,10 @@ class UserLoginManager {
     private var subscription: Disposable?
     
     func login(userID: Int, password: String, resultDelegate: LoginResultDelegate?) {
+        login(userID: userID, password: password, resultDelegate: resultDelegate, completion: nil)
+    }
+    
+    func login(userID: Int, password: String, resultDelegate: LoginResultDelegate?, completion: (() -> Void)?) {
         subscription = NetworkManager.shared.login(userID: userID, password: CryptoJS.SHA3().hash(password)).subscribe {
             switch $0 {
             case .next(let value):
@@ -26,6 +30,7 @@ class UserLoginManager {
                 resultDelegate?.loginResult(isVerify: isVerify)
                 if isVerify && !self.isCurrentUserLoggin() {
                     RealmManager.shared.addCurrentUser(userID: userID, password: password)
+                    completion?()
                 }
                 break
             case .error(_):
@@ -34,6 +39,12 @@ class UserLoginManager {
             case .completed:
                 break
             }
+        }
+    }
+    
+    func reauthenticate(completion: (() -> Void)?) {
+        if let user = getCurrentUser() {
+            login(userID: user.userID, password: user.password, resultDelegate: nil, completion: completion)
         }
     }
     
