@@ -18,14 +18,6 @@ class AlertViewController: UIViewController {
         customText = labelWith
     }
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: "AlertView", bundle: nil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
     @IBAction func dismissBtnTapped(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }

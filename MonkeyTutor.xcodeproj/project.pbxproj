@@ -34,6 +34,12 @@
 		84A13CD62083B580006B7E0F /* TagSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A13CD52083B580006B7E0F /* TagSelectViewController.swift */; };
 		84A13CD82083C0A7006B7E0F /* DateSelectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A13CD72083C0A7006B7E0F /* DateSelectView.xib */; };
 		84A13CDA2083C0BF006B7E0F /* DateSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A13CD92083C0BF006B7E0F /* DateSelectViewController.swift */; };
+		84FA33AB208456AA00F7DE36 /* WorkflowDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84FA33AA208456AA00F7DE36 /* WorkflowDetailView.xib */; };
+		84FA33AD208456BE00F7DE36 /* WorkflowDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FA33AC208456BE00F7DE36 /* WorkflowDetailViewController.swift */; };
+		84FA33AF2084577600F7DE36 /* AssignWorkflowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84FA33AE2084577600F7DE36 /* AssignWorkflowView.xib */; };
+		84FA33B12084578600F7DE36 /* AssignWorkflowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FA33B02084578600F7DE36 /* AssignWorkflowViewController.swift */; };
+		84FA33B32084A13C00F7DE36 /* ChangeWorkflowStatusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84FA33B22084A13C00F7DE36 /* ChangeWorkflowStatusView.xib */; };
+		84FA33B52084A14A00F7DE36 /* ChangeWorkflowStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FA33B42084A14A00F7DE36 /* ChangeWorkflowStatusViewController.swift */; };
 		B6E242F451259BA6C1182251 /* Pods_MonkeyTutor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62F1CFBC6935BAF3DB6C0BAF /* Pods_MonkeyTutor.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +78,12 @@
 		84A13CD72083C0A7006B7E0F /* DateSelectView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateSelectView.xib; sourceTree = "<group>"; };
 		84A13CD92083C0BF006B7E0F /* DateSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectViewController.swift; sourceTree = "<group>"; };
 		84CCEEE120415F6800FF9C6B /* MonkeyTutor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MonkeyTutor.entitlements; sourceTree = "<group>"; };
+		84FA33AA208456AA00F7DE36 /* WorkflowDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkflowDetailView.xib; sourceTree = "<group>"; };
+		84FA33AC208456BE00F7DE36 /* WorkflowDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkflowDetailViewController.swift; sourceTree = "<group>"; };
+		84FA33AE2084577600F7DE36 /* AssignWorkflowView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssignWorkflowView.xib; sourceTree = "<group>"; };
+		84FA33B02084578600F7DE36 /* AssignWorkflowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignWorkflowViewController.swift; sourceTree = "<group>"; };
+		84FA33B22084A13C00F7DE36 /* ChangeWorkflowStatusView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangeWorkflowStatusView.xib; sourceTree = "<group>"; };
+		84FA33B42084A14A00F7DE36 /* ChangeWorkflowStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeWorkflowStatusViewController.swift; sourceTree = "<group>"; };
 		9EA417C7E224CE99A9A4CFAD /* Pods-MonkeyTutorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonkeyTutorTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MonkeyTutorTests/Pods-MonkeyTutorTests.release.xcconfig"; sourceTree = "<group>"; };
 		A7E0455D4BC12C25F2797BFA /* Pods-MonkeyTutorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonkeyTutorTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MonkeyTutorTests/Pods-MonkeyTutorTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ACD493A2E83A54179C2BF1EA /* Pods_MonkeyTutorUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MonkeyTutorUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -173,6 +185,9 @@
 				849D47682083446A00CDC931 /* NewWorkflowViewController.swift */,
 				84A13CD52083B580006B7E0F /* TagSelectViewController.swift */,
 				84A13CD92083C0BF006B7E0F /* DateSelectViewController.swift */,
+				84FA33AC208456BE00F7DE36 /* WorkflowDetailViewController.swift */,
+				84FA33B02084578600F7DE36 /* AssignWorkflowViewController.swift */,
+				84FA33B42084A14A00F7DE36 /* ChangeWorkflowStatusViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -193,6 +208,9 @@
 				849D47662083445500CDC931 /* NewWorkflowView.xib */,
 				84A13CD32083B476006B7E0F /* TagSelectView.xib */,
 				84A13CD72083C0A7006B7E0F /* DateSelectView.xib */,
+				84FA33AA208456AA00F7DE36 /* WorkflowDetailView.xib */,
+				84FA33AE2084577600F7DE36 /* AssignWorkflowView.xib */,
+				84FA33B22084A13C00F7DE36 /* ChangeWorkflowStatusView.xib */,
 			);
 			path = Xib;
 			sourceTree = "<group>";
@@ -292,13 +310,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84FA33AB208456AA00F7DE36 /* WorkflowDetailView.xib in Resources */,
 				849771F4200AF40600DDCA2C /* LaunchScreen.storyboard in Resources */,
 				84A13CD42083B476006B7E0F /* TagSelectView.xib in Resources */,
 				849D474C2080FBCB00CDC931 /* sha3.js in Resources */,
+				84FA33AF2084577600F7DE36 /* AssignWorkflowView.xib in Resources */,
 				849771F1200AF40600DDCA2C /* Assets.xcassets in Resources */,
 				849D4758208226AF00CDC931 /* AlertView.xib in Resources */,
 				84A13CD82083C0A7006B7E0F /* DateSelectView.xib in Resources */,
 				841700682080DA39008318B0 /* Main.storyboard in Resources */,
+				84FA33B32084A13C00F7DE36 /* ChangeWorkflowStatusView.xib in Resources */,
 				849D47672083445500CDC931 /* NewWorkflowView.xib in Resources */,
 				849D475420821A3800CDC931 /* LoadingView.xib in Resources */,
 			);
@@ -400,9 +421,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84FA33AD208456BE00F7DE36 /* WorkflowDetailViewController.swift in Sources */,
 				849D474E2080FCD300CDC931 /* UserLoginManager.swift in Sources */,
 				849D47502080FD0B00CDC931 /* ObjectMapper.swift in Sources */,
 				849D476120825A8700CDC931 /* WorkflowTableViewController.swift in Sources */,
+				84FA33B12084578600F7DE36 /* AssignWorkflowViewController.swift in Sources */,
 				84A13CD62083B580006B7E0F /* TagSelectViewController.swift in Sources */,
 				849D47472080F8DE00CDC931 /* NetworkManager.swift in Sources */,
 				849D475D20822D0500CDC931 /* UserDAO.swift in Sources */,
@@ -415,6 +438,7 @@
 				849771EA200AF40600DDCA2C /* AppDelegate.swift in Sources */,
 				849D476320831BC900CDC931 /* WorkflowManager.swift in Sources */,
 				84A13CDA2083C0BF006B7E0F /* DateSelectViewController.swift in Sources */,
+				84FA33B52084A14A00F7DE36 /* ChangeWorkflowStatusViewController.swift in Sources */,
 				849D475220810C4900CDC931 /* RealmManager.swift in Sources */,
 				849D476520831E9100CDC931 /* WorkflowListTableViewController.swift in Sources */,
 				849D474B2080FBCB00CDC931 /* CryptoJS.swift in Sources */,

@@ -14,31 +14,12 @@ protocol WorkflowUpdaterDelegate {
 }
 
 protocol WorkflowUpdateResultDelegate {
-    func workflowUpdated(success: Bool)
+    func workflowUpdated(workflow: Workflow?)
 }
 
 class WorkflowManager {
     
     static let shared = WorkflowManager()
-    
-    static let status = [
-        (label: "Note", value: "note"),
-        (label: "Todo", value: "todo"),
-        (label: "In progress", value: "inprogress"),
-        (label: "Assign", value: "assign"),
-        (label: "Done", value: "done"),
-        (label: "Complete", value: "complete")
-    ]
-    
-    static let tags = [
-        "hybrid",
-        "app",
-        "test",
-        "web",
-        "design",
-        "other"
-    ]
-    
     
     private var _workflows: [Workflow] = []
     private var subscription: Disposable?
@@ -57,8 +38,10 @@ class WorkflowManager {
         updateWorkflow()
     }
     
-    func workflowFilterWith(indexPath: IndexPath) -> [Workflow] {
-        return _workflows.filter { $0.status == WorkflowManager.status[indexPath.row].value }
+    var workflows: [Workflow] {
+        get {
+            return _workflows
+        }
     }
     
     func updateWorkflow() {
@@ -86,11 +69,11 @@ class WorkflowManager {
             switch $0 {
             case .next(let value):
                 if let delegate = delegate {
-                    delegate.workflowUpdated(success: ObjectMapper.mapResposeOK(value))
+                    delegate.workflowUpdated(workflow: ObjectMapper.mapCreateWorkflowResult(value))
                 }
                 break
             case .error(_):
-                delegate?.workflowUpdated(success: false)
+                delegate?.workflowUpdated(workflow: nil)
                 break
             case .completed:
                 break
@@ -101,22 +84,67 @@ class WorkflowManager {
 }
 
 class Workflow {
+    
+    enum Tags: String, EnumCollection {
+        case hybrid, app, test, web, design, other
+        
+        func value() -> String {
+            switch self {
+            case .hybrid:
+                return "Hybrid"
+            case .app:
+                return "App"
+            case .test:
+                return "Test"
+            case .web:
+                return "Web"
+            case .design:
+                return "Design"
+            case .other:
+                return "Other"
+            }
+        }
+    }
+    
+    enum Status: String, EnumCollection {
+        case note, todo, inprogress, assign, done, complete, none
+        
+        func value() -> String {
+            switch self {
+            case .note:
+                return "Note"
+            case .todo:
+                return "Todo"
+            case .inprogress:
+                return "In progress"
+            case .assign:
+                return "Assign"
+            case .done:
+                return "Done"
+            case .complete:
+                return "Complete"
+            case .none:
+                return "None"
+            }
+        }
+    }
+    
     private var _title: String!
     private var _nodeID: String!
     private var _timestamp: Date!
     private var _createdBy: Int!
     private var _duedate: Date?
-    private var _status: String!
+    private var _status: Status!
     private var _owner: Int!
     private var _parent: String!
     private var _ancestors: [String]!
     private var _subtitle: String!
     private var _detail: String!
-    private var _tag: String!
-    private var _childStatus: String?
+    private var _tag: Tags!
+    private var _childStatus: Status?
     private var _childOwner: String?
     
-    init(title: String, id: String, timestamp: Date, createdBy: Int, duedate: Date?, status: String, owner: Int, parent: String, ancestors: [String], subtitle: String, detail: String, tag: String, childStatus: String?, childOwner: String?) {
+    init(title: String, id: String, timestamp: Date, createdBy: Int, duedate: Date?, status: Status, owner: Int, parent: String, ancestors: [String], subtitle: String, detail: String, tag: Tags, childStatus: Status?, childOwner: String?) {
         _title = title
         _nodeID = id
         _timestamp = timestamp
@@ -145,15 +173,21 @@ class Workflow {
         }
     }
     
-    var status: String {
+    var status: Status {
         get {
             return _status
         }
     }
     
-    var tag: String {
+    var tag: Tags {
         get {
             return _tag
+        }
+    }
+    
+    var detail: String {
+        get {
+            return _detail
         }
     }
     
@@ -167,13 +201,31 @@ class Workflow {
         }
     }
     
-    var childStatus: String {
+    var childStatus: Status {
         get {
             if let status = _childStatus {
                 return status
             } else {
+                return .none
+            }
+        }
+    }
+    
+    var childOwner: String {
+        get {
+            if let childOwner = _childOwner {
+                return childOwner
+            } else {
                 return "none"
             }
         }
+    }
+    
+//    func changeStatus(to: ) {
+//
+//    }
+    
+    func assign(to: Int) {
+        
     }
 }

@@ -10,12 +10,14 @@ import UIKit
 
 class WorkflowListTableViewController: UITableViewController {
     
-    var selectedIndexPath: IndexPath!
+    var status: Workflow.Status!
     private var workflows: [Workflow] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        workflows = WorkflowManager.shared.workflowFilterWith(indexPath: selectedIndexPath)
+        title = status.value()
+        workflows = WorkflowManager.shared.workflows.filterWith(status: status)
+        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -28,12 +30,18 @@ class WorkflowListTableViewController: UITableViewController {
         cell.title.text = workflow.title
         cell.subtitle.text = workflow.subtitle
         cell.duedate.text = workflow.duedateString
-        cell.status.text = workflow.childStatus
+        cell.status.text = workflow.childStatus.value()
         return cell
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presentDialog(WorkflowDetailViewController(workflow: workflows[indexPath.row]), size: nil, completion: {
+            self.tableView.deselectRow(at: indexPath, animated: true)
+        })
     }
 }
 

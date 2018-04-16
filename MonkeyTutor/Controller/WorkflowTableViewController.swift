@@ -29,20 +29,21 @@ class WorkflowTableViewController: UITableViewController {
 extension WorkflowTableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return WorkflowManager.status.count
+        return Workflow.Status.allValues.count - 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "workflowCell") as! WorkflowTableViewCell
-        cell.title.text = WorkflowManager.status[indexPath.row].label
-        let workflows = WorkflowManager.shared.workflowFilterWith(indexPath: indexPath)
+        let status = Workflow.Status.allValues[indexPath.row]
+        let workflows = WorkflowManager.shared.workflows.filterWith(status: status)
+        cell.title.text = status.value()
         cell.workCount.text = String(workflows.count) + " remaining"
-        cell.hbCount.text = String(workflows.filter { $0.tag == WorkflowManager.tags[0] }.count)
-        cell.appCount.text = String(workflows.filter { $0.tag == WorkflowManager.tags[1] }.count)
-        cell.testCount.text = String(workflows.filter { $0.tag == WorkflowManager.tags[2] }.count)
-        cell.webCount.text = String(workflows.filter { $0.tag == WorkflowManager.tags[3] }.count)
-        cell.designCount.text = String(workflows.filter { $0.tag == WorkflowManager.tags[4] }.count)
-        cell.otherCount.text = String(workflows.filter { $0.tag == WorkflowManager.tags[5] }.count)
+        cell.hbCount.text = String(workflows.countTags(.hybrid))
+        cell.appCount.text = String(workflows.countTags(.app))
+        cell.testCount.text = String(workflows.countTags(.test))
+        cell.webCount.text = String(workflows.countTags(.web))
+        cell.designCount.text = String(workflows.countTags(.design))
+        cell.otherCount.text = String(workflows.countTags(.other))
         return cell
     }
     
@@ -58,8 +59,7 @@ extension WorkflowTableViewController {
         switch (segue.identifier, segue.destination) {
         case ("showWorkflowList", let destination):
             if let destination = destination as? WorkflowListTableViewController, let indexPath = sender as? IndexPath {
-                destination.title = WorkflowManager.status[indexPath.row].label
-                destination.selectedIndexPath = indexPath
+                destination.status = Workflow.Status.allValues[indexPath.row]
             }
             break
         default:
@@ -78,7 +78,6 @@ extension WorkflowTableViewController: WorkflowUpdaterDelegate {
         } else {
             presentDialog(AlertViewController(labelWith: "An error occured, please try again later"), size: CGSize(width: 300, height: 250), completion: nil)
         }
-        
     }
     
 }

@@ -19,14 +19,6 @@ class NewWorkflowViewController: UIViewController {
     private var currentDate: Date?
     private var loadingViewController: LoadingViewController?
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: "NewWorkflowView", bundle: nil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         let outsideTap = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
@@ -67,8 +59,8 @@ class NewWorkflowViewController: UIViewController {
         }
     }
     
-    func setTag(tag: String) {
-        self.tag.text = tag
+    func setTag(tag: Workflow.Tags) {
+        self.tag.text = tag.rawValue
     }
     
     func setDate(date: Date) {
@@ -80,9 +72,9 @@ class NewWorkflowViewController: UIViewController {
 
 extension NewWorkflowViewController: WorkflowUpdateResultDelegate {
     
-    func workflowUpdated(success: Bool) {
+    func workflowUpdated(workflow: Workflow?) {
         loadingViewController?.dismiss(animated: true, completion: {
-            if success {
+            if let workflow = workflow {
                 self.dismiss(animated: true, completion: {
                     WorkflowManager.shared.updateWorkflow()
                 })

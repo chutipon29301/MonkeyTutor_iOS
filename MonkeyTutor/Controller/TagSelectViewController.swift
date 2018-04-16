@@ -11,17 +11,9 @@ import MaterialComponents.MaterialButtons
 
 class TagSelectViewController: UIViewController {
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: "TagSelectView", bundle: nil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
     @IBAction func tagBtnTapped(_ sender: Any) {
         if let button = sender as? MDCFloatingButton, let parent = self.presentingViewController as? NewWorkflowViewController {
-            parent.setTag(tag: WorkflowManager.tags[button.tag])
+            parent.setTag(tag: Workflow.Tags.allValues[button.tag])
             dismiss(animated: true, completion: nil)
         }
     }
