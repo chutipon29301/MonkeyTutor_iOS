@@ -17,6 +17,7 @@ class NewWorkflowViewController: UIViewController {
     @IBOutlet weak var tag: UILabel!
     @IBOutlet weak var detail: UITextView!
     private var currentDate: Date?
+    private var loadingViewController: LoadingViewController?
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: "NewWorkflowView", bundle: nil)
@@ -49,11 +50,21 @@ class NewWorkflowViewController: UIViewController {
             presentDialog(DateSelectViewController(), size: CGSize(width: 300, height: 300), completion: nil)
         } else {
             date.text = "none"
+            currentDate = nil
         }
     }
     
     @IBAction func addBtnTapped(_ sender: Any) {
-        
+        if let title = workflowTitle.text, let subtitle = subtitle.text, let tag = tag.text, let detail = detail.text {
+            loadingViewController = LoadingViewController()
+            if let view = loadingViewController {
+                presentDialog(view, size: CGSize(width: 300, height: 200), completion: {
+                    WorkflowManager.shared.createWorkflow(title: title, subtitle: subtitle, duedate: self.currentDate, tag: tag, detail: detail, delegate: self)
+                })
+            }
+        } else {
+            presentDialog(AlertViewController(labelWith: "Please fill all the field"), size: CGSize(width: 300, height: 250), completion: nil)
+        }
     }
     
     func setTag(tag: String) {
@@ -65,5 +76,20 @@ class NewWorkflowViewController: UIViewController {
         currentDate = date
     }
     
+}
+
+extension NewWorkflowViewController: WorkflowUpdateResultDelegate {
+    
+    func workflowUpdated(success: Bool) {
+        loadingViewController?.dismiss(animated: true, completion: {
+            if success {
+                self.dismiss(animated: true, completion: {
+                    WorkflowManager.shared.updateWorkflow()
+                })
+            } else {
+                self.presentDialog(AlertViewController(labelWith: "An error occured, please try again later"), size: CGSize(width: 300, height: 250), completion: nil)
+            }
+        })
+    }
     
 }

@@ -13,10 +13,15 @@ class WorkflowTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         WorkflowManager.shared.delegate = self
+        tableView.refreshControl?.addTarget(self, action: #selector(self.update(_:)), for: .valueChanged)
     }
     
     @IBAction func addBtnTapped(_ sender: Any) {
         presentDialog(NewWorkflowViewController(), size: nil, completion: nil)
+    }
+    
+    @objc private func update(_ sender: Any) {
+        WorkflowManager.shared.updateWorkflow()
     }
     
 }
@@ -66,8 +71,14 @@ extension WorkflowTableViewController {
 
 extension WorkflowTableViewController: WorkflowUpdaterDelegate {
     
-    func workflowDataUpdate() {
-        self.tableView.reloadData()
+    func workflowDataUpdate(success :Bool) {
+        tableView.refreshControl?.endRefreshing()
+        if success {
+            self.tableView.reloadData()
+        } else {
+            presentDialog(AlertViewController(labelWith: "An error occured, please try again later"), size: CGSize(width: 300, height: 250), completion: nil)
+        }
+        
     }
     
 }

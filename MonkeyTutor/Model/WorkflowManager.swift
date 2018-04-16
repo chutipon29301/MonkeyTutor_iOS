@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 
 protocol WorkflowUpdaterDelegate {
-    func workflowDataUpdate()
+    func workflowDataUpdate(success: Bool)
 }
 
 protocol WorkflowUpdateResultDelegate {
@@ -66,10 +66,10 @@ class WorkflowManager {
             switch $0 {
             case.next(let value):
                 self._workflows = ObjectMapper.mapWorkflowResult(value)
-                self._delegate?.workflowDataUpdate()
+                self._delegate?.workflowDataUpdate(success: true)
                 break
-            case .error(let error):
-                print(error)
+            case .error(_):
+                self._delegate?.workflowDataUpdate(success: false)
                 break
             case .completed:
                 break
@@ -90,6 +90,7 @@ class WorkflowManager {
                 }
                 break
             case .error(_):
+                delegate?.workflowUpdated(success: false)
                 break
             case .completed:
                 break
