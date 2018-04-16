@@ -9,7 +9,6 @@
 import UIKit
 import MaterialComponents
 import MaterialComponents.MaterialTextFields
-import MaterialComponents.MaterialDialogs
 
 class ViewController: UIViewController, UITextFieldDelegate, LoginResultDelegate {
     
@@ -66,13 +65,9 @@ class ViewController: UIViewController, UITextFieldDelegate, LoginResultDelegate
     }
     
     func login(userID: Int, password: String) {
-        let dialogTransistionController = MDCDialogTransitionController()
         loadingViewController = LoadingViewController()
         if let view = loadingViewController {
-            view.modalPresentationStyle = .custom
-            view.transitioningDelegate = dialogTransistionController
-            view.preferredContentSize = CGSize(width: 300, height: 200)
-            present(view, animated: true, completion: {
+            presentDialog(view, size: CGSize(width: 300, height: 200), completion: {
                 UserLoginManager.shared.login(userID: userID, password: password, resultDelegate: self)
             })
         }
@@ -91,12 +86,8 @@ class ViewController: UIViewController, UITextFieldDelegate, LoginResultDelegate
     }
     
     func presentAlertViewController(text: String) {
-        let dialogTransistionController = MDCDialogTransitionController()
         let alertViewController = AlertViewController(labelWith: text)
-        alertViewController.modalPresentationStyle = .custom
-        alertViewController.transitioningDelegate = dialogTransistionController
-        alertViewController.preferredContentSize = CGSize(width: 300, height: 250)
-        present(alertViewController, animated: true, completion: nil)
+        presentDialog(alertViewController, size: CGSize(width: 300, height: 250), completion: nil)
     }
     
 }

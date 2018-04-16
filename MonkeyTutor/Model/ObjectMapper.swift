@@ -44,12 +44,18 @@ class ObjectMapper {
             if let tag = subJson["tag"].string {
                 _tag = tag
             }
+            let _childStatus = subJson["childStatus"].string
+            let _childOwner = subJson["childOwner"].string
             if let title = _title, let id = _nodeID, let timestamp = _timestamp, let createdBy = _createdBy, let status = _status, let owner = _owner, let parent = _parent, let subtitle = _subtitle, let detail = _detail {
-                let workflow = Workflow(title: title, id: id, timestamp: timestamp, createdBy: createdBy, duedate: _duedate, status: status, owner: owner, parent: parent, ancestors: _ancestors, subtitle: subtitle, detail: detail, tag: _tag)
+                let workflow = Workflow(title: title, id: id, timestamp: timestamp, createdBy: createdBy, duedate: _duedate, status: status, owner: owner, parent: parent, ancestors: _ancestors, subtitle: subtitle, detail: detail, tag: _tag, childStatus: _childStatus, childOwner: _childOwner)
                 workflows.append(workflow)
             }
         }
         return workflows
+    }
+    
+    static func mapResposeOK(_ jsonData: JSON) -> Bool {
+        return jsonData["msg"].string == "OK"
     }
     
 }

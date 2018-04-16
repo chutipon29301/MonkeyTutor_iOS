@@ -13,7 +13,7 @@ import SwiftyJSON
 
 class NetworkManager {
     
-    static let shared = NetworkManager(baseURL: "http://192.168.1.38:8080")
+    static let shared = NetworkManager(baseURL: "http://192.168.1.244:8080")
     
     let _baseURL: String
     
@@ -70,5 +70,18 @@ class NetworkManager {
     
     func listWorkflow() -> Observable<JSON> {
         return post(url: "/v2/workflow/list", params: nil)
+    }
+    
+    func createWorkflow(title: String, subtitle: String, duedate: Date?, tag: String, detail: String) -> Observable<JSON> {
+        var param: [String: Any] = [
+            "title": title,
+            "subtitle": subtitle,
+            "tag": tag,
+            "detail": detail
+        ]
+        if let duedate = duedate {
+            param["duedate"] = duedate
+        }
+        return post(url: "/v2/workflow/createWorkflow", params: param)
     }
 }

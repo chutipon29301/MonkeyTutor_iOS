@@ -6,4 +6,31 @@
 //  Copyright © 2561 MonkeyIT. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import MaterialComponents.MaterialDialogs
+
+extension UIViewController {
+    
+    func presentDialog(_ view: UIViewController, size: CGSize?, completion: (() -> Void)?) {
+        let dialogTransistionController = MDCDialogTransitionController()
+        view.modalPresentationStyle = .custom
+        view.transitioningDelegate = dialogTransistionController
+        if let size = size {
+            view.preferredContentSize = size
+        }
+        present(view, animated: true, completion: completion)
+    }
+    
+}
+
+extension Date {
+    
+    var dateString: String {
+        get {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd/MM/yyyy"
+            return formatter.string(from: self)
+        }
+    }
+    
+}

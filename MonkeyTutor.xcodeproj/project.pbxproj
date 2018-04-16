@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		841700682080DA39008318B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 841700672080DA39008318B0 /* Main.storyboard */; };
+		844A07ED20843F540080B47B /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A07EC20843F540080B47B /* Extension.swift */; };
 		849771EA200AF40600DDCA2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849771E9200AF40600DDCA2C /* AppDelegate.swift */; };
 		849771F1200AF40600DDCA2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 849771F0200AF40600DDCA2C /* Assets.xcassets */; };
 		849771F4200AF40600DDCA2C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849771F2200AF40600DDCA2C /* LaunchScreen.storyboard */; };
@@ -42,6 +43,7 @@
 		62F1CFBC6935BAF3DB6C0BAF /* Pods_MonkeyTutor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MonkeyTutor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C28106C9DA519EF7A6C3940 /* Pods-MonkeyTutor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonkeyTutor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MonkeyTutor/Pods-MonkeyTutor.debug.xcconfig"; sourceTree = "<group>"; };
 		841700672080DA39008318B0 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		844A07EC20843F540080B47B /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		849771E6200AF40600DDCA2C /* MonkeyTutor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonkeyTutor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		849771E9200AF40600DDCA2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		849771F0200AF40600DDCA2C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				849D474F2080FD0B00CDC931 /* ObjectMapper.swift */,
 				849D475120810C4900CDC931 /* RealmManager.swift */,
 				849D476220831BC900CDC931 /* WorkflowManager.swift */,
+				844A07EC20843F540080B47B /* Extension.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -406,6 +409,7 @@
 				849D475620821ABC00CDC931 /* LoadingViewController.swift in Sources */,
 				849D475A2082286F00CDC931 /* AlertViewController.swift in Sources */,
 				849D47692083446A00CDC931 /* NewWorkflowViewController.swift in Sources */,
+				844A07ED20843F540080B47B /* Extension.swift in Sources */,
 				849D47452080F89000CDC931 /* ViewController.swift in Sources */,
 				849D475F2082547900CDC931 /* SettingTableViewController.swift in Sources */,
 				849771EA200AF40600DDCA2C /* AppDelegate.swift in Sources */,

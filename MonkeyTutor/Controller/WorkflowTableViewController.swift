@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MaterialComponents.MaterialDialogs
 
 class WorkflowTableViewController: UITableViewController {
     
@@ -17,11 +16,7 @@ class WorkflowTableViewController: UITableViewController {
     }
     
     @IBAction func addBtnTapped(_ sender: Any) {
-        let dialogTransistionController = MDCDialogTransitionController()
-        let newWorkflowViewController = NewWorkflowViewController()
-        newWorkflowViewController.modalPresentationStyle = .custom
-        newWorkflowViewController.transitioningDelegate = dialogTransistionController
-        present(newWorkflowViewController, animated: true, completion: nil)
+        presentDialog(NewWorkflowViewController(), size: nil, completion: nil)
     }
     
 }
@@ -59,6 +54,7 @@ extension WorkflowTableViewController {
         case ("showWorkflowList", let destination):
             if let destination = destination as? WorkflowListTableViewController, let indexPath = sender as? IndexPath {
                 destination.title = WorkflowManager.status[indexPath.row].label
+                destination.selectedIndexPath = indexPath
             }
             break
         default:

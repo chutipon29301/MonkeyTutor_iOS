@@ -13,6 +13,10 @@ protocol WorkflowUpdaterDelegate {
     func workflowDataUpdate()
 }
 
+protocol WorkflowUpdateResultDelegate {
+    func workflowUpdated(success: Bool)
+}
+
 class WorkflowManager {
     
     static let shared = WorkflowManager()
@@ -73,8 +77,24 @@ class WorkflowManager {
         }
     }
     
-    func cancelUpdate() {
+    func cancel() {
         subscription?.dispose()
+    }
+    
+    func createWorkflow(title: String, subtitle: String, duedate: Date?, tag: String, detail: String, delegate: WorkflowUpdateResultDelegate?) {
+        subscription = NetworkManager.shared.createWorkflow(title: title, subtitle: subtitle, duedate: duedate, tag: tag, detail: detail).subscribe {
+            switch $0 {
+            case .next(let value):
+                if let delegate = delegate {
+                    delegate.workflowUpdated(success: ObjectMapper.mapResposeOK(value))
+                }
+                break
+            case .error(_):
+                break
+            case .completed:
+                break
+            }
+        }
     }
     
 }
@@ -92,8 +112,10 @@ class Workflow {
     private var _subtitle: String!
     private var _detail: String!
     private var _tag: String!
+    private var _childStatus: String?
+    private var _childOwner: String?
     
-    init(title: String, id: String, timestamp: Date, createdBy: Int, duedate: Date?, status: String, owner: Int, parent: String, ancestors: [String], subtitle: String, detail: String, tag: String) {
+    init(title: String, id: String, timestamp: Date, createdBy: Int, duedate: Date?, status: String, owner: Int, parent: String, ancestors: [String], subtitle: String, detail: String, tag: String, childStatus: String?, childOwner: String?) {
         _title = title
         _nodeID = id
         _timestamp = timestamp
@@ -106,6 +128,20 @@ class Workflow {
         _subtitle = subtitle
         _detail = detail
         _tag = tag
+        _childStatus = childStatus
+        _childOwner = childOwner
+    }
+    
+    var title: String {
+        get {
+            return _title
+        }
+    }
+    
+    var subtitle: String {
+        get {
+            return _subtitle
+        }
     }
     
     var status: String {
@@ -117,6 +153,26 @@ class Workflow {
     var tag: String {
         get {
             return _tag
+        }
+    }
+    
+    var duedateString: String {
+        get {
+            if let duedate = _duedate {
+                return duedate.dateString
+            } else {
+                return "none"
+            }
+        }
+    }
+    
+    var childStatus: String {
+        get {
+            if let status = _childStatus {
+                return status
+            } else {
+                return "none"
+            }
         }
     }
 }

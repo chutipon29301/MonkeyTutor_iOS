@@ -8,12 +8,15 @@
 
 import UIKit
 import MaterialComponents.MaterialTextFields
-import MaterialComponents.MaterialDialogs
 
 class NewWorkflowViewController: UIViewController {
     
+    @IBOutlet weak var workflowTitle: MDCTextField!
+    @IBOutlet weak var subtitle: MDCTextField!
     @IBOutlet weak var date: UILabel!
     @IBOutlet weak var tag: UILabel!
+    @IBOutlet weak var detail: UITextView!
+    private var currentDate: Date?
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: "NewWorkflowView", bundle: nil)
@@ -38,22 +41,12 @@ class NewWorkflowViewController: UIViewController {
     }
     
     @IBAction func selectTagBtnTapped(_ sender: Any) {
-        let dialogTransistionController = MDCDialogTransitionController()
-        let tagSelectViewController = TagSelectViewController()
-        tagSelectViewController.modalPresentationStyle = .custom
-        tagSelectViewController.transitioningDelegate = dialogTransistionController
-        tagSelectViewController.preferredContentSize = CGSize(width: 300, height: 300)
-        present(tagSelectViewController, animated: true, completion: nil)
+        presentDialog(TagSelectViewController(), size: CGSize(width: 300, height: 300), completion: nil)
     }
     
     @IBAction func dateSwitchChange(_ sender: UISwitch) {
         if sender.isOn {
-            let dialogTransistionController = MDCDialogTransitionController()
-            let dateSelectViewController = DateSelectViewController()
-            dateSelectViewController.modalPresentationStyle = .custom
-            dateSelectViewController.transitioningDelegate = dialogTransistionController
-            dateSelectViewController.preferredContentSize = CGSize(width: 300, height: 300)
-            present(dateSelectViewController, animated: true, completion: nil)
+            presentDialog(DateSelectViewController(), size: CGSize(width: 300, height: 300), completion: nil)
         } else {
             date.text = "none"
         }
@@ -66,5 +59,11 @@ class NewWorkflowViewController: UIViewController {
     func setTag(tag: String) {
         self.tag.text = tag
     }
+    
+    func setDate(date: Date) {
+        self.date.text = date.dateString
+        currentDate = date
+    }
+    
     
 }
