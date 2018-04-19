@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WorkflowDetailViewController: UIViewController {
+class WorkflowDetailViewController: UIViewController, WorkflowUpdaterDelegate, ChangeWorkflowStatusDelegate, AssignWorkflowDelegate, AssignWorkflowDetailDelegate {
     
     @IBOutlet weak var workflowTitle: UILabel!
     @IBOutlet weak var subtitle: UILabel!
@@ -19,6 +19,7 @@ class WorkflowDetailViewController: UIViewController {
     @IBOutlet weak var detail: UITextView!
     
     private var _workflow: Workflow?
+    private var loadingViewController: LoadingViewController?
     
     convenience init(workflow: Workflow) {
         self.init()
@@ -48,5 +49,40 @@ class WorkflowDetailViewController: UIViewController {
     
     @IBAction func assignBtnTapped(_ sender: Any) {
         presentDialog(AssignWorkflowViewController(), size: CGSize(width: 300, height: 300), completion: nil)
+    }
+    
+    func changeStatus(status: Workflow.Status) {
+        loadingViewController = LoadingViewController()
+        if let view = loadingViewController {
+            presentDialog(view, size: CGSize(width: 300, height: 300), completion: {
+                self._workflow?.delegate = self
+                self._workflow?.changeStatus(status)
+            })
+        }
+    }
+    
+    func assignWorkflow(tutor: Tutor) {
+        presentDialog(AssignWorkflowDetailViewController(tutor: tutor), size: nil, completion: nil)
+    }
+    
+    func workflowDataUpdate(success: Bool) {
+        loadingViewController?.dismiss(animated: true, completion: {
+            if success {
+                WorkflowManager.shared.updateWorkflow()
+                self.dismiss(animated: true, completion: nil)
+            } else {
+                self.presentAlertDialog(text: "An error occured, please try again later")
+            }
+        })
+    }
+    
+    func assignWorkflowDetail(subtitle: String?, detail: String?, date: Date?, tutor: Tutor) {
+        loadingViewController = LoadingViewController()
+        if let view = loadingViewController {
+            presentDialog(view, size: CGSize(width: 300, height: 300), completion: {
+                self._workflow?.delegate = self
+                self._workflow?.assign(to: tutor.id, subtitle: subtitle, detail: detail, duedate: date)
+            })
+        }
     }
 }

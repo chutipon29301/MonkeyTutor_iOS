@@ -16,6 +16,15 @@ class RealmManager {
     let realm: Realm
     
     private init() {
+        let config = Realm.Configuration(
+            schemaVersion: 1,
+            migrationBlock: { migration, oldSchemaVersion in
+                if (oldSchemaVersion < 1) {
+                }
+        })
+        
+        Realm.Configuration.defaultConfiguration = config
+        
         realm = try! Realm()
         print(Realm.Configuration.defaultConfiguration.fileURL ?? "")
     }

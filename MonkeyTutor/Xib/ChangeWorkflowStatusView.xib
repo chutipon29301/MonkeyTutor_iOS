@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,133 +27,72 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fxC-8l-TMt">
-                    <rect key="frame" x="16" y="56.5" width="268" height="227.5"/>
-                    <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rVm-zL-Udt">
-                            <rect key="frame" x="0.0" y="0.0" width="134" height="227.5"/>
-                            <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tD6-Ll-9zU">
-                                    <rect key="frame" x="0.0" y="0.0" width="134" height="114"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hHB-Yg-NAw" customClass="MDCFloatingButton">
-                                            <rect key="frame" x="17" y="24.5" width="100" height="65"/>
-                                            <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="100" id="nhn-Ky-19Z"/>
-                                                <constraint firstAttribute="height" constant="65" id="xld-1A-FYM"/>
-                                            </constraints>
-                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <state key="normal" title="Note"/>
-                                            <connections>
-                                                <action selector="noteBtnTapped:" destination="-1" eventType="touchUpInside" id="Aoi-yd-xXn"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <constraints>
-                                        <constraint firstItem="hHB-Yg-NAw" firstAttribute="centerY" secondItem="tD6-Ll-9zU" secondAttribute="centerY" id="f5o-ei-IYv"/>
-                                        <constraint firstItem="hHB-Yg-NAw" firstAttribute="centerX" secondItem="tD6-Ll-9zU" secondAttribute="centerX" id="ru7-fy-cSZ"/>
-                                    </constraints>
-                                </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MIX-Vv-1ug">
-                                    <rect key="frame" x="0.0" y="114" width="134" height="113.5"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PCP-ys-4W9" customClass="MDCFloatingButton">
-                                            <rect key="frame" x="17" y="24.5" width="100" height="65"/>
-                                            <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="100" id="2uN-r0-JLS"/>
-                                                <constraint firstAttribute="height" constant="65" id="duW-tR-mbp"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <state key="normal" title="In progress"/>
-                                            <connections>
-                                                <action selector="inProgressBtnTapped:" destination="-1" eventType="touchUpInside" id="Qhy-0w-M3l"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <constraints>
-                                        <constraint firstItem="PCP-ys-4W9" firstAttribute="centerY" secondItem="MIX-Vv-1ug" secondAttribute="centerY" id="ZR7-VR-m1E"/>
-                                        <constraint firstItem="PCP-ys-4W9" firstAttribute="centerX" secondItem="MIX-Vv-1ug" secondAttribute="centerX" id="gyK-Ib-hUc"/>
-                                    </constraints>
-                                </view>
-                            </subviews>
-                        </stackView>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bR0-vM-g0s">
-                            <rect key="frame" x="134" y="0.0" width="134" height="227.5"/>
-                            <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c8U-BM-Sgq">
-                                    <rect key="frame" x="0.0" y="0.0" width="134" height="114"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LbE-6u-5Sq" customClass="MDCFloatingButton">
-                                            <rect key="frame" x="17" y="24.5" width="100" height="65"/>
-                                            <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="65" id="0fN-P1-1Z2"/>
-                                                <constraint firstAttribute="width" constant="100" id="EtN-aI-kFW"/>
-                                            </constraints>
-                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <state key="normal" title="Todo"/>
-                                            <connections>
-                                                <action selector="todoBtnTapped:" destination="-1" eventType="touchUpInside" id="Nyd-VC-0KN"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <constraints>
-                                        <constraint firstItem="LbE-6u-5Sq" firstAttribute="centerY" secondItem="c8U-BM-Sgq" secondAttribute="centerY" id="QAf-GG-0fe"/>
-                                        <constraint firstItem="LbE-6u-5Sq" firstAttribute="centerX" secondItem="c8U-BM-Sgq" secondAttribute="centerX" id="yA9-pz-fpt"/>
-                                    </constraints>
-                                </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c5r-vF-4u0">
-                                    <rect key="frame" x="0.0" y="114" width="134" height="113.5"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BX1-Iw-BzF" customClass="MDCFloatingButton">
-                                            <rect key="frame" x="17" y="24" width="100" height="65"/>
-                                            <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="65" id="owl-ow-dIf"/>
-                                                <constraint firstAttribute="width" constant="100" id="ztf-un-Shn"/>
-                                            </constraints>
-                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <state key="normal" title="Done"/>
-                                            <connections>
-                                                <action selector="doneBtnTapped:" destination="-1" eventType="touchUpInside" id="KEy-9e-PhW"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <constraints>
-                                        <constraint firstItem="BX1-Iw-BzF" firstAttribute="centerX" secondItem="c5r-vF-4u0" secondAttribute="centerX" id="KQV-3l-1pv"/>
-                                        <constraint firstItem="BX1-Iw-BzF" firstAttribute="centerY" secondItem="c5r-vF-4u0" secondAttribute="centerY" id="og0-1B-g5Y"/>
-                                    </constraints>
-                                </view>
-                            </subviews>
-                        </stackView>
-                    </subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hHB-Yg-NAw" customClass="MDCFloatingButton">
+                    <rect key="frame" x="16" y="85" width="100" height="65"/>
+                    <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="bR0-vM-g0s" secondAttribute="trailing" id="3Wu-J0-Fn8"/>
-                        <constraint firstItem="rVm-zL-Udt" firstAttribute="leading" secondItem="fxC-8l-TMt" secondAttribute="leading" id="BhK-Qf-mNc"/>
-                        <constraint firstItem="bR0-vM-g0s" firstAttribute="leading" secondItem="rVm-zL-Udt" secondAttribute="trailing" id="LqW-cE-zk5"/>
-                        <constraint firstAttribute="bottom" secondItem="rVm-zL-Udt" secondAttribute="bottom" id="RGL-Fv-hfS"/>
-                        <constraint firstItem="rVm-zL-Udt" firstAttribute="top" secondItem="fxC-8l-TMt" secondAttribute="top" id="cUP-xT-NFV"/>
-                        <constraint firstAttribute="bottom" secondItem="bR0-vM-g0s" secondAttribute="bottom" id="fwP-2T-hA2"/>
-                        <constraint firstItem="bR0-vM-g0s" firstAttribute="leading" secondItem="rVm-zL-Udt" secondAttribute="trailing" id="qyc-Uw-abF"/>
-                        <constraint firstItem="bR0-vM-g0s" firstAttribute="top" secondItem="fxC-8l-TMt" secondAttribute="top" id="xgh-me-RCH"/>
+                        <constraint firstAttribute="width" constant="100" id="9QI-U2-WL5"/>
+                        <constraint firstAttribute="height" constant="65" id="9TD-5I-j6Y"/>
                     </constraints>
-                </stackView>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Note"/>
+                    <connections>
+                        <action selector="noteBtnTapped:" destination="-1" eventType="touchUpInside" id="Aoi-yd-xXn"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BX1-Iw-BzF" customClass="MDCFloatingButton">
+                    <rect key="frame" x="184" y="215" width="100" height="65"/>
+                    <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="0vo-bF-mpM"/>
+                        <constraint firstAttribute="height" constant="65" id="3jQ-Jv-WhQ"/>
+                    </constraints>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Done"/>
+                    <connections>
+                        <action selector="doneBtnTapped:" destination="-1" eventType="touchUpInside" id="KEy-9e-PhW"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PCP-ys-4W9" customClass="MDCFloatingButton">
+                    <rect key="frame" x="16" y="215" width="100" height="65"/>
+                    <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="2l2-77-IpI"/>
+                        <constraint firstAttribute="height" constant="65" id="Buc-oc-g0r"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="In progress"/>
+                    <connections>
+                        <action selector="inProgressBtnTapped:" destination="-1" eventType="touchUpInside" id="Qhy-0w-M3l"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LbE-6u-5Sq" customClass="MDCFloatingButton">
+                    <rect key="frame" x="184" y="85" width="100" height="65"/>
+                    <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="65" id="SC7-nf-7Nh"/>
+                        <constraint firstAttribute="width" constant="100" id="mcj-mU-eaa"/>
+                    </constraints>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Todo"/>
+                    <connections>
+                        <action selector="todoBtnTapped:" destination="-1" eventType="touchUpInside" id="Nyd-VC-0KN"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="fxC-8l-TMt" firstAttribute="top" secondItem="Vcl-Th-hOA" secondAttribute="bottom" constant="16" id="356-7f-OMv"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="PCP-ys-4W9" secondAttribute="bottom" constant="20" id="1YC-qm-BQj"/>
                 <constraint firstItem="Vcl-Th-hOA" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="7nm-lD-gbc"/>
-                <constraint firstItem="fxC-8l-TMt" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="Bgf-O8-ipy"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="fxC-8l-TMt" secondAttribute="bottom" constant="16" id="HXr-I5-uUs"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="centerY" secondItem="LbE-6u-5Sq" secondAttribute="bottom" id="IF3-OD-8sy"/>
+                <constraint firstItem="hHB-Yg-NAw" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="KYN-xp-zWq"/>
                 <constraint firstItem="Vcl-Th-hOA" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="NyP-dW-xxp"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="fxC-8l-TMt" secondAttribute="trailing" constant="16" id="dCt-Rj-W7f"/>
+                <constraint firstItem="PCP-ys-4W9" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="Y2J-mA-0e0"/>
+                <constraint firstAttribute="centerY" secondItem="hHB-Yg-NAw" secondAttribute="bottom" id="ani-aE-SJf"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="BX1-Iw-BzF" secondAttribute="trailing" constant="16" id="sB9-c9-rNx"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="LbE-6u-5Sq" secondAttribute="trailing" constant="16" id="ymv-3q-z4o"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="BX1-Iw-BzF" secondAttribute="bottom" constant="20" id="z0k-Yc-gfP"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

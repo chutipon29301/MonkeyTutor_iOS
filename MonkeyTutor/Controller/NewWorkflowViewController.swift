@@ -18,6 +18,7 @@ class NewWorkflowViewController: UIViewController {
     @IBOutlet weak var detail: UITextView!
     private var currentDate: Date?
     private var loadingViewController: LoadingViewController?
+    private var workflowID: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,13 +56,20 @@ class NewWorkflowViewController: UIViewController {
                 })
             }
         } else {
-            presentDialog(AlertViewController(labelWith: "Please fill all the field"), size: CGSize(width: 300, height: 250), completion: nil)
+            presentAlertDialog(text: "Please fill all the field")
         }
     }
+}
+
+extension NewWorkflowViewController: TagSelectorDelegate {
     
     func setTag(tag: Workflow.Tags) {
         self.tag.text = tag.rawValue
     }
+    
+}
+
+extension NewWorkflowViewController: DateSelectorDelegate {
     
     func setDate(date: Date) {
         self.date.text = date.dateString
@@ -70,18 +78,76 @@ class NewWorkflowViewController: UIViewController {
     
 }
 
-extension NewWorkflowViewController: WorkflowUpdateResultDelegate {
+extension NewWorkflowViewController: WorflowCreateResultDelegate {
     
-    func workflowUpdated(workflow: Workflow?) {
+    func workflowCreated(id: String?) {
         loadingViewController?.dismiss(animated: true, completion: {
-            if let workflow = workflow {
-                self.dismiss(animated: true, completion: {
-                    WorkflowManager.shared.updateWorkflow()
-                })
+            print(id)
+            if let id = id {
+                self.workflowID = id
+                self.presentDialog(AssignWorkflowViewController(), size: CGSize(width: 300, height: 300), completion: nil)
+//                self.dismiss(animated: true, completion: {
+//                    WorkflowManager.shared.updateWorkflow()
+//                })
             } else {
-                self.presentDialog(AlertViewController(labelWith: "An error occured, please try again later"), size: CGSize(width: 300, height: 250), completion: nil)
+                self.presentAlertDialog(text: "An error occured, please try again later")
             }
         })
     }
     
 }
+
+extension NewWorkflowViewController: AssignWorkflowDelegate {
+    func assignWorkflow(tutor: Tutor) {
+        presentDialog(AssignWorkflowDetailViewController(tutor: tutor), size: nil, completion: nil)
+    }
+}
+
+extension NewWorkflowViewController: AssignWorkflowDetailDelegate {
+    func assignWorkflowDetail(subtitle: String?, detail: String?, date: Date?, tutor: Tutor) {
+        loadingViewController = LoadingViewController()
+        if let view = loadingViewController {
+            presentDialog(view, size: CGSize(width: 300, height: 300), completion: {
+                if let id = self.workflowID {
+                    let _ = NetworkManager.shared.assign(workflowID: id, to: tutor.id, subtitle: subtitle, detail: detail, duedate: nil).subscribe{
+                        switch $0 {
+                        case .next(let value):
+                            view.dismiss(animated: true, completion: nil)
+                            if value.responseOK {
+                                self.dismiss(animated: true, completion: nil)
+                            } else {
+                                self.presentAlertDialog(text: "An error occured, please try again later")
+                            }
+                            break
+                        case .error(_):
+                            self.presentAlertDialog(text: "An error occured, please try again later")
+                            break
+                        case .completed:
+                            break
+                        }
+                    }
+                }
+//                self._workflow?.delegate = self
+//                self._workflow?.assign(to: tutor.id, subtitle: subtitle, detail: detail, duedate: date)
+            })
+        }
+    }
+}
+
+//extension NewWorkflowViewController: WorkflowUpdateResultDelegate {
+//
+//    func workflowUpdated(workflow: Workflow?) {
+//        loadingViewController?.dismiss(animated: true, completion: {
+//            //            TODO: Handle assign after create workflow
+//            if let workflow = workflow {
+//                self.dismiss(animated: true, completion: {
+//                    WorkflowManager.shared.updateWorkflow()
+//                })
+//            } else {
+//                self.presentAlertDialog(text: "An error occured, please try again later")
+////                self.presentDialog(AlertViewController(labelWith: "An error occured, please try again later"), size: CGSize(width: 300, height: 250), completion: nil)
+//            }
+//        })
+//    }
+//
+//}

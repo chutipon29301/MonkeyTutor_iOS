@@ -26,9 +26,10 @@ class UserLoginManager {
         subscription = NetworkManager.shared.login(userID: userID, password: CryptoJS.SHA3().hash(password)).subscribe {
             switch $0 {
             case .next(let value):
-                let isVerify = ObjectMapper.mapLoginResult(value)
+                let isVerify = value.loginResult
                 resultDelegate?.loginResult(isVerify: isVerify)
                 if isVerify && !self.isCurrentUserLoggin() {
+                    NotificationTokenManager.shared.registerDeviceWith(userID: userID)
                     RealmManager.shared.addCurrentUser(userID: userID, password: password)
                     completion?()
                 }

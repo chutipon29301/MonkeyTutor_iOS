@@ -102,8 +102,36 @@ class NetworkManager {
         return post(url: "/v2/workflow/inprogress", params: ["workflowID": workflowID])
     }
     
+    func assign(workflowID: String, to owner: Int, subtitle: String?, detail: String?, duedate: Date?) -> Observable<JSON> {
+        var param: [String: Any] = [
+            "workflowID": workflowID,
+            "owner": owner
+        ]
+        if let subtitle = subtitle {
+            param["subtitle"] = subtitle
+        }
+        if let detail = detail {
+            param["detail"] = detail
+        }
+        if let duedate = duedate {
+            param["duedate"] = duedate
+        }
+        return post(url: "/v2/workflow/assign", params: param)
+    }
+    
     func workflowDone(workflowID: String) -> Observable<JSON> {
         return post(url: "/v2/workflow/done", params: ["workflowID": workflowID])
+    }
+    
+    func listTutor() -> Observable<JSON> {
+        return post(url: "/v2/tutor/list", params: nil)
+    }
+    
+    func registerDeviceToken(userID: Int, token: String) -> Observable<JSON> {
+        return post(url: "/post/v1/registeriOSDeviceToken", params: [
+                "id": userID,
+                "token": token
+            ])
     }
     
 }

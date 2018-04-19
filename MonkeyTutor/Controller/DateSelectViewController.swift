@@ -8,12 +8,16 @@
 
 import UIKit
 
+protocol DateSelectorDelegate {
+    func setDate(date: Date)
+}
+
 class DateSelectViewController: UIViewController {
     
     @IBOutlet weak var date: UIDatePicker!
     
     @IBAction func doneBtnTapped(_ sender: Any?) {
-        if let parent = presentingViewController as? NewWorkflowViewController {
+        if let parent = presentingViewController as? DateSelectorDelegate {
             parent.setDate(date: date.date)
             dismiss(animated: true, completion: nil)
         }

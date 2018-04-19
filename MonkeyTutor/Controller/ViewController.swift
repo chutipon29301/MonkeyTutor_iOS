@@ -60,7 +60,7 @@ class ViewController: UIViewController, UITextFieldDelegate, LoginResultDelegate
         if let userID = Int(userID.text!), let password = password.text {
             login(userID: userID, password: password)
         } else {
-            presentAlertViewController(text: "Please enter valid user id and password")
+            presentAlertDialog(text: "Please enter valid user id and password")
         }
     }
     
@@ -80,14 +80,11 @@ class ViewController: UIViewController, UITextFieldDelegate, LoginResultDelegate
             })
         } else {
             loadingViewController?.dismiss(animated: true, completion: {
-                self.presentAlertViewController(text: "Wrong user id or password")
+                self.presentAlertDialog(text: "Wrong user id or password")
             })
         }
     }
     
-    func presentAlertViewController(text: String) {
-        let alertViewController = AlertViewController(labelWith: text)
-        presentDialog(alertViewController, size: CGSize(width: 300, height: 250), completion: nil)
-    }
+   
     
 }

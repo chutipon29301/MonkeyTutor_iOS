@@ -17,22 +17,17 @@ protocol WorkflowUpdateResultDelegate {
     func workflowUpdated(workflow: Workflow?)
 }
 
+protocol WorflowCreateResultDelegate {
+    func workflowCreated(id: String?)
+}
+
 class WorkflowManager {
     
     static let shared = WorkflowManager()
     
     private var _workflows: [Workflow] = []
     private var subscription: Disposable?
-    private var _delegate: WorkflowUpdaterDelegate?
-    
-    var delegate: WorkflowUpdaterDelegate? {
-        get {
-            return _delegate
-        }
-        set {
-            _delegate = newValue
-        }
-    }
+    var delegate: WorkflowUpdaterDelegate?
     
     private init() {
         updateWorkflow()
@@ -48,11 +43,11 @@ class WorkflowManager {
         subscription = NetworkManager.shared.listWorkflow().subscribe {
             switch $0 {
             case.next(let value):
-                self._workflows = ObjectMapper.mapWorkflowResult(value)
-                self._delegate?.workflowDataUpdate(success: true)
+                self._workflows = value.workflows
+                self.delegate?.workflowDataUpdate(success: true)
                 break
             case .error(_):
-                self._delegate?.workflowDataUpdate(success: false)
+                self.delegate?.workflowDataUpdate(success: false)
                 break
             case .completed:
                 break
@@ -64,16 +59,21 @@ class WorkflowManager {
         subscription?.dispose()
     }
     
-    func createWorkflow(title: String, subtitle: String, duedate: Date?, tag: String, detail: String, delegate: WorkflowUpdateResultDelegate?) {
+    func createWorkflow(title: String, subtitle: String, duedate: Date?, tag: String, detail: String, delegate: WorflowCreateResultDelegate?) {
         subscription = NetworkManager.shared.createWorkflow(title: title, subtitle: subtitle, duedate: duedate, tag: tag, detail: detail).subscribe {
             switch $0 {
             case .next(let value):
+                print(value)
+                print(value.nodeID)
                 if let delegate = delegate {
-                    delegate.workflowUpdated(workflow: ObjectMapper.mapCreateWorkflowResult(value))
+                    
+                    delegate.workflowCreated(id: value.nodeID)
                 }
                 break
             case .error(_):
-                delegate?.workflowUpdated(workflow: nil)
+                if let delegate = delegate {
+                    delegate.workflowCreated(id: nil)
+                }
                 break
             case .completed:
                 break
@@ -144,6 +144,10 @@ class Workflow {
     private var _childStatus: Status?
     private var _childOwner: String?
     
+    private var subscription: Disposable?
+    
+    var delegate: WorkflowUpdaterDelegate?
+    
     init(title: String, id: String, timestamp: Date, createdBy: Int, duedate: Date?, status: Status, owner: Int, parent: String, ancestors: [String], subtitle: String, detail: String, tag: Tags, childStatus: Status?, childOwner: String?) {
         _title = title
         _nodeID = id
@@ -213,19 +217,85 @@ class Workflow {
     
     var childOwner: String {
         get {
-            if let childOwner = _childOwner {
-                return childOwner
-            } else {
-                return "none"
-            }
+            return _childOwner ?? "none"
         }
     }
     
-//    func changeStatus(to: ) {
-//
-//    }
+    func changeStatus(_ to: Status) {
+        switch to {
+        case .note:
+            subscription = NetworkManager.shared.workflowNote(workflowID: _nodeID).subscribe {
+                switch $0 {
+                case .next(let value):
+                    self.delegate?.workflowDataUpdate(success: value.responseOK)
+                    break
+                case .error(_):
+                    break
+                case .completed:
+                    break
+                }
+            }
+            break
+        case .todo:
+            subscription = NetworkManager.shared.workflowTodo(workflowID: _nodeID).subscribe {
+                switch $0 {
+                case .next(let value):
+                    self.delegate?.workflowDataUpdate(success: value.responseOK)
+                    break
+                case .error(_):
+                    break
+                case .completed:
+                    break
+                }
+            }
+            break
+        case .inprogress:
+            subscription = NetworkManager.shared.workflowInProgress(workflowID: _nodeID).subscribe {
+                switch $0 {
+                case .next(let value):
+                    self.delegate?.workflowDataUpdate(success: value.responseOK)
+                    break
+                case .error(_):
+                    break
+                case .completed:
+                    break
+                }
+            }
+            break
+        case .done:
+            subscription = NetworkManager.shared.workflowDone(workflowID: _nodeID).subscribe {
+                switch $0 {
+                case .next(let value):
+                    self.delegate?.workflowDataUpdate(success: value.responseOK)
+                    break
+                case .error(_):
+                    break
+                case .completed:
+                    break
+                }
+            }
+            break
+        default:
+            break
+        }
+    }
     
-    func assign(to: Int) {
-        
+    func assign(to owner: Int, subtitle: String?, detail: String?, duedate: Date?) {
+        subscription = NetworkManager.shared.assign(
+            workflowID: _nodeID,
+            to: owner,
+            subtitle: subtitle,
+            detail: detail,
+            duedate: duedate).subscribe{
+                switch $0 {
+                case .next(let value):
+                    self.delegate?.workflowDataUpdate(success: value.responseOK)
+                    break
+                case .error(_):
+                    break
+                case .completed:
+                    break
+                }
+        }
     }
 }

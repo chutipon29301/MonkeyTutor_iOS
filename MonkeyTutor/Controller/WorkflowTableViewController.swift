@@ -76,7 +76,7 @@ extension WorkflowTableViewController: WorkflowUpdaterDelegate {
         if success {
             self.tableView.reloadData()
         } else {
-            presentDialog(AlertViewController(labelWith: "An error occured, please try again later"), size: CGSize(width: 300, height: 250), completion: nil)
+            presentAlertDialog(text: "An error occured, please try again later")
         }
     }
     

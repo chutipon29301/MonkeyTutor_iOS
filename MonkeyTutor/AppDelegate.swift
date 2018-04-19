@@ -56,7 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         let token = tokenParts.joined()
-//        NotificationTokenManager.getInstance().setToken(token: token)
+        NotificationTokenManager.shared.token = token
         print("Device Token: \(token)")
     }
     
