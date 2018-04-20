@@ -161,8 +161,8 @@ extension JSON {
                 let owner = self["owner"].int,
                 let parent = self["parent"].string,
                 let subtitle = self["subtitle"].string,
-                let detail = self["detail"].string
-            {
+                let detail = self["detail"].string,
+                let canDelete = self["canDelete"].bool {
                 let ancestors = self["ancestors"].arrayValue.map({ $0.string! })
                 let status = Workflow.Status.allValues
                 return Workflow(title: title,
@@ -178,7 +178,8 @@ extension JSON {
                                 detail: detail,
                                 tag: Workflow.Tags.allValues.findFrom(string: self["tag"].string),
                                 childStatus: status.findFrom(string: self["childStatus"].string),
-                                childOwner: self["childOwnerName"].string)
+                                childOwner: self["childOwnerName"].string,
+                                canDelete: canDelete)
             } else {
                 return nil
             }
@@ -198,8 +199,7 @@ extension JSON {
     var tutor: Tutor? {
         get {
             if let id = self["_id"].int,
-                let nicknameEn = self["nicknameEn"].string
-            {
+                let nicknameEn = self["nicknameEn"].string {
                 return Tutor(id: id, nicknameEn: nicknameEn)
             } else {
                 return nil

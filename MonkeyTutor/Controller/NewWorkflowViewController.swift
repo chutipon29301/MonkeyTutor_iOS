@@ -19,11 +19,21 @@ class NewWorkflowViewController: UIViewController {
     private var currentDate: Date?
     private var loadingViewController: LoadingViewController?
     private var workflowID: String?
+    var sampleWorkflow: Workflow?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let outsideTap = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         view.addGestureRecognizer(outsideTap)
+        
+        if let workflow = sampleWorkflow {
+            workflowTitle.text = workflow.title
+            subtitle.text =  workflow.subtitle
+            tag.text = workflow.tag.rawValue
+            date.text = workflow.duedateString
+            currentDate = workflow.duedate
+            detail.text = workflow.detail
+        }
     }
     
     @objc func dismissKeyboard() {
@@ -82,13 +92,14 @@ extension NewWorkflowViewController: WorflowCreateResultDelegate {
     
     func workflowCreated(id: String?) {
         loadingViewController?.dismiss(animated: true, completion: {
-            print(id)
-            if let id = id {
+            if let id = id,
+                let parent = self.presentingViewController {
                 self.workflowID = id
-                self.presentDialog(AssignWorkflowViewController(), size: CGSize(width: 300, height: 300), completion: nil)
-//                self.dismiss(animated: true, completion: {
-//                    WorkflowManager.shared.updateWorkflow()
-//                })
+                self.dismiss(animated: true, completion: {
+//                    create temp workflow
+                    let workflow = Workflow(title: "", id: id, timestamp: Date(), createdBy: 0, duedate: nil, status: .none, owner: 0, parent: "", ancestors: [], subtitle: "", detail: "", tag: .other, childStatus: nil, childOwner: nil, canDelete: false)
+                    parent.presentDialog(AssignWorkflowViewController(workflow: workflow), size: CGSize(width: 300, height: 300), completion: nil)
+                })
             } else {
                 self.presentAlertDialog(text: "An error occured, please try again later")
             }
@@ -97,57 +108,31 @@ extension NewWorkflowViewController: WorflowCreateResultDelegate {
     
 }
 
-extension NewWorkflowViewController: AssignWorkflowDelegate {
-    func assignWorkflow(tutor: Tutor) {
-        presentDialog(AssignWorkflowDetailViewController(tutor: tutor), size: nil, completion: nil)
-    }
-}
-
-extension NewWorkflowViewController: AssignWorkflowDetailDelegate {
-    func assignWorkflowDetail(subtitle: String?, detail: String?, date: Date?, tutor: Tutor) {
-        loadingViewController = LoadingViewController()
-        if let view = loadingViewController {
-            presentDialog(view, size: CGSize(width: 300, height: 300), completion: {
-                if let id = self.workflowID {
-                    let _ = NetworkManager.shared.assign(workflowID: id, to: tutor.id, subtitle: subtitle, detail: detail, duedate: nil).subscribe{
-                        switch $0 {
-                        case .next(let value):
-                            view.dismiss(animated: true, completion: nil)
-                            if value.responseOK {
-                                self.dismiss(animated: true, completion: nil)
-                            } else {
-                                self.presentAlertDialog(text: "An error occured, please try again later")
-                            }
-                            break
-                        case .error(_):
-                            self.presentAlertDialog(text: "An error occured, please try again later")
-                            break
-                        case .completed:
-                            break
-                        }
-                    }
-                }
-//                self._workflow?.delegate = self
-//                self._workflow?.assign(to: tutor.id, subtitle: subtitle, detail: detail, duedate: date)
-            })
-        }
-    }
-}
-
-//extension NewWorkflowViewController: WorkflowUpdateResultDelegate {
-//
-//    func workflowUpdated(workflow: Workflow?) {
-//        loadingViewController?.dismiss(animated: true, completion: {
-//            //            TODO: Handle assign after create workflow
-//            if let workflow = workflow {
-//                self.dismiss(animated: true, completion: {
-//                    WorkflowManager.shared.updateWorkflow()
-//                })
-//            } else {
-//                self.presentAlertDialog(text: "An error occured, please try again later")
-////                self.presentDialog(AlertViewController(labelWith: "An error occured, please try again later"), size: CGSize(width: 300, height: 250), completion: nil)
-//            }
-//        })
+//extension NewWorkflowViewController: AssignWorkflowDetailDelegate {
+//    func assignWorkflowDetail(subtitle: String?, detail: String?, date: Date?, tutor: Tutor) {
+//        loadingViewController = LoadingViewController()
+//        if let view = loadingViewController {
+//            presentDialog(view, size: CGSize(width: 300, height: 300), completion: {
+//                if let id = self.workflowID {
+//                    let _ = NetworkManager.shared.assign(workflowID: id, to: tutor.id, subtitle: subtitle, detail: detail, duedate: nil).subscribe{
+//                        switch $0 {
+//                        case .next(let value):
+//                            view.dismiss(animated: true, completion: nil)
+//                            if value.responseOK {
+//                                self.dismiss(animated: true, completion: nil)
+//                            } else {
+//                                self.presentAlertDialog(text: "An error occured, please try again later")
+//                            }
+//                            break
+//                        case .error(_):
+//                            self.presentAlertDialog(text: "An error occured, please try again later")
+//                            break
+//                        case .completed:
+//                            break
+//                        }
+//                    }
+//                }
+//            })
+//        }
 //    }
-//
 //}

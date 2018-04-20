@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WorkflowDetailViewController: UIViewController, WorkflowUpdaterDelegate, ChangeWorkflowStatusDelegate, AssignWorkflowDelegate, AssignWorkflowDetailDelegate {
+class WorkflowDetailViewController: UIViewController, WorkflowUpdaterDelegate, ChangeWorkflowStatusDelegate {
     
     @IBOutlet weak var workflowTitle: UILabel!
     @IBOutlet weak var subtitle: UILabel!
@@ -44,7 +44,7 @@ class WorkflowDetailViewController: UIViewController, WorkflowUpdaterDelegate, C
     }
     
     @IBAction func statusBtnTapped(_ sender: Any) {
-        presentDialog(ChangeWorkflowStatusViewController(), size: CGSize(width: 300, height: 300), completion: nil)
+        presentDialog(ChangeWorkflowStatusViewController(), size: CGSize(width: 300, height: 250), completion: nil)
     }
     
     @IBAction func assignBtnTapped(_ sender: Any) {
@@ -61,9 +61,9 @@ class WorkflowDetailViewController: UIViewController, WorkflowUpdaterDelegate, C
         }
     }
     
-    func assignWorkflow(tutor: Tutor) {
-        presentDialog(AssignWorkflowDetailViewController(tutor: tutor), size: nil, completion: nil)
-    }
+//    func assignWorkflow(tutor: Tutor) {
+//        presentDialog(AssignWorkflowDetailViewController(tutor: tutor), size: nil, completion: nil)
+//    }
     
     func workflowDataUpdate(success: Bool) {
         loadingViewController?.dismiss(animated: true, completion: {

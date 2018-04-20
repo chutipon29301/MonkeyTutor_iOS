@@ -25,7 +25,7 @@ class WorkflowManager {
     
     static let shared = WorkflowManager()
     
-    private var _workflows: [Workflow] = []
+    var workflows: [Workflow] = []
     private var subscription: Disposable?
     var delegate: WorkflowUpdaterDelegate?
     
@@ -33,17 +33,11 @@ class WorkflowManager {
         updateWorkflow()
     }
     
-    var workflows: [Workflow] {
-        get {
-            return _workflows
-        }
-    }
-    
     func updateWorkflow() {
         subscription = NetworkManager.shared.listWorkflow().subscribe {
             switch $0 {
             case.next(let value):
-                self._workflows = value.workflows
+                self.workflows = value.workflows
                 self.delegate?.workflowDataUpdate(success: true)
                 break
             case .error(_):
@@ -63,10 +57,7 @@ class WorkflowManager {
         subscription = NetworkManager.shared.createWorkflow(title: title, subtitle: subtitle, duedate: duedate, tag: tag, detail: detail).subscribe {
             switch $0 {
             case .next(let value):
-                print(value)
-                print(value.nodeID)
                 if let delegate = delegate {
-                    
                     delegate.workflowCreated(id: value.nodeID)
                 }
                 break
@@ -81,9 +72,15 @@ class WorkflowManager {
         }
     }
     
+    func remove(workflow: Workflow) {
+        print(self.workflows.count)
+        self.workflows.remove(at: self.workflows.index(where: { $0 == workflow})!)
+        print(self.workflows.count)
+    }
+    
 }
 
-class Workflow {
+class Workflow: Equatable {
     
     enum Tags: String, EnumCollection {
         case hybrid, app, test, web, design, other
@@ -143,12 +140,13 @@ class Workflow {
     private var _tag: Tags!
     private var _childStatus: Status?
     private var _childOwner: String?
+    private var _canDelete: Bool!
     
     private var subscription: Disposable?
     
     var delegate: WorkflowUpdaterDelegate?
     
-    init(title: String, id: String, timestamp: Date, createdBy: Int, duedate: Date?, status: Status, owner: Int, parent: String, ancestors: [String], subtitle: String, detail: String, tag: Tags, childStatus: Status?, childOwner: String?) {
+    init(title: String, id: String, timestamp: Date, createdBy: Int, duedate: Date?, status: Status, owner: Int, parent: String, ancestors: [String], subtitle: String, detail: String, tag: Tags, childStatus: Status?, childOwner: String?, canDelete: Bool) {
         _title = title
         _nodeID = id
         _timestamp = timestamp
@@ -163,6 +161,7 @@ class Workflow {
         _tag = tag
         _childStatus = childStatus
         _childOwner = childOwner
+        _canDelete = canDelete
     }
     
     var title: String {
@@ -195,6 +194,12 @@ class Workflow {
         }
     }
     
+    var duedate: Date? {
+        get {
+            return _duedate
+        }
+    }
+    
     var duedateString: String {
         get {
             if let duedate = _duedate {
@@ -220,6 +225,17 @@ class Workflow {
             return _childOwner ?? "none"
         }
     }
+    
+    var canDelete: Bool {
+        get {
+            return _canDelete
+        }
+    }
+    
+    static func == (lhs: Workflow, rhs: Workflow) -> Bool {
+        return lhs._nodeID == rhs._nodeID
+    }
+    
     
     func changeStatus(_ to: Status) {
         switch to {
@@ -297,5 +313,20 @@ class Workflow {
                     break
                 }
         }
+    }
+    
+    func delete() -> Workflow{
+        subscription = NetworkManager.shared.workflowDelete(workflowID: _nodeID).subscribe {
+            switch $0 {
+            case .next(let value):
+                self.delegate?.workflowDataUpdate(success: value.responseOK)
+                break
+            case .error(_):
+                break
+            case .completed:
+                break
+            }
+        }
+        return self
     }
 }

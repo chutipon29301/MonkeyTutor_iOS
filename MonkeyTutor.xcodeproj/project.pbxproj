@@ -185,8 +185,8 @@
 				84A13CD52083B580006B7E0F /* TagSelectViewController.swift */,
 				84A13CD92083C0BF006B7E0F /* DateSelectViewController.swift */,
 				84FA33AC208456BE00F7DE36 /* WorkflowDetailViewController.swift */,
-				84FA33B02084578600F7DE36 /* AssignWorkflowViewController.swift */,
 				84FA33B42084A14A00F7DE36 /* ChangeWorkflowStatusViewController.swift */,
+				84FA33B02084578600F7DE36 /* AssignWorkflowViewController.swift */,
 				84FE93FC2087A6140013B4EB /* AssignWorkflowDetailViewController.swift */,
 			);
 			path = Controller;

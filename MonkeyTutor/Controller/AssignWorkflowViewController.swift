@@ -8,13 +8,19 @@
 
 import UIKit
 
-protocol AssignWorkflowDelegate {
-    func assignWorkflow(tutor: Tutor)
-}
+//protocol AssignWorkflowDelegate {
+//    func assignWorkflow(tutor: Tutor)
+//}
 
 class AssignWorkflowViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, TutorUpdateResult {
     
     @IBOutlet weak var pickerView: UIPickerView!
+    private var workflow: Workflow?
+    
+    convenience init(workflow: Workflow) {
+        self.init()
+        self.workflow = workflow
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,9 +50,12 @@ class AssignWorkflowViewController: UIViewController, UIPickerViewDataSource, UI
     }
     
     @IBAction func assignBtnTapped(_ sender: Any) {
-        if let parent = presentingViewController as? AssignWorkflowDelegate {
+        if let parent = presentingViewController,
+            let workflow = workflow {
             dismiss(animated: true, completion: {
-                parent.assignWorkflow(tutor: TutorManager.shared.tutors[self.pickerView.selectedRow(inComponent: 0)])
+                parent.presentDialog(AssignWorkflowDetailViewController(tutor: TutorManager.shared.tutors[self.pickerView.selectedRow(inComponent: 0)], workflow: workflow), size: nil, completion: nil)
+//                parent.presentDialog(AssignWorkflowDetailViewController(tutor: TutorManager.shared.tutors[self.pickerView.selectedRow(inComponent: 0)], wor), size: nil, completion: nil)
+                
             })
         }
     }

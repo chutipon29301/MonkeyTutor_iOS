@@ -102,6 +102,10 @@ class NetworkManager {
         return post(url: "/v2/workflow/inprogress", params: ["workflowID": workflowID])
     }
     
+    func workflowDelete(workflowID: String) -> Observable<JSON> {
+        return post(url: "/v2/workflow/delete", params: ["workflowID": workflowID])
+    }
+    
     func assign(workflowID: String, to owner: Int, subtitle: String?, detail: String?, duedate: Date?) -> Observable<JSON> {
         var param: [String: Any] = [
             "workflowID": workflowID,

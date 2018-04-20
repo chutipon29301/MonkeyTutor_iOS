@@ -21,6 +21,7 @@ class WorkflowTableViewController: UITableViewController {
     }
     
     @objc private func update(_ sender: Any) {
+        WorkflowManager.shared.delegate = self
         WorkflowManager.shared.updateWorkflow()
     }
     
