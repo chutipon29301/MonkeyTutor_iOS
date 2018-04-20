@@ -9,10 +9,6 @@
 import UIKit
 import MaterialComponents.MaterialTextFields
 
-//protocol AssignWorkflowDetailDelegate {
-//    func assignWorkflowDetail(subtitle: String?, detail: String?, date: Date?, tutor: Tutor)
-//}
-
 class AssignWorkflowDetailViewController: UIViewController, WorkflowUpdaterDelegate {
     
     @IBOutlet weak var name: UILabel!
@@ -50,13 +46,6 @@ class AssignWorkflowDetailViewController: UIViewController, WorkflowUpdaterDeleg
     }
     
     @IBAction func assignBtnTapped(_ sender: Any) {
-//        if let parent = presentingViewController as? AssignWorkflowDetailDelegate,
-//            let tutor = tutor
-//        {
-//            dismiss(animated: true, completion: {
-//                parent.assignWorkflowDetail(subtitle: self.subtitle.text, detail: self.detail.text, date: self.currentDate, tutor: tutor)
-//            })
-//        }
         loadingViewController = LoadingViewController()
         if let tutor = tutor,
             let workflow = workflow,

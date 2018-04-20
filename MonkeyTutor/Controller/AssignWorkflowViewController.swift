@@ -8,9 +8,6 @@
 
 import UIKit
 
-//protocol AssignWorkflowDelegate {
-//    func assignWorkflow(tutor: Tutor)
-//}
 
 class AssignWorkflowViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, TutorUpdateResult {
     
@@ -54,8 +51,6 @@ class AssignWorkflowViewController: UIViewController, UIPickerViewDataSource, UI
             let workflow = workflow {
             dismiss(animated: true, completion: {
                 parent.presentDialog(AssignWorkflowDetailViewController(tutor: TutorManager.shared.tutors[self.pickerView.selectedRow(inComponent: 0)], workflow: workflow), size: nil, completion: nil)
-//                parent.presentDialog(AssignWorkflowDetailViewController(tutor: TutorManager.shared.tutors[self.pickerView.selectedRow(inComponent: 0)], wor), size: nil, completion: nil)
-                
             })
         }
     }

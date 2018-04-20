@@ -107,32 +107,3 @@ extension NewWorkflowViewController: WorflowCreateResultDelegate {
     }
     
 }
-
-//extension NewWorkflowViewController: AssignWorkflowDetailDelegate {
-//    func assignWorkflowDetail(subtitle: String?, detail: String?, date: Date?, tutor: Tutor) {
-//        loadingViewController = LoadingViewController()
-//        if let view = loadingViewController {
-//            presentDialog(view, size: CGSize(width: 300, height: 300), completion: {
-//                if let id = self.workflowID {
-//                    let _ = NetworkManager.shared.assign(workflowID: id, to: tutor.id, subtitle: subtitle, detail: detail, duedate: nil).subscribe{
-//                        switch $0 {
-//                        case .next(let value):
-//                            view.dismiss(animated: true, completion: nil)
-//                            if value.responseOK {
-//                                self.dismiss(animated: true, completion: nil)
-//                            } else {
-//                                self.presentAlertDialog(text: "An error occured, please try again later")
-//                            }
-//                            break
-//                        case .error(_):
-//                            self.presentAlertDialog(text: "An error occured, please try again later")
-//                            break
-//                        case .completed:
-//                            break
-//                        }
-//                    }
-//                }
-//            })
-//        }
-//    }
-//}

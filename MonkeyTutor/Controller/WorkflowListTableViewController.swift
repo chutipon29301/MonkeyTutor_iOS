@@ -51,7 +51,9 @@ class WorkflowListTableViewController: UITableViewController, WorkflowUpdaterDel
     }
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let delete = UITableViewRowAction(style: .destructive, title: "Delete", handler: {_,_ in
+        let delete = UITableViewRowAction(style: .destructive, title: "Delete", handler: {
+            _,_ in
+            
             let alert = UIAlertController(title: "Alert", message: "Do you want to delete this task?", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: {
                 _ in
@@ -60,8 +62,7 @@ class WorkflowListTableViewController: UITableViewController, WorkflowUpdaterDel
                     self.workflows[indexPath.row].delegate = self
                     WorkflowManager.shared.remove(workflow: self.workflows[indexPath.row].delete())
                     self.presentDialog(view, size: CGSize(width: 300, height: 300), completion: nil)
-                    WorkflowManager.shared.delegate = self
-                    WorkflowManager.shared.updateWorkflow()
+                    self.update(0)
                 }
             }))
             alert.addAction(UIAlertAction(title: "No", style: .default, handler: nil))

@@ -61,10 +61,6 @@ class WorkflowDetailViewController: UIViewController, WorkflowUpdaterDelegate, C
         }
     }
     
-//    func assignWorkflow(tutor: Tutor) {
-//        presentDialog(AssignWorkflowDetailViewController(tutor: tutor), size: nil, completion: nil)
-//    }
-    
     func workflowDataUpdate(success: Bool) {
         loadingViewController?.dismiss(animated: true, completion: {
             if success {

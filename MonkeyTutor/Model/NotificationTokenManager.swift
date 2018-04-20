@@ -17,7 +17,6 @@ class NotificationTokenManager {
     var subscription: Disposable?
     
     func registerDeviceWith(userID: Int) {
-        print("Called")
         if let token = token {
             subscription = NetworkManager.shared.registerDeviceToken(userID: userID, token: token).subscribe{
                 switch $0 {
