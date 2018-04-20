@@ -13,7 +13,7 @@ import SwiftyJSON
 
 class NetworkManager {
     
-    static let shared = NetworkManager(baseURL: "http://192.168.1.38:8080")
+    static let shared = NetworkManager(baseURL: "https://www.monkey-monkey.com")
     
     let _baseURL: String
     

@@ -490,7 +490,7 @@
         <scene sceneID="JsN-eE-w3F">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ORA-oT-yvc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Setting" id="7D5-bi-0bs"/>
+                    <tabBarItem key="tabBarItem" title="Setting" image="ic_settings" id="7D5-bi-0bs"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="6wF-2p-mnQ">
                         <rect key="frame" x="0.0" y="44" width="375" height="96"/>
@@ -509,7 +509,7 @@
         <scene sceneID="EtL-1N-Emy">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5OX-NZ-lQ9" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Task" id="VCZ-Kp-yhV"/>
+                    <tabBarItem key="tabBarItem" title="Task" image="ic_assignment" id="VCZ-Kp-yhV"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="IHh-PK-V9a">
                         <rect key="frame" x="0.0" y="44" width="375" height="96"/>
@@ -526,6 +526,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ic_assignment" width="24" height="24"/>
+        <image name="ic_settings" width="24" height="24"/>
         <image name="logo" width="280" height="110"/>
     </resources>
 </document>
