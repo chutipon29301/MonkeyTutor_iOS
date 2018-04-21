@@ -48,7 +48,13 @@ class WorkflowDetailViewController: UIViewController, WorkflowUpdaterDelegate, C
     }
     
     @IBAction func assignBtnTapped(_ sender: Any) {
-        presentDialog(AssignWorkflowViewController(), size: CGSize(width: 300, height: 300), completion: nil)
+        if let workflow = _workflow,
+            let parent = presentingViewController {
+                dismiss(animated: true, completion: {
+                    parent.presentDialog(AssignWorkflowViewController(workflow: workflow), size: CGSize(width: 300, height: 300), completion: nil)
+                })
+        }
+        
     }
     
     func changeStatus(status: Workflow.Status) {

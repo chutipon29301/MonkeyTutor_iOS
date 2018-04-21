@@ -19,6 +19,7 @@ class ViewController: UIViewController, UITextFieldDelegate, LoginResultDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UIApplication.shared.applicationIconBadgeNumber = 0
         let outsideTap = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         view.addGestureRecognizer(outsideTap)
         
@@ -85,6 +86,5 @@ class ViewController: UIViewController, UITextFieldDelegate, LoginResultDelegate
         }
     }
     
-   
     
 }

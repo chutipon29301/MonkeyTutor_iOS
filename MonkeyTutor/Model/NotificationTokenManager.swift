@@ -13,21 +13,23 @@ class NotificationTokenManager {
     
     static let shared = NotificationTokenManager()
     
+    var playerID: String?
     var token: String?
     var subscription: Disposable?
     
-    func registerDeviceWith(userID: Int) {
-        if let token = token {
-            subscription = NetworkManager.shared.registerDeviceToken(userID: userID, token: token).subscribe{
-                switch $0 {
-                case .next(_):
-                    break
-                case .error(_):
-                    break
-                case .completed:
-                    break
+    func registered() {
+        if let user = RealmManager.shared.getCurrentUser(),
+            let playerID = self.playerID {
+                subscription = NetworkManager.shared.registerDeviceToken(userID: user.userID, token: playerID).subscribe {
+                    switch $0 {
+                    case .next(_):
+                        break
+                    case .error(_):
+                        break
+                    case .completed:
+                        break
+                    }
                 }
-            }
         }
     }
     
