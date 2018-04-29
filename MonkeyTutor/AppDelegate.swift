@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import Fabric
+//import Fabric
+import Firebase
 import Crashlytics
 import UserNotifications
 import OneSignal
@@ -21,7 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, OSSubscriptionObserver {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        Fabric.with([Crashlytics.self])
+//        Fabric.with([Crashlytics.self])
+        FirebaseApp.configure()
         let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false]
         OneSignal.initWithLaunchOptions(launchOptions,
                                         appId: "95189c8c-9e1d-43a1-a483-115c9b78247b",

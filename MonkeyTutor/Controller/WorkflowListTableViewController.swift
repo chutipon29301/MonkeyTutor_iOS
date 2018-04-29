@@ -8,21 +8,32 @@
 
 import UIKit
 
-class WorkflowListTableViewController: UITableViewController, WorkflowUpdaterDelegate {
+class WorkflowListTableViewController: UITableViewController, WorkflowUpdaterDelegate, UISearchResultsUpdating {
     
     var status: Workflow.Status!
     private var workflows: [Workflow] = []
     private var selectedIndex: IndexPath?
     private var loadingViewController: LoadingViewController?
+    let searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         title = status.value()
         tableView.refreshControl?.addTarget(self, action: #selector(self.update(_:)), for: .valueChanged)
+        
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Workflow"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        workflows = WorkflowManager.shared.workflows.filterWith(status: status)
+        if !searchController.isActive || searchController.searchBar.text == "" {
+            workflows = WorkflowManager.shared.workflows.filterWith(status: status)
+            workflows.sort(by: { $0.title > $1.title })
+        }
         return workflows.count
     }
     
@@ -32,12 +43,18 @@ class WorkflowListTableViewController: UITableViewController, WorkflowUpdaterDel
         cell.title.text = workflow.title
         cell.subtitle.text = workflow.subtitle
         cell.duedate.text = workflow.duedateString
+        if let duedate = workflow.duedate {
+            if duedate < Date() {
+                cell.duedate.textColor = UIColor.red
+            }
+        }
         cell.status.text = workflow.childStatus.value()
+        cell.assign.text = workflow.childOwner
         return cell
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return 100
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -85,6 +102,7 @@ class WorkflowListTableViewController: UITableViewController, WorkflowUpdaterDel
     @objc private func update(_ sender: Any) {
         WorkflowManager.shared.delegate = self
         WorkflowManager.shared.updateWorkflow()
+        tableView.reloadData()
     }
     
     func changeStatus(status: Workflow.Status) {
@@ -105,6 +123,19 @@ class WorkflowListTableViewController: UITableViewController, WorkflowUpdaterDel
             presentAlertDialog(text: "An error occured, please try again")
         }
     }
+   
+    func updateSearchResults(for searchController: UISearchController) {
+        workflows = WorkflowManager.shared.workflows.filterWith(status: status)
+        workflows.sort(by: { $0.title > $1.title })
+        if searchController.isActive {
+            workflows = workflows.filter {
+                let title = $0.title.lowercased().range(of: searchController.searchBar.text?.lowercased() ?? "")
+                let ownerName = $0.childOwner.lowercased().range(of: searchController.searchBar.text?.lowercased() ?? "")
+                return title != nil || ownerName != nil
+            }
+        }
+        tableView.reloadData()
+    }
 }
 
 class WorkflowListTableViewCell: UITableViewCell {
@@ -113,4 +144,5 @@ class WorkflowListTableViewCell: UITableViewCell {
     @IBOutlet weak var subtitle: UILabel!
     @IBOutlet weak var duedate: UILabel!
     @IBOutlet weak var status: UILabel!
+    @IBOutlet weak var assign: UILabel!
 }

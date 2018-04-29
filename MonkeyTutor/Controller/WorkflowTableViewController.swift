@@ -37,6 +37,9 @@ extension WorkflowTableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "workflowCell") as! WorkflowTableViewCell
         let status = Workflow.Status.allValues[indexPath.row]
         let workflows = WorkflowManager.shared.workflows.filterWith(status: status)
+        if indexPath.row == 0 {
+            cell.backgroundColor = UIColor(red: 252/255, green: 201/255, blue: 246/255, alpha: 1)
+        }
         cell.title.text = status.value()
         cell.workCount.text = String(workflows.count) + " remaining"
         cell.hbCount.text = String(workflows.countTags(.hybrid))

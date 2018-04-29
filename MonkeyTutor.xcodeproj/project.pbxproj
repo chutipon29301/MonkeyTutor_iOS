@@ -35,6 +35,7 @@
 		84A13CD62083B580006B7E0F /* TagSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A13CD52083B580006B7E0F /* TagSelectViewController.swift */; };
 		84A13CD82083C0A7006B7E0F /* DateSelectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A13CD72083C0A7006B7E0F /* DateSelectView.xib */; };
 		84A13CDA2083C0BF006B7E0F /* DateSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A13CD92083C0BF006B7E0F /* DateSelectViewController.swift */; };
+		84C5ADC2209595FE005A96FA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84C5ADC1209595FE005A96FA /* GoogleService-Info.plist */; };
 		84FA33AB208456AA00F7DE36 /* WorkflowDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84FA33AA208456AA00F7DE36 /* WorkflowDetailView.xib */; };
 		84FA33AD208456BE00F7DE36 /* WorkflowDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FA33AC208456BE00F7DE36 /* WorkflowDetailViewController.swift */; };
 		84FA33AF2084577600F7DE36 /* AssignWorkflowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84FA33AE2084577600F7DE36 /* AssignWorkflowView.xib */; };
@@ -111,6 +112,7 @@
 		84A13CD52083B580006B7E0F /* TagSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagSelectViewController.swift; sourceTree = "<group>"; };
 		84A13CD72083C0A7006B7E0F /* DateSelectView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateSelectView.xib; sourceTree = "<group>"; };
 		84A13CD92083C0BF006B7E0F /* DateSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectViewController.swift; sourceTree = "<group>"; };
+		84C5ADC1209595FE005A96FA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84CCEEE120415F6800FF9C6B /* MonkeyTutor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MonkeyTutor.entitlements; sourceTree = "<group>"; };
 		84FA33AA208456AA00F7DE36 /* WorkflowDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkflowDetailView.xib; sourceTree = "<group>"; };
 		84FA33AC208456BE00F7DE36 /* WorkflowDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkflowDetailViewController.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 				849771F2200AF40600DDCA2C /* LaunchScreen.storyboard */,
 				849771E9200AF40600DDCA2C /* AppDelegate.swift */,
 				84CCEEE120415F6800FF9C6B /* MonkeyTutor.entitlements */,
+				84C5ADC1209595FE005A96FA /* GoogleService-Info.plist */,
 				849771F5200AF40600DDCA2C /* Info.plist */,
 			);
 			path = MonkeyTutor;
@@ -415,6 +418,7 @@
 				84FA33B32084A13C00F7DE36 /* ChangeWorkflowStatusView.xib in Resources */,
 				849D47672083445500CDC931 /* NewWorkflowView.xib in Resources */,
 				849D475420821A3800CDC931 /* LoadingView.xib in Resources */,
+				84C5ADC2209595FE005A96FA /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,6 +494,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MonkeyTutor/Pods-MonkeyTutor-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/MDFInternationalization/MDFInternationalization.framework",
 				"${BUILT_PRODUCTS_DIR}/MDFTextAccessibility/MDFTextAccessibility.framework",
 				"${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework",
@@ -501,10 +506,12 @@
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFInternationalization.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFTextAccessibility.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialComponents.framework",
@@ -516,6 +523,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
