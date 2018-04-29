@@ -13,6 +13,9 @@ class SettingTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch (indexPath.section, indexPath.row) {
         case (0, 0):
+            performSegue(withIdentifier: "setUserColor", sender: nil)
+            break
+        case (1, 0):
             UserLoginManager.shared.logout()
             dismiss(animated: true, completion: nil)
             break

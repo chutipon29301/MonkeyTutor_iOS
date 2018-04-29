@@ -15,6 +15,7 @@ class WorkflowListTableViewController: UITableViewController, WorkflowUpdaterDel
     private var selectedIndex: IndexPath?
     private var loadingViewController: LoadingViewController?
     let searchController = UISearchController(searchResultsController: nil)
+    let today = Date()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +33,7 @@ class WorkflowListTableViewController: UITableViewController, WorkflowUpdaterDel
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if !searchController.isActive || searchController.searchBar.text == "" {
             workflows = WorkflowManager.shared.workflows.filterWith(status: status)
-            workflows.sort(by: { $0.title > $1.title })
+            workflows.sort(by: { $0.title < $1.title })
         }
         return workflows.count
     }
@@ -43,9 +44,15 @@ class WorkflowListTableViewController: UITableViewController, WorkflowUpdaterDel
         cell.title.text = workflow.title
         cell.subtitle.text = workflow.subtitle
         cell.duedate.text = workflow.duedateString
-        if let duedate = workflow.duedate {
-            if duedate < Date() {
-                cell.duedate.textColor = UIColor.red
+        if status != .complete {
+            if let duedate = workflow.duedate {
+                if duedate < today {
+                    cell.duedate.textColor = UIColor.red
+                } else {
+                    cell.duedate.textColor = UIColor.black
+                }
+            } else {
+                cell.duedate.textColor = UIColor.black
             }
         }
         cell.status.text = workflow.childStatus.value()
@@ -126,7 +133,7 @@ class WorkflowListTableViewController: UITableViewController, WorkflowUpdaterDel
    
     func updateSearchResults(for searchController: UISearchController) {
         workflows = WorkflowManager.shared.workflows.filterWith(status: status)
-        workflows.sort(by: { $0.title > $1.title })
+        workflows.sort(by: { $0.title < $1.title })
         if searchController.isActive {
             workflows = workflows.filter {
                 let title = $0.title.lowercased().range(of: searchController.searchBar.text?.lowercased() ?? "")
