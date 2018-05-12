@@ -17,6 +17,8 @@ class NotificationTokenManager {
     var token: String?
     var subscription: Disposable?
     
+    private init() { }
+    
     func registered() {
         if let user = RealmManager.shared.getCurrentUser(),
             let playerID = self.playerID {

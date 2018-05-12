@@ -17,7 +17,7 @@ target 'MonkeyTutor' do
   pod 'MaterialComponents/TextFields+Extensions'
   pod 'MaterialComponents/Buttons+Extensions'
   pod 'MaterialComponents/Dialogs+Extensions'
-
+  pod 'ChromaColorPicker'
 end
 
 target 'OneSignalNotificationServiceExtension' do

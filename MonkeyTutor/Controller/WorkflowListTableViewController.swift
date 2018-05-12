@@ -57,6 +57,7 @@ class WorkflowListTableViewController: UITableViewController, WorkflowUpdaterDel
         }
         cell.status.text = workflow.childStatus.value()
         cell.assign.text = workflow.childOwner
+        cell.tutorColor.backgroundColor = TutorColorManager.shared.getTutorColor(from: workflow.childOwner)
         return cell
     }
     
@@ -152,4 +153,5 @@ class WorkflowListTableViewCell: UITableViewCell {
     @IBOutlet weak var duedate: UILabel!
     @IBOutlet weak var status: UILabel!
     @IBOutlet weak var assign: UILabel!
+    @IBOutlet weak var tutorColor: UIView!
 }

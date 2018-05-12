@@ -17,7 +17,7 @@ class RealmManager {
     
     private init() {
         let config = Realm.Configuration(
-            schemaVersion: 1,
+            schemaVersion: 2,
             migrationBlock: { migration, oldSchemaVersion in
                 if (oldSchemaVersion < 1) {
                 }
@@ -33,6 +33,7 @@ class RealmManager {
         let userInfo = UserInfo()
         userInfo.userID = userID
         userInfo.password = password
+        removeCurrentUser()
         try! realm.write {
             realm.add(userInfo)
         }
@@ -49,5 +50,29 @@ class RealmManager {
                 realm.delete(userInfo)
             }
         }
+    }
+    
+    func addTutorColor(nicknameEn: String, red: Double, green: Double, blue: Double) {
+        if let tutorColor = getTutorColor(of: nicknameEn) {
+            try! realm.write {
+                tutorColor.colorR = red
+                tutorColor.colorG = green
+                tutorColor.colorB = blue
+            }
+        } else {
+            let color = TutorColor()
+            color.tutorNicknameEn = nicknameEn
+            color.colorR = red
+            color.colorG = green
+            color.colorB = blue
+            try! realm.write {
+                realm.add(color)
+            }
+        }
+        
+    }
+    
+    func getTutorColor(of name: String) -> TutorColor? {
+        return realm.object(ofType: TutorColor.self, forPrimaryKey: name)
     }
 }

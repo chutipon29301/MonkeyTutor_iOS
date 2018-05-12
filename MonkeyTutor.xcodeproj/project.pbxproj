@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8415990020A6CED8002854D9 /* TutorColorDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841598FF20A6CED8002854D9 /* TutorColorDAO.swift */; };
 		841700682080DA39008318B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 841700672080DA39008318B0 /* Main.storyboard */; };
 		844A07ED20843F540080B47B /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A07EC20843F540080B47B /* Extension.swift */; };
 		846BF35D208B731900573C70 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846BF35C208B731900573C70 /* NotificationService.swift */; };
 		846BF361208B731900573C70 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 846BF35A208B731800573C70 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		848C059620A68E910061BEB1 /* TutorColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848C059520A68E910061BEB1 /* TutorColorManager.swift */; };
 		849771EA200AF40600DDCA2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849771E9200AF40600DDCA2C /* AppDelegate.swift */; };
 		849771F1200AF40600DDCA2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 849771F0200AF40600DDCA2C /* Assets.xcassets */; };
 		849771F4200AF40600DDCA2C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849771F2200AF40600DDCA2C /* LaunchScreen.storyboard */; };
@@ -36,6 +38,9 @@
 		84A13CD82083C0A7006B7E0F /* DateSelectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A13CD72083C0A7006B7E0F /* DateSelectView.xib */; };
 		84A13CDA2083C0BF006B7E0F /* DateSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A13CD92083C0BF006B7E0F /* DateSelectViewController.swift */; };
 		84C5ADC2209595FE005A96FA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84C5ADC1209595FE005A96FA /* GoogleService-Info.plist */; };
+		84C5ADC42095B994005A96FA /* TutorListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C5ADC32095B994005A96FA /* TutorListTableViewController.swift */; };
+		84C5ADC62095C966005A96FA /* ColorPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C5ADC52095C966005A96FA /* ColorPickerView.xib */; };
+		84C5ADC82095C9B6005A96FA /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C5ADC72095C9B6005A96FA /* ColorPickerViewController.swift */; };
 		84FA33AB208456AA00F7DE36 /* WorkflowDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84FA33AA208456AA00F7DE36 /* WorkflowDetailView.xib */; };
 		84FA33AD208456BE00F7DE36 /* WorkflowDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FA33AC208456BE00F7DE36 /* WorkflowDetailViewController.swift */; };
 		84FA33AF2084577600F7DE36 /* AssignWorkflowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84FA33AE2084577600F7DE36 /* AssignWorkflowView.xib */; };
@@ -81,11 +86,13 @@
 		62F1CFBC6935BAF3DB6C0BAF /* Pods_MonkeyTutor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MonkeyTutor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C28106C9DA519EF7A6C3940 /* Pods-MonkeyTutor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonkeyTutor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MonkeyTutor/Pods-MonkeyTutor.debug.xcconfig"; sourceTree = "<group>"; };
 		7B2EC1E8973A42F6E5FA798A /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		841598FF20A6CED8002854D9 /* TutorColorDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorColorDAO.swift; sourceTree = "<group>"; };
 		841700672080DA39008318B0 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		844A07EC20843F540080B47B /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		846BF35A208B731800573C70 /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		846BF35C208B731900573C70 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		846BF35E208B731900573C70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		848C059520A68E910061BEB1 /* TutorColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorColorManager.swift; sourceTree = "<group>"; };
 		849771E6200AF40600DDCA2C /* MonkeyTutor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonkeyTutor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		849771E9200AF40600DDCA2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		849771F0200AF40600DDCA2C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -113,6 +120,9 @@
 		84A13CD72083C0A7006B7E0F /* DateSelectView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateSelectView.xib; sourceTree = "<group>"; };
 		84A13CD92083C0BF006B7E0F /* DateSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectViewController.swift; sourceTree = "<group>"; };
 		84C5ADC1209595FE005A96FA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		84C5ADC32095B994005A96FA /* TutorListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorListTableViewController.swift; sourceTree = "<group>"; };
+		84C5ADC52095C966005A96FA /* ColorPickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorPickerView.xib; sourceTree = "<group>"; };
+		84C5ADC72095C9B6005A96FA /* ColorPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
 		84CCEEE120415F6800FF9C6B /* MonkeyTutor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MonkeyTutor.entitlements; sourceTree = "<group>"; };
 		84FA33AA208456AA00F7DE36 /* WorkflowDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkflowDetailView.xib; sourceTree = "<group>"; };
 		84FA33AC208456BE00F7DE36 /* WorkflowDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkflowDetailViewController.swift; sourceTree = "<group>"; };
@@ -225,6 +235,7 @@
 				844A07EC20843F540080B47B /* Extension.swift */,
 				84FE93F8208786070013B4EB /* TutorManager.swift */,
 				84FE93FE208825A40013B4EB /* NotificationTokenManager.swift */,
+				848C059520A68E910061BEB1 /* TutorColorManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -245,6 +256,8 @@
 				84FA33B42084A14A00F7DE36 /* ChangeWorkflowStatusViewController.swift */,
 				84FA33B02084578600F7DE36 /* AssignWorkflowViewController.swift */,
 				84FE93FC2087A6140013B4EB /* AssignWorkflowDetailViewController.swift */,
+				84C5ADC32095B994005A96FA /* TutorListTableViewController.swift */,
+				84C5ADC72095C9B6005A96FA /* ColorPickerViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -269,6 +282,7 @@
 				84FA33AE2084577600F7DE36 /* AssignWorkflowView.xib */,
 				84FA33B22084A13C00F7DE36 /* ChangeWorkflowStatusView.xib */,
 				84FE93FA2087A5F80013B4EB /* AssignWorkflowDetailView.xib */,
+				84C5ADC52095C966005A96FA /* ColorPickerView.xib */,
 			);
 			path = Xib;
 			sourceTree = "<group>";
@@ -286,6 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				849D475C20822D0500CDC931 /* UserDAO.swift */,
+				841598FF20A6CED8002854D9 /* TutorColorDAO.swift */,
 			);
 			path = DAO;
 			sourceTree = "<group>";
@@ -418,6 +433,7 @@
 				84FA33B32084A13C00F7DE36 /* ChangeWorkflowStatusView.xib in Resources */,
 				849D47672083445500CDC931 /* NewWorkflowView.xib in Resources */,
 				849D475420821A3800CDC931 /* LoadingView.xib in Resources */,
+				84C5ADC62095C966005A96FA /* ColorPickerView.xib in Resources */,
 				84C5ADC2209595FE005A96FA /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -494,6 +510,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MonkeyTutor/Pods-MonkeyTutor-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/ChromaColorPicker/ChromaColorPicker.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/MDFInternationalization/MDFInternationalization.framework",
 				"${BUILT_PRODUCTS_DIR}/MDFTextAccessibility/MDFTextAccessibility.framework",
@@ -511,6 +528,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChromaColorPicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFInternationalization.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFTextAccessibility.framework",
@@ -563,6 +581,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84C5ADC82095C9B6005A96FA /* ColorPickerViewController.swift in Sources */,
 				84FA33AD208456BE00F7DE36 /* WorkflowDetailViewController.swift in Sources */,
 				84FE93FD2087A6140013B4EB /* AssignWorkflowDetailViewController.swift in Sources */,
 				849D474E2080FCD300CDC931 /* UserLoginManager.swift in Sources */,
@@ -578,13 +597,16 @@
 				849D47692083446A00CDC931 /* NewWorkflowViewController.swift in Sources */,
 				844A07ED20843F540080B47B /* Extension.swift in Sources */,
 				849D47452080F89000CDC931 /* ViewController.swift in Sources */,
+				848C059620A68E910061BEB1 /* TutorColorManager.swift in Sources */,
 				849D475F2082547900CDC931 /* SettingTableViewController.swift in Sources */,
 				849771EA200AF40600DDCA2C /* AppDelegate.swift in Sources */,
 				849D476320831BC900CDC931 /* WorkflowManager.swift in Sources */,
+				8415990020A6CED8002854D9 /* TutorColorDAO.swift in Sources */,
 				84A13CDA2083C0BF006B7E0F /* DateSelectViewController.swift in Sources */,
 				84FA33B52084A14A00F7DE36 /* ChangeWorkflowStatusViewController.swift in Sources */,
 				849D475220810C4900CDC931 /* RealmManager.swift in Sources */,
 				849D476520831E9100CDC931 /* WorkflowListTableViewController.swift in Sources */,
+				84C5ADC42095B994005A96FA /* TutorListTableViewController.swift in Sources */,
 				849D474B2080FBCB00CDC931 /* CryptoJS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

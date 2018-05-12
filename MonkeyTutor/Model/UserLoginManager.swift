@@ -29,10 +29,10 @@ class UserLoginManager {
                 let isVerify = value.loginResult
                 resultDelegate?.loginResult(isVerify: isVerify)
                 if isVerify && !self.isCurrentUserLoggin() {
-                    RealmManager.shared.addCurrentUser(userID: userID, password: password)
                     completion?()
                 }
                 if isVerify {
+                    RealmManager.shared.addCurrentUser(userID: userID, password: password)
                     NotificationTokenManager.shared.registered()
                 }
                 break
